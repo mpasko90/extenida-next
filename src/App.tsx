@@ -1,134 +1,126 @@
-
+import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Portfolio from "./pages/Portfolio";
-import Blog from "./pages/Blog";
 
-// Service Pages
-import HomeExtensions from "./pages/services/HomeExtensions";
-import LoftConversions from "./pages/services/LoftConversions";
-import KitchenRenovations from "./pages/services/KitchenRenovations";
-import BathroomRenovations from "./pages/services/BathroomRenovations";
-import Bathrooms from "./pages/services/Bathrooms";
-import PatiosDriveways from "./pages/services/PatiosDriveways";
+// Core pages (loaded immediately)
+const Index = lazy(() => import("./pages/Index"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const Blog = lazy(() => import("./pages/Blog"));
 
-// Location-based Service Pages
-import HouseExtensionsKingston from "./pages/services/house-extensions/Kingston";
-import HouseExtensionsPutney from "./pages/services/house-extensions/Putney";
-import HouseExtensionsRichmond from "./pages/services/house-extensions/Richmond";
-import HouseExtensionsSurbiton from "./pages/services/house-extensions/Surbiton";
-import HouseExtensionsTwickenham from "./pages/services/house-extensions/Twickenham";
-import HouseExtensionsWimbledon from "./pages/services/house-extensions/Wimbledon";
+// Service Pages (loaded on demand)
+const HomeExtensions = lazy(() => import("./pages/services/HomeExtensions"));
+const LoftConversions = lazy(() => import("./pages/services/LoftConversions"));
+const KitchenRenovations = lazy(() => import("./pages/services/KitchenRenovations"));
+const BathroomRenovations = lazy(() => import("./pages/services/BathroomRenovations"));
+const Bathrooms = lazy(() => import("./pages/services/Bathrooms"));
+const PatiosDriveways = lazy(() => import("./pages/services/PatiosDriveways"));
 
-import LoftConversionsKingston from "./pages/services/loft-conversions/Kingston";
-import LoftConversionsPutney from "./pages/services/loft-conversions/Putney";
-import LoftConversionsRichmond from "./pages/services/loft-conversions/Richmond";
-import LoftConversionsSurbiton from "./pages/services/loft-conversions/Surbiton";
-import LoftConversionsTwickenham from "./pages/services/loft-conversions/Twickenham";
-import LoftConversionsWimbledon from "./pages/services/loft-conversions/Wimbledon";
+// Location-based Service Pages (loaded on demand)
+const HouseExtensionsKingston = lazy(() => import("./pages/services/house-extensions/Kingston"));
+const HouseExtensionsPutney = lazy(() => import("./pages/services/house-extensions/Putney"));
+const HouseExtensionsRichmond = lazy(() => import("./pages/services/house-extensions/Richmond"));
+const HouseExtensionsSurbiton = lazy(() => import("./pages/services/house-extensions/Surbiton"));
+const HouseExtensionsTwickenham = lazy(() => import("./pages/services/house-extensions/Twickenham"));
+const HouseExtensionsWimbledon = lazy(() => import("./pages/services/house-extensions/Wimbledon"));
 
-// Area Pages
-import KingstonUponThames from "./pages/areas/KingstonUponThames";
-import Putney from "./pages/areas/Putney";
-import Richmond from "./pages/areas/Richmond";
-import Surbiton from "./pages/areas/Surbiton";
-import Twickenham from "./pages/areas/Twickenham";
-import Wimbledon from "./pages/areas/Wimbledon";
+const LoftConversionsKingston = lazy(() => import("./pages/services/loft-conversions/Kingston"));
+const LoftConversionsPutney = lazy(() => import("./pages/services/loft-conversions/Putney"));
+const LoftConversionsRichmond = lazy(() => import("./pages/services/loft-conversions/Richmond"));
+const LoftConversionsSurbiton = lazy(() => import("./pages/services/loft-conversions/Surbiton"));
+const LoftConversionsTwickenham = lazy(() => import("./pages/services/loft-conversions/Twickenham"));
+const LoftConversionsWimbledon = lazy(() => import("./pages/services/loft-conversions/Wimbledon"));
 
-// Portfolio Pages
-import PortfolioHouseExtensions from "./pages/portfolio/HouseExtensions";
-import PortfolioLoftConversions from "./pages/portfolio/LoftConversions";
+// Area Pages (loaded on demand)
+const KingstonUponThames = lazy(() => import("./pages/areas/KingstonUponThames"));
+const Putney = lazy(() => import("./pages/areas/Putney"));
+const Richmond = lazy(() => import("./pages/areas/Richmond"));
+const Surbiton = lazy(() => import("./pages/areas/Surbiton"));
+const Twickenham = lazy(() => import("./pages/areas/Twickenham"));
+const Wimbledon = lazy(() => import("./pages/areas/Wimbledon"));
 
-// Resource Pages
-import CostCalculator from "./pages/resources/CostCalculator";
-import ExtensionIdeas from "./pages/resources/ExtensionIdeas";
-import FAQ from "./pages/resources/FAQ";
-import PlanningPermissionGuide from "./pages/resources/PlanningPermissionGuide";
+// Portfolio Pages (loaded on demand)
+const PortfolioHouseExtensions = lazy(() => import("./pages/portfolio/HouseExtensions"));
+const PortfolioLoftConversions = lazy(() => import("./pages/portfolio/LoftConversions"));
 
-// Additional Pages
-import YourJourney from "./pages/YourJourney";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
-import NotFound from "./pages/NotFound";
+// Resource Pages (loaded on demand)
+const CostCalculator = lazy(() => import("./pages/resources/CostCalculator"));
+const ExtensionIdeas = lazy(() => import("./pages/resources/ExtensionIdeas"));
+const FAQ = lazy(() => import("./pages/resources/FAQ"));
+const PlanningPermissionGuide = lazy(() => import("./pages/resources/PlanningPermissionGuide"));
 
-const queryClient = new QueryClient();
+// Additional Pages (loaded on demand)
+const YourJourney = lazy(() => import("./pages/YourJourney"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          {/* Main Pages */}
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/your-journey" element={<YourJourney />} />
+function App() {
+  const queryClient = new QueryClient();
+  
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <BrowserRouter>
+          <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Ładowanie...</div>}>
+            <Routes>
+              {/* Core Routes */}
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/blog" element={<Blog />} />
 
-          {/* Portfolio */}
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/portfolio/house-extensions" element={<PortfolioHouseExtensions />} />
-          <Route path="/portfolio/loft-conversions" element={<PortfolioLoftConversions />} />
+              {/* Service Routes */}
+              <Route path="/services/home-extensions" element={<HomeExtensions />} />
+              <Route path="/services/loft-conversions" element={<LoftConversions />} />
+              <Route path="/services/kitchen-renovations" element={<KitchenRenovations />} />
+              <Route path="/services/bathroom-renovations" element={<BathroomRenovations />} />
+              <Route path="/services/bathrooms" element={<Bathrooms />} />
+              <Route path="/services/patios-driveways" element={<PatiosDriveways />} />
 
-          {/* Areas */}
-          <Route path="/areas/kingston-upon-thames" element={<KingstonUponThames />} />
-          <Route path="/areas/putney" element={<Putney />} />
-          <Route path="/areas/richmond" element={<Richmond />} />
-          <Route path="/areas/surbiton" element={<Surbiton />} />
-          <Route path="/areas/twickenham" element={<Twickenham />} />
-          <Route path="/areas/wimbledon" element={<Wimbledon />} />
+              {/* Location-based Service Routes */}
+              <Route path="/services/house-extensions/kingston" element={<HouseExtensionsKingston />} />
+              <Route path="/services/house-extensions/putney" element={<HouseExtensionsPutney />} />
+              <Route path="/services/house-extensions/richmond" element={<HouseExtensionsRichmond />} />
+              <Route path="/services/house-extensions/surbiton" element={<HouseExtensionsSurbiton />} />
+              <Route path="/services/house-extensions/twickenham" element={<HouseExtensionsTwickenham />} />
+              <Route path="/services/house-extensions/wimbledon" element={<HouseExtensionsWimbledon />} />
 
-          {/* Services */}
-          <Route path="/services/extensions" element={<HomeExtensions />} />
-          <Route path="/services/house-extensions" element={<HomeExtensions />} />
-          <Route path="/services/loft-conversions" element={<LoftConversions />} />
-          <Route path="/services/kitchen-renovations" element={<KitchenRenovations />} />
-          <Route path="/services/bathroom-renovations" element={<BathroomRenovations />} />
-          <Route path="/services/bathrooms" element={<Bathrooms />} />
-          <Route path="/services/patios-driveways" element={<PatiosDriveways />} />
+              <Route path="/services/loft-conversions/kingston" element={<LoftConversionsKingston />} />
+              <Route path="/services/loft-conversions/putney" element={<LoftConversionsPutney />} />
+              <Route path="/services/loft-conversions/richmond" element={<LoftConversionsRichmond />} />
+              <Route path="/services/loft-conversions/surbiton" element={<LoftConversionsSurbiton />} />
+              <Route path="/services/loft-conversions/twickenham" element={<LoftConversionsTwickenham />} />
+              <Route path="/services/loft-conversions/wimbledon" element={<LoftConversionsWimbledon />} />
 
-          {/* Location-based Services - House Extensions */}
-          <Route path="/services/house-extensions/kingston" element={<HouseExtensionsKingston />} />
-          <Route path="/services/house-extensions/putney" element={<HouseExtensionsPutney />} />
-          <Route path="/services/house-extensions/richmond" element={<HouseExtensionsRichmond />} />
-          <Route path="/services/house-extensions/surbiton" element={<HouseExtensionsSurbiton />} />
-          <Route path="/services/house-extensions/twickenham" element={<HouseExtensionsTwickenham />} />
-          <Route path="/services/house-extensions/wimbledon" element={<HouseExtensionsWimbledon />} />
+              {/* Area Routes */}
+              <Route path="/areas/kingston" element={<KingstonUponThames />} />
+              <Route path="/areas/putney" element={<Putney />} />
+              <Route path="/areas/richmond" element={<Richmond />} />
+              <Route path="/areas/surbiton" element={<Surbiton />} />
+              <Route path="/areas/twickenham" element={<Twickenham />} />
+              <Route path="/areas/wimbledon" element={<Wimbledon />} />
 
-          {/* Location-based Services - Loft Conversions */}
-          <Route path="/services/loft-conversions/kingston" element={<LoftConversionsKingston />} />
-          <Route path="/services/loft-conversions/putney" element={<LoftConversionsPutney />} />
-          <Route path="/services/loft-conversions/richmond" element={<LoftConversionsRichmond />} />
-          <Route path="/services/loft-conversions/surbiton" element={<LoftConversionsSurbiton />} />
-          <Route path="/services/loft-conversions/twickenham" element={<LoftConversionsTwickenham />} />
-          <Route path="/services/loft-conversions/wimbledon" element={<LoftConversionsWimbledon />} />
+              {/* Portfolio Routes */}
+              <Route path="/portfolio/house-extensions" element={<PortfolioHouseExtensions />} />
+              <Route path="/portfolio/loft-conversions" element={<PortfolioLoftConversions />} />
 
-          {/* Resources */}
-          <Route path="/resources/cost-calculator" element={<CostCalculator />} />
-          <Route path="/resources/extension-ideas" element={<ExtensionIdeas />} />
-          <Route path="/resources/faq" element={<FAQ />} />
-          <Route path="/resources/planning-permission-guide" element={<PlanningPermissionGuide />} />
-
-          {/* Legal Pages */}
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-
-          {/* Catch-all route */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+              {/* Resource Routes */}
+              <Route path="/resources/cost-calculator" element={<CostCalculator />} />
+              <Route path="/resources/extension-ideas" element={<ExtensionIdeas />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+        <Toaster />
+        <Sonner />
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
 
 export default App;
