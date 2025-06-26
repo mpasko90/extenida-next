@@ -1,27 +1,34 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
-const Logo = () => {
+interface LogoProps {
+  variant?: "navy" | "white";
+}
+
+const Logo = ({ variant = "navy" }: LogoProps) => {
+  const logoSrc = variant === "white"
+    ? "/Extendia_logo_white.png"
+    : "/Extendia_logo_navy.png";
+  const alt = "Extendia logo";
   return (
-    <Link href="/" className="flex items-center space-x-3">
+    <Link href="/" className="flex items-center space-x-3 group">
       <motion.div
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         className="flex items-center space-x-3"
       >
-        <div className="relative">
-          <div className="w-12 h-12 bg-gradient-to-br from-extendia-primary to-extendia-accent rounded-xl flex items-center justify-center shadow-lg">
-            <span className="text-white font-bold text-xl">E</span>
-          </div>
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
+        <Image
+          src={logoSrc}
+          alt={alt}
+          width={48}
+          height={48}
+          className="w-12 h-12 object-contain drop-shadow-lg transition-all duration-300"
+          priority
+        />
         <div className="hidden sm:block">
-          <h1 className="text-xl font-bold text-gray-900">Extendia</h1>
-          <p className="text-xs text-gray-600 font-medium">Building Excellence in London</p>
+          <h1 className={`text-xl font-bold ${variant === "white" ? "text-white" : "text-gray-900"}`}>Extendia</h1>
+          <p className={`text-xs font-medium ${variant === "white" ? "text-gray-200" : "text-gray-600"}`}>Building Excellence in London</p>
         </div>
       </motion.div>
     </Link>

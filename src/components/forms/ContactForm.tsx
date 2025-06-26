@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react';
-import Button from '../ui/Button';
-import Input from '../ui/Input';
-import Textarea from '../ui/Textarea';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
 
 interface ContactFormProps {
   title?: string;
@@ -119,41 +119,47 @@ export const ContactForm = ({
       <form onSubmit={handleSubmit}>
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Input
-              id="name"
-              name="name"
-              type="text"
-              label="Imię i nazwisko"
-              placeholder="Wprowadź swoje imię i nazwisko"
-              value={formData.name}
-              onChange={handleChange}
-              error={errors.name}
-              required
-            />
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Imię i nazwisko</label>
+              <Input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Wprowadź swoje imię i nazwisko"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
+            </div>
 
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              label="Email"
-              placeholder="Wprowadź swój adres email"
-              value={formData.email}
-              onChange={handleChange}
-              error={errors.email}
-              required
-            />
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Wprowadź swój adres email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Input
-              id="phone"
-              name="phone"
-              type="tel"
-              label="Telefon (opcjonalnie)"
-              placeholder="Wprowadź swój numer telefonu"
-              value={formData.phone}
-              onChange={handleChange}
-            />
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Telefon (opcjonalnie)</label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="Wprowadź swój numer telefonu"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+            </div>
 
             <div>
               <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
@@ -175,17 +181,19 @@ export const ContactForm = ({
             </div>
           </div>
 
-          <Textarea
-            id="message"
-            name="message"
-            label="Wiadomość"
-            placeholder="W czym możemy Ci pomóc? Podaj więcej szczegółów dotyczących Twojego projektu"
-            rows={5}
-            value={formData.message}
-            onChange={handleChange}
-            error={errors.message}
-            required
-          />
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Wiadomość</label>
+            <Textarea
+              id="message"
+              name="message"
+              placeholder="W czym możemy Ci pomóc? Podaj więcej szczegółów dotyczących Twojego projektu"
+              rows={5}
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+            {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
+          </div>
 
           <div className="flex justify-end">
             <Button

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -190,6 +190,7 @@ const ServicesSection = () => {
           ))}
         </motion.div>
       </div>
+      <div className="w-full h-8 bg-gradient-to-b from-transparent to-extendia-accent/30 blur-md opacity-80 pointer-events-none" aria-hidden="true"></div>
     </section>
   );
 };

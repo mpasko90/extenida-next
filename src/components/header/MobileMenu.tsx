@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Phone, Mail } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 interface MobileMenuProps {
   isOpen: boolean;
