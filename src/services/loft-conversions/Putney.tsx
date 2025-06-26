@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -24,7 +23,7 @@ const LoftConversionsPutney = () => {
               Loft Conversions in <span className="text-extendia-accent">Putney</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Riverside loft conversions with Thames views in Putney
+              Riverside loft conversions with Thames views in Putney&apos;s
             </p>
             <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
               Get Free Quote
@@ -45,7 +44,7 @@ const LoftConversionsPutney = () => {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Putney Loft Conversions</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Putney's riverside location offers unique opportunities for loft conversions with stunning Thames views. Our expertise in local building regulations and flood considerations ensures your conversion meets all requirements while maximizing river vistas.
+                Putney&apos;s riverside location offers unique opportunities for loft conversions with stunning Thames views. Our expertise in local building regulations and flood considerations ensures your conversion meets all requirements while maximizing river vistas.
               </p>
             </motion.div>
           </div>

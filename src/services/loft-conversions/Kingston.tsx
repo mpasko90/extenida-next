@@ -1,6 +1,5 @@
-
 import { motion } from "framer-motion";
-import { ArrowUp, MapPin } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
@@ -45,7 +44,7 @@ const LoftConversionsKingston = () => {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Kingston Loft Conversions</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Kingston's diverse property types offer excellent loft conversion opportunities. From Victorian terraces to Edwardian semis, our team creates beautiful additional living spaces that maximize your home's upper floor potential.
+                Kingston&apos;s diverse property types offer excellent loft conversion opportunities. From Victorian terraces to Edwardian semis, our team creates beautiful additional living spaces that maximize your home&apos;s upper floor potential.
               </p>
             </motion.div>
           </div>

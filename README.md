@@ -66,6 +66,7 @@ npm run lint
 ```
 
 ### ESLint configuration highlights
+
 - **Next.js**: Uses `next/core-web-vitals` and `next/typescript` rules (see `eslint.config.mjs`)
 - **TypeScript**: Uses `@typescript-eslint` recommended rules
 - **React Hooks**: Enforces best practices for hooks
@@ -75,7 +76,8 @@ npm run lint
   - `@typescript-eslint/no-unused-vars`: off (handled by TS)
   - `react-refresh/only-export-components`: warn (allows constant export)
 
-### Example config (see `eslint.config.js`):
+### Example config (see `eslint.config.js`)
+
 ```js
 export default tseslint.config(
   { ignores: ["dist"] },
