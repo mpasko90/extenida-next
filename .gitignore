@@ -21,6 +21,8 @@
 /build
 /dist
 /ux-ui-template
+/docs
+.mcp-memory.jsonl
 
 # IDE
 /.idea
