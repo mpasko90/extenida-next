@@ -1,6 +1,5 @@
-
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
 
 const ServicesSection = () => {
@@ -53,6 +52,22 @@ const ServicesSection = () => {
     }
   };
 
+  // Zamiast Math.random, ustal deterministyczne pozycje dla 12 kropek
+  const dotPositions = [
+    { left: "10%", top: "20%" },
+    { left: "30%", top: "40%" },
+    { left: "50%", top: "60%" },
+    { left: "70%", top: "80%" },
+    { left: "20%", top: "70%" },
+    { left: "40%", top: "10%" },
+    { left: "60%", top: "30%" },
+    { left: "80%", top: "50%" },
+    { left: "15%", top: "55%" },
+    { left: "55%", top: "15%" },
+    { left: "75%", top: "25%" },
+    { left: "25%", top: "75%" },
+  ];
+
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Animated Background */}
@@ -76,14 +91,11 @@ const ServicesSection = () => {
 
       {/* Floating Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
+        {dotPositions.map((pos, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-gradient-to-r from-extendia-primary to-extendia-accent rounded-full opacity-20"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
+            style={{ left: pos.left, top: pos.top }}
             animate={{
               y: [0, -30, 0],
               x: [0, 20, 0],
@@ -91,10 +103,10 @@ const ServicesSection = () => {
               opacity: [0.2, 0.6, 0.2],
             }}
             transition={{
-              duration: 4 + Math.random() * 4,
+              duration: 4 + (i % 4),
               repeat: Infinity,
               ease: "easeInOut",
-              delay: Math.random() * 2
+              delay: (i % 4) * 0.5
             }}
           />
         ))}

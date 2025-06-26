@@ -1,8 +1,9 @@
+"use client";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/header/Logo";
 import DesktopNavigation from "@/components/header/DesktopNavigation";
@@ -77,7 +78,7 @@ const Header = () => {
                 asChild 
                 className="relative bg-gradient-to-r from-extendia-accent to-extendia-accent/90 hover:from-extendia-accent/90 hover:to-extendia-accent text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
-                <Link to="/contact">
+                <Link href="/contact">
                   <span className="relative z-10">Get Free Quote</span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10"
