@@ -1,4 +1,4 @@
-import Button from '../ui/Button';
+import { Button } from '../ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -38,7 +38,7 @@ export const Hero = ({
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href={ctaLink}>
-                <Button size="lg" variant="primary">
+                <Button size="lg" variant="default">
                   {ctaText}
                 </Button>
               </Link>

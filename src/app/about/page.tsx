@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { CheckCircle, Users, Award, MapPin } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 /**
  * Strona "O nas" (Next.js App Router)

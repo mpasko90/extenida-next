@@ -78,8 +78,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="geo.placename" content="London" />
         <meta name="geo.position" content="51.5074;-0.1278" />
         <meta name="ICBM" content="51.5074, -0.1278" />
+        <link rel="icon" type="image/webp" href="/extendia-logo-color.webp" />
       </head>
-      <body className="bg-white text-gray-900 antialiased">
+      <body className="bg-white text-gray-900 antialiased scroll-smooth">
         <ClientProviders>
           {children}
         </ClientProviders>

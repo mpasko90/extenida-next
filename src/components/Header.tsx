@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/header/Logo";
 import DesktopNavigation from "@/components/header/DesktopNavigation";
@@ -63,7 +63,7 @@ const Header = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center justify-between h-20">
-          <Logo />
+          <Logo variant={isScrolled ? "navy" : "white"} />
           <DesktopNavigation />
 
           {/* Contact Info & CTA */}

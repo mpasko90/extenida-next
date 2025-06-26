@@ -23,6 +23,7 @@
 /ux-ui-template
 /docs
 .mcp-memory.jsonl
+fix-imports.ps1
 
 # IDE
 /.idea

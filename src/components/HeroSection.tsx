@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Star, Shield, Users, Clock } from "lucide-react";
 import Link from "next/link";
@@ -103,6 +103,9 @@ const HeroSection = () => {
 
       {/* Mesh Gradient Overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] pointer-events-none" />
+
+      {/* Gradient Divider Bottom */}
+      <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-extendia-primary/40 blur-md opacity-80 pointer-events-none" aria-hidden="true" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
