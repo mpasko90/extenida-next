@@ -19,7 +19,13 @@
 
 # production
 /build
+/dist
 /ux-ui-template
+
+# IDE
+/.idea
+/.github
+
 # misc
 .DS_Store
 *.pem
