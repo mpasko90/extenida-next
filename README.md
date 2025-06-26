@@ -2,6 +2,12 @@
 
 A modern, high-performance website built with Vite, React, and Tailwind CSS, featuring a beautiful UI and optimized build system.
 
+## 📚 Documentation
+
+- [Development Guide](docs/DEVELOPMENT.md) - Setup and development workflow
+- [Components](docs/COMPONENTS.md) - UI components documentation
+- [Build System](docs/BUILD.md) - Build configuration and optimization
+
 ## 🚀 Features
 
 - **Modern Stack:** Built with Vite, React, and TypeScript
@@ -32,7 +38,7 @@ src/
 └── lib/          # Utility functions
 ```
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 1. Clone the repository:
 
@@ -55,53 +61,26 @@ src/
 
 4. Open [http://localhost:8080](http://localhost:8080) to view the app
 
-## 🔧 Build
-
-To build for production:
+## 🔧 Available Scripts
 
 ```bash
+# Start development server
+npm run dev
+
+# Build for production
 npm run build
+
+# Preview production build
+npm run preview
+
+# Run tests
+npm test
 ```
 
-This creates an optimized build in the `dist` folder with:
+## 📝 License
 
-- Code splitting
-- Asset optimization
-- Chunk management
-- Tree shaking
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🎨 UI Components
+## 🤝 Contributing
 
-We use shadcn/ui components enhanced with Tailwind CSS. Key components:
-
-- **Button:** Primary and secondary variations
-- **Navigation:** Responsive header with mobile menu
-- **Hero:** Video background with overlay support
-- **Cards:** Service and testimonial displays
-- **Forms:** Contact and quote request forms
-
-## ⚡ Performance Optimizations
-
-The project includes several performance optimizations:
-
-1. **Code Splitting:**
-   - Route-based splitting
-   - Vendor chunk separation
-   - Dynamic imports for large components
-
-2. **Build Optimizations:**
-   - Chunk size management
-   - Asset inlining configuration
-   - Module preloading
-
-3. **Asset Handling:**
-   - Optimized video loading
-   - Responsive images
-   - Font optimization
-
-## 📝 Configuration Files
-
-- `vite.config.ts` - Vite build configuration
-- `postcss.config.js` - PostCSS configuration for Tailwind
-- `tailwind.config.ts` - Tailwind CSS customization
-- `tsconfig.json` - TypeScript configuration
+Please read [DEVELOPMENT.md](docs/DEVELOPMENT.md) for details on our code of conduct and the process for submitting pull requests.
