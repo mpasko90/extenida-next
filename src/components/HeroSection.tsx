@@ -1,15 +1,15 @@
-
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/badge";
 import { Star, Shield, Users, Clock } from "lucide-react";
+import Link from "next/link";
 
 const HeroSection = () => {
   const trustIndicators = [
     { icon: Star, label: "4.9/5 Rating", value: "150+ Reviews" },
-    { icon: Shield, label: "Fully Insured", value: "£2M Coverage" },
-    { icon: Users, label: "Happy Clients", value: "500+" },
-    { icon: Clock, label: "Years Experience", value: "15+" },
+    { icon: Shield, label: "10 Year Guarantee", value: "Peace of Mind" },
+    { icon: Users, label: "Checkatrade Verified", value: "100% Trust" },
+    { icon: Clock, label: "Free Consultation", value: "Book Today" },
   ];
 
   const containerVariants = {
@@ -30,24 +30,19 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-extendia-primary via-extendia-secondary to-extendia-primary">
-        <motion.div
-          className="absolute inset-0 opacity-30"
-          animate={{
-            background: [
-              "linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(139, 69, 19, 0.3))",
-              "linear-gradient(90deg, rgba(139, 69, 19, 0.3), rgba(59, 130, 246, 0.3))",
-              "linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 69, 19, 0.3))",
-            ]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-      </div>
+      {/* Video Background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src="/hero-video.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/placeholder.svg"
+        aria-label="Extendia building projects in South West London"
+      />
+      {/* Animated Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-extendia-primary/80 via-extendia-secondary/60 to-extendia-primary/80 z-10" />
 
       {/* Floating Animated Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -126,7 +121,7 @@ const HeroSection = () => {
               >
                 <Badge 
                   variant="secondary" 
-                  className="bg-white/20 text-white border-white/30 backdrop-blur-sm hover:bg-white/30 transition-all duration-300 relative overflow-hidden group"
+                  className="bg-white/30 text-extendia-accent border-white/40 backdrop-blur-sm hover:bg-white/40 transition-all duration-300 relative overflow-hidden group"
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"
@@ -134,32 +129,16 @@ const HeroSection = () => {
                     whileHover={{ x: '100%' }}
                     transition={{ duration: 0.8 }}
                   />
-                  <span className="relative z-10">Premium Building Services in South West London</span>
+                  <span className="relative z-10">Award-Winning Builders in South West London</span>
                 </Badge>
               </motion.div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-extendia-text-primary leading-tight">
-                Transform Your Home with 
-                <motion.span 
-                  className="text-extendia-accent relative inline-block"
-                  animate={{
-                    textShadow: [
-                      "0 0 20px rgba(255,255,255,0.5)",
-                      "0 0 30px rgba(255,255,255,0.8)",
-                      "0 0 20px rgba(255,255,255,0.5)",
-                    ]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                > Expert Craftsmanship</motion.span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg leading-tight">
+                House Extensions, Loft Conversions & Renovations in <span className="text-extendia-accent">South West London</span>
               </h1>
               
-              <p className="text-xl text-extendia-text-secondary max-w-2xl">
-                From concept to completion, we deliver exceptional building services that transform your property 
-                and enhance your lifestyle in South West London. Quality guaranteed, dreams delivered.
+              <p className="text-xl text-white/90 max-w-2xl drop-shadow-md">
+                Extendia is your local, fully insured building company serving Kingston, Putney, Richmond, Surbiton, Twickenham, and Wimbledon. From house extensions to loft conversions, we deliver projects on time and on budget. Free quotes, 10 year guarantee, and 150+ 5-star reviews on Checkatrade.
               </p>
             </motion.div>
 
@@ -173,53 +152,43 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button 
-                  size="lg" 
-                  className="relative bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3 text-lg font-semibold transition-all duration-300 focus:ring-2 focus:ring-extendia-accent focus:ring-offset-2 overflow-hidden group"
-                >
-                  <span className="relative z-10">Get Free Quote</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-white/20"
-                    initial={{ x: '-100%', opacity: 0 }}
-                    whileHover={{ x: '100%', opacity: 1 }}
-                    transition={{ duration: 0.6 }}
-                  />
-                  {/* Animated border */}
-                  <motion.div
-                    className="absolute inset-0 rounded-lg"
-                    animate={{
-                      boxShadow: [
-                        "0 0 0 0 rgba(255,255,255,0.4)",
-                        "0 0 0 4px rgba(255,255,255,0.1)",
-                        "0 0 0 0 rgba(255,255,255,0.4)",
-                      ]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  />
-                </Button>
+                <Link href="/contact">
+                  <Button
+                    size="lg"
+                    className="relative bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3 text-lg font-semibold transition-all duration-300 focus:ring-2 focus:ring-extendia-accent focus:ring-offset-2 overflow-hidden group focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+                    aria-label="Get Free Quote for your building project in South West London"
+                  >
+                    <span className="relative z-10">Get Free Quote</span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-white/20"
+                      initial={{ x: '-100%', opacity: 0 }}
+                      whileHover={{ x: '100%', opacity: 1 }}
+                      transition={{ duration: 0.6 }}
+                    />
+                  </Button>
+                </Link>
               </motion.div>
               
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="relative border-2 border-white/50 text-white hover:bg-white/10 hover:text-white hover:border-white px-8 py-3 text-lg transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-extendia-primary backdrop-blur-sm overflow-hidden group"
-                >
-                  <span className="relative z-10">View Portfolio</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"
-                    initial={{ x: '-100%', opacity: 0 }}
-                    whileHover={{ x: '100%', opacity: 1 }}
-                    transition={{ duration: 0.6 }}
-                  />
-                </Button>
+                <Link href="/portfolio">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="relative border-2 border-white/70 text-white hover:bg-white/10 hover:text-white hover:border-white px-8 py-3 text-lg transition-all duration-300 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-extendia-primary backdrop-blur-sm overflow-hidden group focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+                    aria-label="View our building portfolio in South West London"
+                  >
+                    <span className="relative z-10">View Portfolio</span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"
+                      initial={{ x: '-100%', opacity: 0 }}
+                      whileHover={{ x: '100%', opacity: 1 }}
+                      transition={{ duration: 0.6 }}
+                    />
+                  </Button>
+                </Link>
               </motion.div>
             </motion.div>
 
@@ -298,7 +267,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative w-full h-96 lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl group">
+            <div className="relative w-full h-96 lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl group flex flex-col justify-center">
               {/* Animated gradient background */}
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-br from-extendia-card/30 to-extendia-accent/20"
@@ -315,9 +284,8 @@ const HeroSection = () => {
                   ease: "easeInOut"
                 }}
               />
-              
               {/* Floating geometric shapes */}
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 pointer-events-none">
                 {[...Array(8)].map((_, i) => (
                   <motion.div
                     key={i}
@@ -340,44 +308,37 @@ const HeroSection = () => {
                   />
                 ))}
               </div>
-              
-              {/* Main content */}
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/20 flex items-center justify-center">
-                <motion.div 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="text-center text-extendia-text-primary/80 relative z-10"
-                >
-                  <motion.div 
-                    className="text-6xl mb-4"
-                    animate={{
-                      scale: [1, 1.1, 1],
-                      rotate: [0, 5, -5, 0],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    🏗️
-                  </motion.div>
-                  <p className="text-lg backdrop-blur-sm bg-white/10 px-4 py-2 rounded-full">
-                    Professional Building Services
-                  </p>
-                </motion.div>
+              {/* SEO Content Center */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-6 py-8 z-10 pointer-events-auto">
+                <h2 className="text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-lg text-center">Our Services in South West London</h2>
+                <ul className="flex flex-wrap justify-center gap-4 mb-4">
+                  <li className="flex items-center gap-2 bg-white/20 rounded-lg px-3 py-1 text-white text-sm font-medium shadow-sm"><span aria-hidden="true">🏠</span> House Extensions</li>
+                  <li className="flex items-center gap-2 bg-white/20 rounded-lg px-3 py-1 text-white text-sm font-medium shadow-sm"><span aria-hidden="true">🏢</span> Loft Conversions</li>
+                  <li className="flex items-center gap-2 bg-white/20 rounded-lg px-3 py-1 text-white text-sm font-medium shadow-sm"><span aria-hidden="true">🔨</span> Renovations</li>
+                  <li className="flex items-center gap-2 bg-white/20 rounded-lg px-3 py-1 text-white text-sm font-medium shadow-sm"><span aria-hidden="true">🚿</span> Kitchen & Bathroom Refurbishments</li>
+                </ul>
+                <div className="flex flex-wrap justify-center gap-2 mb-4">
+                  <span className="bg-extendia-accent/80 text-white rounded-full px-3 py-1 text-xs font-semibold shadow">Kingston</span>
+                  <span className="bg-extendia-accent/80 text-white rounded-full px-3 py-1 text-xs font-semibold shadow">Putney</span>
+                  <span className="bg-extendia-accent/80 text-white rounded-full px-3 py-1 text-xs font-semibold shadow">Richmond</span>
+                  <span className="bg-extendia-accent/80 text-white rounded-full px-3 py-1 text-xs font-semibold shadow">Surbiton</span>
+                  <span className="bg-extendia-accent/80 text-white rounded-full px-3 py-1 text-xs font-semibold shadow">Twickenham</span>
+                  <span className="bg-extendia-accent/80 text-white rounded-full px-3 py-1 text-xs font-semibold shadow">Wimbledon</span>
+                </div>
+                <div className="flex flex-wrap justify-center gap-3 mb-2">
+                  <span className="inline-flex items-center gap-1 bg-white/30 text-extendia-accent rounded-lg px-3 py-1 text-xs font-semibold shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent" aria-label="Checkatrade Verified"><svg width="16" height="16" fill="currentColor" className="inline-block"><circle cx="8" cy="8" r="8" fill="#00AEEF"/><text x="8" y="12" textAnchor="middle" fontSize="10" fill="#fff">C</text></svg>Checkatrade Verified</span>
+                  <span className="inline-flex items-center gap-1 bg-white/30 text-extendia-accent rounded-lg px-3 py-1 text-xs font-semibold shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent" aria-label="10 Year Guarantee">🔒 10 Year Guarantee</span>
+                  <span className="inline-flex items-center gap-1 bg-white/30 text-extendia-accent rounded-lg px-3 py-1 text-xs font-semibold shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent" aria-label="Free Quotes">💬 Free Quotes</span>
+                </div>
               </div>
-              
-              {/* Floating testimonial card */}
+              {/* Testimonial Card - always at the bottom */}
               <motion.div
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ delay: 1.2, duration: 0.6 }}
                 whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-white/20 relative overflow-hidden group"
+                className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-white/20 m-4 z-20 group"
               >
-                {/* Animated border */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-extendia-primary/20 via-extendia-accent/20 to-extendia-primary/20"
                   animate={{ x: ['-100%', '100%'] }}
@@ -387,7 +348,6 @@ const HeroSection = () => {
                     ease: "linear"
                   }}
                 />
-                
                 <div className="flex items-center space-x-3 relative z-10">
                   <motion.div 
                     className="w-12 h-12 bg-gradient-to-br from-extendia-card to-extendia-accent/20 rounded-full flex items-center justify-center text-2xl relative overflow-hidden"
@@ -414,10 +374,10 @@ const HeroSection = () => {
                         </motion.div>
                       ))}
                     </div>
-                    <p className="text-sm text-gray-600">
-                      "Exceptional work on our loft conversion. Professional, reliable, and the results exceeded our expectations!"
+                    <p className="text-sm text-gray-100">
+                      "Extendia delivered our house extension in Kingston on time and on budget. Highly recommend for any project in South West London!"
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">- Sarah M., Wimbledon</p>
+                    <p className="text-xs text-gray-200 mt-1">- Sarah M., Kingston</p>
                   </div>
                 </div>
               </motion.div>

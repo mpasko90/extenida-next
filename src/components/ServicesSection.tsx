@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const ServicesSection = () => {
   const services = [
@@ -69,26 +70,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white">
-        <motion.div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                             radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.1) 0%, transparent 50%)`
-          }}
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-      </div>
-
+    <section className="relative py-24 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
       {/* Floating Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {dotPositions.map((pos, i) => (
@@ -111,7 +93,6 @@ const ServicesSection = () => {
           />
         ))}
       </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -136,240 +117,77 @@ const ServicesSection = () => {
               ease: "easeInOut"
             }}
           >
-            Our <span className="text-extendia-accent relative">
-              Premium Services
-              <motion.div
-                className="absolute -inset-2 bg-gradient-to-r from-extendia-accent/20 to-extendia-primary/20 blur-lg -z-10"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.5, 0.8, 0.5],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-            </span>
+            Building Services in <span className="text-extendia-accent relative">South West London</span>
+            <motion.div
+              className="absolute -inset-2 bg-gradient-to-r from-extendia-accent/20 to-extendia-primary/20 blur-lg -z-10"
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.5, 0.8, 0.5],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
           </motion.h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From concept to completion, we deliver exceptional building services that transform your property 
-            and enhance your lifestyle in South West London.
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            House Extensions, Loft Conversions, Kitchen & Bathroom Renovations, and more. Serving Kingston, Putney, Richmond, Surbiton, Twickenham, and Wimbledon. Fully managed, free quotes, 10 year guarantee.
           </p>
         </motion.div>
-
         {/* Services Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"
         >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
-              transition={{ duration: 0.6 }}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+              className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-start hover:shadow-2xl transition-shadow duration-300 focus-within:ring-2 focus-within:ring-extendia-accent group"
+              tabIndex={0}
+              aria-label={`${service.title} in South West London`}
             >
-              {/* Animated border gradient */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-extendia-primary via-extendia-accent to-extendia-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                style={{
-                  backgroundSize: '200% 200%',
-                  padding: '2px',
-                  borderRadius: '1rem',
-                }}
-              >
-                <div className="w-full h-full bg-white rounded-2xl" />
-              </motion.div>
-
-              {/* Service Card Content */}
-              <div className="p-8 relative z-10">
-                {/* Icon and Title */}
-                <div className="flex items-center mb-6">
-                  <motion.div 
-                    className="w-16 h-16 bg-gradient-to-br from-extendia-accent/10 to-extendia-primary/10 rounded-full flex items-center justify-center text-3xl mr-4 relative overflow-hidden group"
-                    whileHover={{ scale: 1.1, rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    {/* Rotating background */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-extendia-accent/20 to-extendia-primary/20 rounded-full"
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                    />
-                    <span className="relative z-10">{service.emoji}</span>
-                  </motion.div>
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-extendia-primary transition-colors relative">
-                    {service.title}
-                    {/* Animated underline */}
-                    <motion.div
-                      className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-extendia-primary to-extendia-accent"
-                      initial={{ width: 0 }}
-                      whileHover={{ width: '100%' }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </h3>
-                </div>
-
-                {/* Description */}
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Features */}
-                <ul className="space-y-2 mb-8">
-                  {service.features.map((feature, idx) => (
-                    <motion.li 
-                      key={idx} 
-                      className="flex items-center text-gray-700"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
-                    >
-                      <motion.div 
-                        className="w-2 h-2 bg-gradient-to-r from-extendia-accent to-extendia-primary rounded-full mr-3"
-                        animate={{
-                          scale: [1, 1.3, 1],
-                          opacity: [0.7, 1, 0.7],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: idx * 0.3
-                        }}
-                      />
-                      {feature}
-                    </motion.li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Button 
-                    variant="ghost" 
-                    className="group/button text-extendia-primary hover:text-extendia-accent p-0 h-auto font-semibold relative overflow-hidden transition-all duration-300"
-                  >
-                    <span className="relative z-10 flex items-center">
-                      Learn More
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover/button:translate-x-1 transition-transform" />
-                    </span>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10 rounded-lg"
-                      initial={{ x: '-100%', opacity: 0 }}
-                      whileHover={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </Button>
-                </motion.div>
+              <div className={`w-14 h-14 flex items-center justify-center rounded-full mb-4 text-3xl bg-gradient-to-br ${service.color} shadow-lg`} aria-hidden="true">
+                {service.emoji}
               </div>
-
-              {/* Hover Effect Overlay */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-extendia-primary/5 to-extendia-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                initial={false}
-                animate={{
-                  background: [
-                    "linear-gradient(45deg, rgba(59, 130, 246, 0.05), rgba(139, 69, 19, 0.05))",
-                    "linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(59, 130, 246, 0.05))",
-                    "linear-gradient(225deg, rgba(59, 130, 246, 0.05), rgba(139, 69, 19, 0.05))",
-                  ]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              />
-
-              {/* Floating particles on hover */}
-              <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                {[...Array(6)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-1 h-1 bg-gradient-to-r from-extendia-accent to-extendia-primary rounded-full"
-                    style={{
-                      left: `${20 + i * 15}%`,
-                      top: `${30 + (i % 3) * 20}%`,
-                    }}
-                    animate={{
-                      y: [0, -20, 0],
-                      opacity: [0, 1, 0],
-                      scale: [0, 1.5, 0],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: i * 0.3
-                    }}
-                  />
+              <h3 className="text-2xl font-bold text-extendia-accent mb-2">{service.title}</h3>
+              <p className="text-gray-700 mb-4">{service.description}</p>
+              <ul className="space-y-2 mb-8">
+                {service.features.map((feature, idx) => (
+                  <motion.li 
+                    key={idx} 
+                    className="flex items-center text-gray-800"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                  >
+                    <motion.div 
+                      className="w-2 h-2 bg-gradient-to-r from-extendia-accent to-extendia-primary rounded-full mr-3"
+                      animate={{
+                        scale: [1, 1.3, 1],
+                        opacity: [0.7, 1, 0.7],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: idx * 0.3
+                      }}
+                    />
+                    {feature}
+                  </motion.li>
                 ))}
-              </div>
+              </ul>
+              <Link href="/services" className="mt-auto inline-block bg-extendia-accent text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-extendia-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent transition-all duration-300" aria-label={`See all ${service.title} services in South West London`}>
+                See All Services
+              </Link>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mt-16"
-        >
-          <p className="text-lg text-gray-600 mb-6">
-            Ready to start your dream project?
-          </p>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button 
-              size="lg" 
-              className="relative bg-gradient-to-r from-extendia-accent to-extendia-accent/90 hover:from-extendia-accent/90 hover:to-extendia-accent text-white px-8 py-3 overflow-hidden group transition-all duration-300"
-            >
-              <span className="relative z-10">Get Your Free Consultation</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-white/20"
-                initial={{ x: '-100%' }}
-                whileHover={{ x: '100%' }}
-                transition={{ duration: 0.8 }}
-              />
-              {/* Pulsing border effect */}
-              <motion.div
-                className="absolute inset-0"
-                animate={{
-                  boxShadow: [
-                    "0 0 0 0 rgba(139, 69, 19, 0.4)",
-                    "0 0 0 6px rgba(139, 69, 19, 0.1)",
-                    "0 0 0 0 rgba(139, 69, 19, 0.4)",
-                  ]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-            </Button>
-          </motion.div>
         </motion.div>
       </div>
     </section>

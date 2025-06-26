@@ -1,53 +1,39 @@
-
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 const FAQSection = () => {
   const faqs = [
     {
-      id: "faq-1",
-      question: "How long does a typical home extension take?",
-      answer: "The timeline varies depending on the project scope. A single-storey extension typically takes 8-12 weeks, while a double-storey extension can take 12-16 weeks. Loft conversions usually take 4-6 weeks. We'll provide a detailed timeline during our initial consultation."
+      id: "cost-extension",
+      question: "How much does a house extension cost in South West London?",
+      answer: "The cost of a house extension in South West London typically ranges from £1,800 to £3,000 per square metre, depending on the size, specification, and location. Contact us for a free, detailed quote tailored to your project in Kingston, Putney, Richmond, Surbiton, Twickenham, or Wimbledon."
     },
     {
-      id: "faq-2",
-      question: "Do you handle planning permission applications?",
-      answer: "Yes, we handle all aspects of planning permission and building regulations. Our team includes qualified architects and planning consultants who will manage the entire application process, keeping you informed at every stage."
+      id: "planning-permission",
+      question: "Do I need planning permission for a loft conversion or extension?",
+      answer: "Most loft conversions and some extensions fall under permitted development, but it depends on your property and local council. We offer full planning support and can advise you on the best route for your project in South West London."
     },
     {
-      id: "faq-3",
-      question: "What areas do you cover in South West London?",
-      answer: "We cover all areas of South West London including Wimbledon, Richmond, Putney, Clapham, Wandsworth, Fulham, Chelsea, Battersea, and surrounding areas. Contact us to confirm if we cover your specific location."
+      id: "guarantee",
+      question: "Do you offer a guarantee on your building work?",
+      answer: "Yes, all our work comes with a 10 year guarantee for your peace of mind. We are fully insured and Checkatrade verified."
     },
     {
-      id: "faq-4",
-      question: "How much does a home extension cost?",
-      answer: "Costs vary significantly based on size, materials, and complexity. Single-storey extensions typically start from £15,000-£25,000, while double-storey extensions range from £30,000-£60,000. We provide detailed, transparent quotes with no hidden costs."
+      id: "free-quote",
+      question: "How do I get a free quote for my project?",
+      answer: "Simply contact us via our online form or call us. We offer free, no-obligation quotes for all building projects in South West London."
     },
     {
-      id: "faq-5",
-      question: "Are you fully insured and certified?",
-      answer: "Yes, we are fully insured with £2M public liability insurance and £1M employer's liability insurance. All our tradespeople are qualified and certified, and we're members of relevant trade associations."
+      id: "timeline",
+      question: "How long does a typical extension or renovation take?",
+      answer: "Most house extensions take 10-16 weeks, while loft conversions are usually completed in 6-10 weeks. We provide a detailed timeline and keep you updated throughout the project."
     },
-    {
-      id: "faq-6",
-      question: "Can I live in my home during the renovation?",
-      answer: "In most cases, yes. We work with you to minimize disruption and can often phase the work to allow you to remain in your home. For major renovations, we'll discuss temporary accommodation options if needed."
-    },
-    {
-      id: "faq-7",
-      question: "What warranty do you provide?",
-      answer: "We provide a comprehensive 10-year warranty on structural work and a 2-year warranty on all other work. We also offer ongoing maintenance services to keep your extension in perfect condition."
-    },
-    {
-      id: "faq-8",
-      question: "Do you provide free quotes?",
-      answer: "Yes, we provide free, no-obligation quotes for all projects. Our initial consultation includes a site visit, discussion of your requirements, and a detailed written quote within 48 hours."
-    }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 bg-gradient-to-b from-extendia-primary/80 via-gray-900/90 to-extendia-accent/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -57,12 +43,11 @@ const FAQSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
             Frequently Asked <span className="text-extendia-accent">Questions</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Got questions about your home extension or renovation project? 
-            Here are answers to the most common questions we receive.
+          <p className="text-xl text-white/80 max-w-3xl mx-auto drop-shadow-md">
+            Everything you need to know about house extensions, loft conversions, and renovations in South West London. If you have more questions, just ask!
           </p>
         </motion.div>
 
@@ -85,12 +70,12 @@ const FAQSection = () => {
               >
                 <AccordionItem 
                   value={faq.id} 
-                  className="bg-white rounded-lg shadow-sm border border-gray-200 px-6 hover:shadow-md transition-shadow duration-300"
+                  className="bg-white/5 rounded-lg shadow-sm border border-extendia-accent/30 px-6 hover:shadow-md transition-shadow duration-300 focus-within:ring-2 focus-within:ring-extendia-accent"
                 >
-                  <AccordionTrigger className="text-left text-lg font-semibold text-gray-900 hover:text-extendia-primary transition-colors duration-300 py-6">
+                  <AccordionTrigger className="text-left text-lg font-semibold text-white hover:text-extendia-accent transition-colors duration-300 py-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 leading-relaxed pb-6">
+                  <AccordionContent className="text-white/90 leading-relaxed pb-6">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -100,31 +85,11 @@ const FAQSection = () => {
         </motion.div>
 
         {/* Contact CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mt-16"
-        >
-          <p className="text-lg text-gray-600 mb-6">
-            Still have questions? We're here to help!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:+442012345678" 
-              className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 focus:ring-2 focus:ring-extendia-accent focus:ring-offset-2"
-            >
-              Call Us: 020 1234 5678
-            </a>
-            <a 
-              href="mailto:info@extendia.co.uk" 
-              className="border-2 border-extendia-primary bg-white text-gray-900 hover:bg-extendia-primary hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 focus:ring-2 focus:ring-extendia-primary focus:ring-offset-2"
-            >
-              Email Us
-            </a>
-          </div>
-        </motion.div>
+        <div className="text-center mt-16">
+          <Link href="/contact" className="inline-block bg-extendia-accent text-white px-8 py-3 rounded-lg font-semibold shadow hover:bg-extendia-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white transition-all duration-300" aria-label="Contact Extendia for a free building consultation in South West London">
+            Contact Us for a Free Consultation
+          </Link>
+        </div>
       </div>
     </section>
   );

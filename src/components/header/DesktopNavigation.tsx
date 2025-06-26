@@ -7,8 +7,11 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { usePathname } from "next/navigation";
 
 const DesktopNavigation = () => {
+  const pathname = usePathname();
+
   const services = [
     { 
       name: "Home Extensions", 
@@ -60,22 +63,23 @@ const DesktopNavigation = () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <Link 
-              href="/" 
-              className="relative px-4 py-2 text-gray-700 hover:text-extendia-primary transition-colors duration-300 font-medium group overflow-hidden"
+              href="/"
+              aria-current={pathname === "/" ? "page" : undefined}
+              className={`relative px-4 py-2 text-gray-700 hover:text-extendia-primary transition-colors duration-300 font-medium overflow-hidden rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 ${pathname === "/" ? "text-extendia-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-extendia-primary after:to-extendia-accent after:rounded-xl after:transition-all after:duration-300" : ""}`}
             >
               <span className="relative z-10">Home</span>
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10 rounded-lg"
+                className="absolute inset-0 bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10 rounded-lg pointer-events-none"
                 initial={{ scale: 0, opacity: 0 }}
                 whileHover={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.2 }}
               />
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-extendia-primary to-extendia-accent transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-extendia-primary to-extendia-accent transition-all duration-300 hover:w-full rounded-xl"></span>
             </Link>
           </NavigationMenuItem>
           
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="px-4 py-2 text-gray-700 hover:text-extendia-primary transition-colors duration-300 font-medium bg-transparent hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 data-[state=open]:bg-gradient-to-r data-[state=open]:from-extendia-primary/5 data-[state=open]:to-extendia-accent/5 rounded-lg">
+            <NavigationMenuTrigger className="px-4 py-2 text-gray-700 hover:text-extendia-primary transition-colors duration-300 font-medium bg-transparent hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 data-[state=open]:bg-gradient-to-r data-[state=open]:from-extendia-primary/5 data-[state=open]:to-extendia-accent/5 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 shadow-none hover:shadow-md transition-shadow duration-300">
               Services
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -101,10 +105,11 @@ const DesktopNavigation = () => {
                     >
                       <Link
                         href={service.href}
-                        className="flex items-center px-4 py-3 text-gray-700 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/10 hover:to-extendia-accent/10 rounded-xl transition-all duration-300 group relative overflow-hidden"
+                        aria-current={pathname === service.href ? "page" : undefined}
+                        className={`flex items-center px-4 py-3 text-gray-800 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/10 hover:to-extendia-accent/10 rounded-xl transition-all duration-300 relative overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 shadow-none hover:shadow-md ${pathname === service.href ? "text-extendia-primary bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10" : ""}`}
                       >
                         <motion.div 
-                          className="w-2 h-2 bg-gradient-to-r from-extendia-primary to-extendia-accent rounded-full mr-3 group-hover:scale-125 transition-transform duration-300"
+                          className="w-2 h-2 bg-gradient-to-r from-extendia-primary to-extendia-accent rounded-full mr-3 hover:scale-125 transition-transform duration-300"
                           whileHover={{ rotate: 180 }}
                         />
                         {service.name}
@@ -115,7 +120,8 @@ const DesktopNavigation = () => {
                             <Link
                               key={location.href}
                               href={location.href}
-                              className="text-sm px-3 py-1 text-gray-600 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 rounded-lg transition-all duration-300"
+                              aria-current={pathname === location.href ? "page" : undefined}
+                              className={`text-sm px-3 py-1 text-gray-800 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 rounded-lg transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 ${pathname === location.href ? "text-extendia-primary bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10" : ""}`}
                             >
                               {location.name}
                             </Link>
@@ -134,7 +140,8 @@ const DesktopNavigation = () => {
                         <Link
                           key={area.href}
                           href={area.href}
-                          className="text-sm px-3 py-1 text-gray-600 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 rounded-lg transition-all duration-300"
+                          aria-current={pathname === area.href ? "page" : undefined}
+                          className={`text-sm px-3 py-1 text-gray-800 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 rounded-lg transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 ${pathname === area.href ? "text-extendia-primary bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10" : ""}`}
                         >
                           {area.name}
                         </Link>
@@ -149,7 +156,8 @@ const DesktopNavigation = () => {
                         <Link
                           key={resource.href}
                           href={resource.href}
-                          className="block text-sm px-3 py-1 text-gray-600 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 rounded-lg transition-all duration-300"
+                          aria-current={pathname === resource.href ? "page" : undefined}
+                          className={`block text-sm px-3 py-1 text-gray-800 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 rounded-lg transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 ${pathname === resource.href ? "text-extendia-primary bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10" : ""}`}
                         >
                           {resource.name}
                         </Link>
@@ -161,23 +169,28 @@ const DesktopNavigation = () => {
             </NavigationMenuContent>
           </NavigationMenuItem>
 
-          {["Portfolio", "Blog", "Contact"].map((item) => (
-            <NavigationMenuItem key={item}>
-              <Link 
-                href={`/${item.toLowerCase()}`}
-                className="relative px-4 py-2 text-gray-700 hover:text-extendia-primary transition-colors duration-300 font-medium group overflow-hidden"
-              >
-                <span className="relative z-10">{item}</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10 rounded-lg"
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileHover={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                />
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-extendia-primary to-extendia-accent transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-            </NavigationMenuItem>
-          ))}
+          {["Portfolio", "Blog", "Contact"].map((item) => {
+            const href = `/${item.toLowerCase()}`;
+            const isActive = pathname === href;
+            return (
+              <NavigationMenuItem key={item}>
+                <Link 
+                  href={href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative px-4 py-2 text-gray-700 hover:text-extendia-primary transition-colors duration-300 font-medium overflow-hidden rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 ${isActive ? "text-extendia-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-extendia-primary after:to-extendia-accent after:rounded-xl after:transition-all after:duration-300" : ""}`}
+                >
+                  <span className="relative z-10">{item}</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10 rounded-lg pointer-events-none"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-extendia-primary to-extendia-accent transition-all duration-300 hover:w-full rounded-xl"></span>
+                </Link>
+              </NavigationMenuItem>
+            );
+          })}
         </NavigationMenuList>
       </NavigationMenu>
     </nav>
