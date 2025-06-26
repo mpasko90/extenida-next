@@ -21,7 +21,7 @@ export default function ContactPage() {
     phone: "",
     projectType: "",
     message: "",
-    budget: ""
+    budget: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -30,10 +30,14 @@ export default function ContactPage() {
     // Form submission logic would go here
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -42,31 +46,31 @@ export default function ContactPage() {
       icon: Phone,
       title: "Phone",
       detail: "020 1234 5678",
-      href: "tel:+442012345678"
+      href: "tel:+442012345678",
     },
     {
       icon: Mail,
       title: "Email",
       detail: "info@extendia.co.uk",
-      href: "mailto:info@extendia.co.uk"
+      href: "mailto:info@extendia.co.uk",
     },
     {
       icon: MapPin,
       title: "Office",
       detail: "South West London",
-      href: "#"
+      href: "#",
     },
     {
       icon: Clock,
       title: "Hours",
       detail: "Mon-Fri: 8AM-6PM, Sat: 9AM-4PM",
-      href: "#"
-    }
+      href: "#",
+    },
   ];
 
   return (
-    <PageLayout 
-      title="Contact Us" 
+    <PageLayout
+      title="Contact Us"
       description="Get in touch with Extendia for your home extension, loft conversion, or renovation project in South West London."
     >
       {/* Hero Section */}
@@ -79,10 +83,12 @@ export default function ContactPage() {
             className="text-center max-w-4xl mx-auto"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Get Your Free <span className="text-extendia-accent">Quote Today</span>
+              Get Your Free{" "}
+              <span className="text-extendia-accent">Quote Today</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Ready to transform your home? Contact our expert team for a free consultation and detailed project quote.
+              Ready to transform your home? Contact our expert team for a free
+              consultation and detailed project quote.
             </p>
           </motion.div>
         </div>
@@ -103,12 +109,14 @@ export default function ContactPage() {
                 <Card className="text-center hover:shadow-lg transition-shadow duration-300">
                   <CardContent className="p-6">
                     <info.icon className="w-12 h-12 text-extendia-accent mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{info.title}</h3>
-                    {info.href.startsWith('#') ? (
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {info.title}
+                    </h3>
+                    {info.href.startsWith("#") ? (
                       <p className="text-gray-600">{info.detail}</p>
                     ) : (
-                      <a 
-                        href={info.href} 
+                      <a
+                        href={info.href}
                         className="text-extendia-primary hover:text-extendia-accent transition-colors"
                       >
                         {info.detail}
@@ -130,9 +138,12 @@ export default function ContactPage() {
             >
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-gray-900">Request Your Free Quote</CardTitle>
+                  <CardTitle className="text-2xl text-gray-900">
+                    Request Your Free Quote
+                  </CardTitle>
                   <p className="text-gray-600">
-                    Fill out the form below and we&apos;ll get back to you within 24 hours with a detailed quote.
+                    Fill out the form below and we&apos;ll get back to you
+                    within 24 hours with a detailed quote.
                   </p>
                 </CardHeader>
                 <CardContent>
@@ -182,17 +193,24 @@ export default function ContactPage() {
                           id="projectType"
                           name="projectType"
                           required
-                          title="Project Type"
                           value={formData.projectType}
                           onChange={handleInputChange}
                           className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-extendia-primary"
                         >
                           <option value="">Select a service</option>
                           <option value="home-extension">Home Extension</option>
-                          <option value="loft-conversion">Loft Conversion</option>
-                          <option value="kitchen-renovation">Kitchen Renovation</option>
-                          <option value="bathroom-renovation">Bathroom Renovation</option>
-                          <option value="full-renovation">Full Home Renovation</option>
+                          <option value="loft-conversion">
+                            Loft Conversion
+                          </option>
+                          <option value="kitchen-renovation">
+                            Kitchen Renovation
+                          </option>
+                          <option value="bathroom-renovation">
+                            Bathroom Renovation
+                          </option>
+                          <option value="full-renovation">
+                            Full Home Renovation
+                          </option>
                           <option value="other">Other</option>
                         </select>
                       </div>
@@ -229,8 +247,8 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       className="w-full bg-extendia-accent hover:bg-extendia-accent/90 text-white text-lg py-3"
                     >
                       <Send className="w-5 h-5 mr-2" />
@@ -251,7 +269,9 @@ export default function ContactPage() {
               <div className="space-y-8">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">Why Choose Extendia?</CardTitle>
+                    <CardTitle className="text-xl text-gray-900">
+                      Why Choose Extendia?
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3 text-gray-600">
@@ -281,7 +301,9 @@ export default function ContactPage() {
 
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">What Happens Next?</CardTitle>
+                    <CardTitle className="text-xl text-gray-900">
+                      What Happens Next?
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
@@ -290,8 +312,13 @@ export default function ContactPage() {
                           1
                         </div>
                         <div>
-                          <h4 className="font-semibold text-gray-900">Initial Consultation</h4>
-                          <p className="text-gray-600 text-sm">We'll call you within 24 hours to discuss your project</p>
+                          <h4 className="font-semibold text-gray-900">
+                            Initial Consultation
+                          </h4>
+                          <p className="text-gray-600 text-sm">
+                            We'll call you within 24 hours to discuss your
+                            project
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-start">
@@ -299,8 +326,12 @@ export default function ContactPage() {
                           2
                         </div>
                         <div>
-                          <h4 className="font-semibold text-gray-900">Site Visit</h4>
-                          <p className="text-gray-600 text-sm">Free site survey and detailed measurements</p>
+                          <h4 className="font-semibold text-gray-900">
+                            Site Visit
+                          </h4>
+                          <p className="text-gray-600 text-sm">
+                            Free site survey and detailed measurements
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-start">
@@ -308,8 +339,12 @@ export default function ContactPage() {
                           3
                         </div>
                         <div>
-                          <h4 className="font-semibold text-gray-900">Detailed Quote</h4>
-                          <p className="text-gray-600 text-sm">Comprehensive quote with timeline and materials</p>
+                          <h4 className="font-semibold text-gray-900">
+                            Detailed Quote
+                          </h4>
+                          <p className="text-gray-600 text-sm">
+                            Comprehensive quote with timeline and materials
+                          </p>
                         </div>
                       </div>
                     </div>

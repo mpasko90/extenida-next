@@ -1,6 +1,5 @@
-
 import { motion } from "framer-motion";
-import { ArrowUp, Home } from "lucide-react";
+import { Home } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
@@ -24,7 +23,7 @@ const LoftConversionsSurbiton = () => {
               Loft Conversions in <span className="text-extendia-accent">Surbiton</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Family-focused loft conversions in Surbiton's residential community
+              Family-focused loft conversions in Surbiton&apos;s residential community
             </p>
             <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
               Get Free Quote
@@ -45,7 +44,7 @@ const LoftConversionsSurbiton = () => {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Surbiton Loft Conversions</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Surbiton's family-friendly environment makes loft conversions ideal for creating additional bedrooms, playrooms, or home offices. Our conversions focus on practical family needs while maintaining the character of this popular residential area.
+                Surbiton&apos;s family-friendly environment makes loft conversions ideal for creating additional bedrooms, playrooms, or home offices. Our conversions focus on practical family needs while maintaining the character of this popular residential area.
               </p>
             </motion.div>
           </div>

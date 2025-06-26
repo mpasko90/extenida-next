@@ -73,6 +73,7 @@ The navigation system consists of two main components:
 A comprehensive form for requesting service quotes.
 
 Features:
+
 - Form validation
 - File upload support
 - Auto-save functionality
@@ -83,6 +84,7 @@ Features:
 A simpler contact form for general inquiries.
 
 Features:
+
 - Email validation
 - Anti-spam protection
 - Custom error messages

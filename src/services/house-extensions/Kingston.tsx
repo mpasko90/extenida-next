@@ -1,6 +1,4 @@
-
 import { motion } from "framer-motion";
-import { Home, MapPin } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
@@ -19,7 +17,6 @@ const HouseExtensionsKingston = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <Home className="w-16 h-16 text-extendia-accent mx-auto mb-6" />
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               House Extensions in <span className="text-extendia-accent">Kingston</span>
             </h1>
