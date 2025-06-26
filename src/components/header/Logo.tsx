@@ -1,23 +1,30 @@
-
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Logo = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 0.2, duration: 0.5 }}
-      className="flex-shrink-0 relative"
-    >
-      <div className="absolute inset-0 bg-gradient-to-r from-extendia-primary to-extendia-accent rounded-full opacity-20 blur-sm animate-pulse"></div>
-      <Link 
-        to="/" 
-        className="relative text-3xl font-bold bg-gradient-to-r from-extendia-primary to-extendia-accent bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"
+    <Link href="/" className="flex items-center space-x-3">
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="flex items-center space-x-3"
       >
-        Extendia
-      </Link>
-    </motion.div>
+        <div className="relative">
+          <div className="w-12 h-12 bg-gradient-to-br from-extendia-primary to-extendia-accent rounded-xl flex items-center justify-center shadow-lg">
+            <span className="text-white font-bold text-xl">E</span>
+          </div>
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          />
+        </div>
+        <div className="hidden sm:block">
+          <h1 className="text-xl font-bold text-gray-900">Extendia</h1>
+          <p className="text-xs text-gray-600 font-medium">Building Excellence in London</p>
+        </div>
+      </motion.div>
+    </Link>
   );
 };
 

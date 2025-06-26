@@ -1,6 +1,5 @@
-
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -61,7 +60,7 @@ const DesktopNavigation = () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <Link 
-              to="/" 
+              href="/" 
               className="relative px-4 py-2 text-gray-700 hover:text-extendia-primary transition-colors duration-300 font-medium group overflow-hidden"
             >
               <span className="relative z-10">Home</span>
@@ -101,7 +100,7 @@ const DesktopNavigation = () => {
                       transition={{ delay: index * 0.1 }}
                     >
                       <Link
-                        to={service.href}
+                        href={service.href}
                         className="flex items-center px-4 py-3 text-gray-700 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/10 hover:to-extendia-accent/10 rounded-xl transition-all duration-300 group relative overflow-hidden"
                       >
                         <motion.div 
@@ -115,7 +114,7 @@ const DesktopNavigation = () => {
                           {service.locations.map((location) => (
                             <Link
                               key={location.href}
-                              to={location.href}
+                              href={location.href}
                               className="text-sm px-3 py-1 text-gray-600 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 rounded-lg transition-all duration-300"
                             >
                               {location.name}
@@ -134,7 +133,7 @@ const DesktopNavigation = () => {
                       {areas.map((area) => (
                         <Link
                           key={area.href}
-                          to={area.href}
+                          href={area.href}
                           className="text-sm px-3 py-1 text-gray-600 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 rounded-lg transition-all duration-300"
                         >
                           {area.name}
@@ -149,7 +148,7 @@ const DesktopNavigation = () => {
                       {resources.map((resource) => (
                         <Link
                           key={resource.href}
-                          to={resource.href}
+                          href={resource.href}
                           className="block text-sm px-3 py-1 text-gray-600 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 rounded-lg transition-all duration-300"
                         >
                           {resource.name}
@@ -165,7 +164,7 @@ const DesktopNavigation = () => {
           {["Portfolio", "Blog", "Contact"].map((item) => (
             <NavigationMenuItem key={item}>
               <Link 
-                to={`/${item.toLowerCase()}`}
+                href={`/${item.toLowerCase()}`}
                 className="relative px-4 py-2 text-gray-700 hover:text-extendia-primary transition-colors duration-300 font-medium group overflow-hidden"
               >
                 <span className="relative z-10">{item}</span>

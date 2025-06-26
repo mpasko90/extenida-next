@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -116,7 +116,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   animate="visible"
                 >
                   <Link 
-                    to={item.href} 
+                    href={item.href} 
                     className="block px-4 py-3 text-gray-700 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/10 hover:to-extendia-accent/10 rounded-xl transition-all duration-300 font-semibold relative group overflow-hidden"
                     onClick={onClose}
                   >
@@ -149,7 +149,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     transition={{ delay: 0.5 + index * 0.1 }}
                   >
                     <Link
-                      to={service.href}
+                      href={service.href}
                       className="flex items-center px-4 py-2 text-gray-600 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/10 hover:to-extendia-accent/10 rounded-lg transition-all duration-300 relative group overflow-hidden"
                       onClick={onClose}
                     >
@@ -175,7 +175,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 {services.map((service) => (
                   <div key={service.href}>
                     <Link
-                      to={service.href}
+                      href={service.href}
                       className="block px-4 py-2 text-gray-700 hover:text-extendia-primary transition-colors duration-300"
                       onClick={onClose}
                     >
@@ -186,7 +186,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         {service.locations.map((location) => (
                           <Link
                             key={location.href}
-                            to={location.href}
+                            href={location.href}
                             className="block px-4 py-1 text-sm text-gray-600 hover:text-extendia-primary transition-colors duration-300"
                             onClick={onClose}
                           >
@@ -211,7 +211,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 {areas.map((area) => (
                   <Link
                     key={area.href}
-                    to={area.href}
+                    href={area.href}
                     className="block px-4 py-2 text-gray-700 hover:text-extendia-primary transition-colors duration-300"
                     onClick={onClose}
                   >
@@ -232,7 +232,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 {resources.map((resource) => (
                   <Link
                     key={resource.href}
-                    to={resource.href}
+                    href={resource.href}
                     className="block px-4 py-2 text-gray-700 hover:text-extendia-primary transition-colors duration-300"
                     onClick={onClose}
                   >
@@ -285,7 +285,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   asChild 
                   className="w-full bg-gradient-to-r from-extendia-accent to-extendia-accent/90 hover:from-extendia-accent/90 hover:to-extendia-accent text-white py-3 rounded-xl font-semibold shadow-lg transition-all duration-300 relative overflow-hidden group"
                 >
-                  <Link to="/contact" onClick={onClose}>
+                  <Link href="/contact" onClick={onClose}>
                     <span className="relative z-10">Get Free Quote</span>
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10"
