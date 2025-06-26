@@ -1,8 +1,8 @@
-
 import { motion } from "framer-motion";
-import { CheckCircle, Users, Award, MapPin } from "lucide-react";
+import { CheckCircle, Award, MapPin } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const About = () => {
   const teamMembers = [
@@ -89,7 +89,7 @@ const About = () => {
                 covering everything from loft conversions to complete home renovations across South West London.
               </p>
               <p className="text-lg text-gray-600">
-                Today, we're proud to have completed over 500 successful projects, helping families create the homes 
+                Today, we&apos;re proud to have completed over 500 successful projects, helping families create the homes 
                 of their dreams while adding significant value to their properties.
               </p>
             </motion.div>
@@ -100,10 +100,11 @@ const About = () => {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <img 
+              <Image 
                 src="/placeholder.svg" 
                 alt="Extendia team working on home extension"
                 className="rounded-lg shadow-xl"
+                width={400} height={300}
               />
             </motion.div>
           </div>
@@ -140,10 +141,11 @@ const About = () => {
               >
                 <Card className="text-center hover:shadow-lg transition-shadow duration-300">
                   <CardContent className="p-6">
-                    <img 
+                    <Image 
                       src={member.image} 
                       alt={member.name}
                       className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+                      width={96} height={96}
                     />
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
                     <p className="text-extendia-primary font-semibold mb-2">{member.role}</p>

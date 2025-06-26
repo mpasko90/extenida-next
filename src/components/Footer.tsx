@@ -1,23 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Newsletter signup logic would go here
-    console.log("Newsletter signup:", email);
-    setEmail("");
-  };
-
   return (
     <>
       <div className="w-full h-2 bg-gradient-to-r from-extendia-primary/0 via-extendia-accent/60 to-extendia-primary/0 blur-[2px] opacity-80 mb-0" aria-hidden="true"></div>
@@ -68,9 +56,15 @@ const Footer = () => {
                 <li><span className="text-white/70 text-xs">Mon-Fri: 8:00-18:00</span></li>
               </ul>
               <div className="mt-4 flex gap-3">
-                <a href="https://www.checkatrade.com/trades/extendia" target="_blank" rel="noopener" aria-label="Checkatrade profile" className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent"><img src="/checkatrade.svg" alt="Checkatrade" className="h-8" /></a>
-                <a href="https://www.facebook.com/extendia" target="_blank" rel="noopener" aria-label="Facebook" className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent"><img src="/facebook.svg" alt="Facebook" className="h-8" /></a>
-                <a href="https://www.instagram.com/extendia" target="_blank" rel="noopener" aria-label="Instagram" className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent"><img src="/instagram.svg" alt="Instagram" className="h-8" /></a>
+                <a href="https://www.checkatrade.com/trades/extendia" target="_blank" rel="noopener" aria-label="Checkatrade profile" className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent">
+                  <Image src="/checkatrade.svg" alt="Checkatrade" className="h-8" width={32} height={32} />
+                </a>
+                <a href="https://www.facebook.com/extendia" target="_blank" rel="noopener" aria-label="Facebook" className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent">
+                  <Image src="/facebook.svg" alt="Facebook" className="h-8" width={32} height={32} />
+                </a>
+                <a href="https://www.instagram.com/extendia" target="_blank" rel="noopener" aria-label="Instagram" className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent">
+                  <Image src="/instagram.svg" alt="Instagram" className="h-8" width={32} height={32} />
+                </a>
               </div>
             </div>
           </div>

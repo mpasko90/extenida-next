@@ -1,55 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle, Users, Award, MapPin } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 /**
  * Strona "O nas" (Next.js App Router)
  * Zachowuje dotychczasowy wygląd i strukturę.
  */
 export default function AboutPage() {
-  const teamMembers = [
-    {
-      name: "James Richardson",
-      role: "Founder & Managing Director",
-      experience: "20+ years",
-      image: "/placeholder.svg",
-      description: "Expert in home extensions and project management with certified qualifications in construction."
-    },
-    {
-      name: "Sarah Thompson",
-      role: "Lead Architect",
-      experience: "15+ years",
-      image: "/placeholder.svg",
-      description: "Specializes in space optimization and planning permission applications for South West London."
-    },
-    {
-      name: "Michael Davies",
-      role: "Construction Manager",
-      experience: "18+ years",
-      image: "/placeholder.svg",
-      description: "Oversees all building work ensuring quality standards and timely project completion."
-    }
-  ];
-
-  const certifications = [
-    "Registered with Local Authority Building Control",
-    "Federation of Master Builders Member",
-    "Construction Skills Certification Scheme",
-    "£2M Public Liability Insurance",
-    "Health & Safety Executive Certified"
-  ];
-
-  const serviceAreas = [
-    "Wimbledon", "Richmond", "Putney", "Clapham", "Wandsworth", 
-    "Fulham", "Chelsea", "Battersea", "Barnes", "Raynes Park",
-    "New Malden", "Kingston", "Surbiton", "Twickenham"
-  ];
-
   return (
     <PageLayout 
       title="About Us" 

@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
+import Image from 'next/image';
 
 const BathroomGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -92,10 +92,11 @@ const BathroomGallery = () => {
               className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg"
               onClick={() => setSelectedImage(index)}
             >
-              <img 
+              <Image 
                 src={image.src} 
                 alt={image.alt}
                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                width={400} height={256}
               />
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
                 <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -117,14 +118,16 @@ const BathroomGallery = () => {
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+                title="Close gallery preview"
               >
                 <X className="w-8 h-8" />
               </button>
               
-              <img 
+              <Image 
                 src={galleryImages[selectedImage].src}
                 alt={galleryImages[selectedImage].alt}
                 className="max-w-full max-h-screen object-contain"
+                width={800} height={600}
               />
               
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 text-white">
@@ -136,6 +139,7 @@ const BathroomGallery = () => {
               <button
                 onClick={prevImage}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+                title="Previous image"
               >
                 <ChevronLeft className="w-8 h-8" />
               </button>
@@ -143,6 +147,7 @@ const BathroomGallery = () => {
               <button
                 onClick={nextImage}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+                title="Next image"
               >
                 <ChevronRight className="w-8 h-8" />
               </button>

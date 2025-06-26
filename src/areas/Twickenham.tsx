@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { MapPin, Shield, TreePine } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -44,7 +43,7 @@ const Twickenham = () => {
                 <CardTitle>Historic Character</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Preserving Twickenham's historic character while adding modern functionality</p>
+                <p className="text-gray-600">Preserving Twickenham&apos;s historic character while adding modern functionality</p>
               </CardContent>
             </Card>
             <Card>
