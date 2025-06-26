@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { MapPin, Trophy, TreePine } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -44,7 +43,7 @@ const Wimbledon = () => {
                 <CardTitle>Prestigious Area</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">High-end extensions befitting Wimbledon's prestigious reputation</p>
+                <p className="text-gray-600">High-end extensions befitting Wimbledon&apos;s prestigious reputation</p>
               </CardContent>
             </Card>
             <Card>

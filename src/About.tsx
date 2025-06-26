@@ -1,8 +1,8 @@
-
 import { motion } from "framer-motion";
-import { CheckCircle, Users, Award, MapPin } from "lucide-react";
+import { CheckCircle, Award, MapPin } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
 const About = () => {
   const teamMembers = [

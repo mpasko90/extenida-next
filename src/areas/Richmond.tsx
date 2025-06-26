@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { MapPin, Crown, TreePine } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -53,7 +52,7 @@ const Richmond = () => {
                 <CardTitle>Conservation Areas</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Expert navigation of Richmond's conservation area planning requirements</p>
+                <p className="text-gray-600">Expert navigation of Richmond&apos;s conservation area planning requirements</p>
               </CardContent>
             </Card>
             <Card>

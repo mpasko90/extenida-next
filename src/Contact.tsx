@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
@@ -126,7 +125,7 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="text-2xl text-gray-900">Request Your Free Quote</CardTitle>
                   <p className="text-gray-600">
-                    Fill out the form below and we'll get back to you within 24 hours with a detailed quote.
+                    Fill out the form below and we&apos;ll get back to you within 24 hours with a detailed quote.
                   </p>
                 </CardHeader>
                 <CardContent>
@@ -176,6 +175,7 @@ const Contact = () => {
                           id="projectType"
                           name="projectType"
                           required
+                          title="Project Type"
                           value={formData.projectType}
                           onChange={handleInputChange}
                           className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-extendia-primary"
@@ -196,6 +196,7 @@ const Contact = () => {
                       <select
                         id="budget"
                         name="budget"
+                        title="Budget"
                         value={formData.budget}
                         onChange={handleInputChange}
                         className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-extendia-primary"

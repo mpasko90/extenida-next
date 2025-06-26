@@ -1,9 +1,9 @@
-
 import { motion } from "framer-motion";
 import { MapPin, Home, Users, TrendingUp } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const KingstonUponThames = () => {
   const areaStats = [
@@ -100,7 +100,7 @@ const KingstonUponThames = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Services in Kingston</h2>
-            <p className="text-lg text-gray-600">Specialized services tailored to Kingston's unique property characteristics</p>
+            <p className="text-lg text-gray-600">Specialized services tailored to Kingston&apos;s unique property characteristics</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -157,10 +157,11 @@ const KingstonUponThames = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <img 
+              <Image 
                 src="/placeholder.svg" 
                 alt="Kingston Upon Thames property"
                 className="rounded-lg shadow-xl"
+                width={400} height={300}
               />
             </motion.div>
           </div>

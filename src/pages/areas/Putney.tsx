@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { MapPin, Users, TrendingUp } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -44,7 +43,7 @@ const Putney = () => {
                 <CardTitle>Local Knowledge</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Deep understanding of Putney's architecture and planning requirements</p>
+                <p className="text-gray-600">Deep understanding of Putney&apos;s architecture and planning requirements</p>
               </CardContent>
             </Card>
             <Card>
@@ -53,7 +52,7 @@ const Putney = () => {
                 <CardTitle>Property Value</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Maximizing your investment in Putney's thriving property market</p>
+                <p className="text-gray-600">Maximizing your investment in Putney&apos;s thriving property market</p>
               </CardContent>
             </Card>
             <Card>

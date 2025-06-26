@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { MapPin, Home, Users } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -25,7 +24,7 @@ const Surbiton = () => {
               Building in <span className="text-extendia-accent">Surbiton</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Quality home extensions in Surbiton's family-friendly community
+              Quality home extensions in Surbiton&apos;s family-friendly community
             </p>
             <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
               Get Free Consultation
@@ -53,7 +52,7 @@ const Surbiton = () => {
                 <CardTitle>Community Focus</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Understanding Surbiton's community values and architectural character</p>
+                <p className="text-gray-600">Understanding Surbiton&apos;s community values and architectural character</p>
               </CardContent>
             </Card>
             <Card>
