@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calculator, Home, ArrowUp, ChefHat, Bath } from "lucide-react";
+import { Calculator } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -183,7 +183,7 @@ const CostCalculator = () => {
               {/* Cost Breakdown Info */}
               <Card className="mt-6 p-6">
                 <CardHeader>
-                  <CardTitle className="text-lg text-gray-900">What's Included?</CardTitle>
+                  <CardTitle className="text-lg text-gray-900">What&apos;s Included?</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 text-gray-600">

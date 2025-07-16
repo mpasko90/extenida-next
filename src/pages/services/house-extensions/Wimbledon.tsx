@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Home, Trophy } from "lucide-react";
+import { Trophy } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
@@ -45,7 +45,7 @@ const HouseExtensionsWimbledon = () => {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Wimbledon House Extensions</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Wimbledon's prestigious reputation demands the highest standards in home improvements. Our house extensions match the championship quality expectations of this world-famous location, creating elegant additions that enhance property values and lifestyle.
+                Wimbledon&apos;s prestigious reputation demands the highest standards in home improvements. Our house extensions match the championship quality expectations of this world-famous location, creating elegant additions that enhance property values and lifestyle.
               </p>
             </motion.div>
           </div>

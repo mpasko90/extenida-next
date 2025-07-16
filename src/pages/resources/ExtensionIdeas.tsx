@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Lightbulb, Home, ArrowRight, Heart } from "lucide-react";
+import { Lightbulb, ArrowRight, Heart } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -140,7 +140,7 @@ const ExtensionIdeas = () => {
               Ready to Create Your <span className="text-extendia-accent">Dream Extension?</span>
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Let's discuss your vision and create a bespoke extension design that perfectly suits your home and lifestyle.
+              Let&apos;s discuss your vision and create a bespoke extension design that perfectly suits your home and lifestyle.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3 text-lg">

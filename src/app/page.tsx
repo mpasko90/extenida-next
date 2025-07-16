@@ -21,7 +21,7 @@ export default function HomePage() {
       className="min-h-screen"
     >
       <Header />
-      <main>
+      <main className="pt-16">
         <HeroSection />
         <ServicesSection />
         <TestimonialsSection />

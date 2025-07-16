@@ -230,7 +230,7 @@ const Portfolio = () => {
               Ready to Start Your <span className="text-extendia-accent">Dream Project?</span>
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Let's discuss how we can transform your home with the same quality and attention to detail.
+              Let&apos;s discuss how we can transform your home with the same quality and attention to detail.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3 text-lg">

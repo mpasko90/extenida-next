@@ -17,12 +17,17 @@ export default {
 			screens: {
 				'2xl': '1400px'
 			}
-		},
-		extend: {
-			fontFamily: {
-				inter: ['Inter', 'sans-serif'],
-				sans: ['Inter', 'sans-serif'],
-			},
+		},			extend: {
+				fontFamily: {
+					inter: ['Inter', 'sans-serif'],
+					sans: ['Inter', 'sans-serif'],
+				},
+				textShadow: {
+					DEFAULT: '0 1px 2px rgba(0, 0, 0, 0.2)',
+					sm: '0 1px 1px rgba(0, 0, 0, 0.1)',
+					md: '0 2px 4px rgba(0, 0, 0, 0.2)',
+					lg: '0 4px 8px rgba(0, 0, 0, 0.2)',
+				},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

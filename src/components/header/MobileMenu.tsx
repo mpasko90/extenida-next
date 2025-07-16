@@ -9,6 +9,12 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
+  // Handle keyboard navigation
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      onClose();
+    }
+  };
   const services = [
     { 
       name: "Home Extensions", 
@@ -85,6 +91,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           animate="visible"
           exit="hidden"
           className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50 rounded-b-2xl shadow-xl relative"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation menu"
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-extendia-primary/5 to-extendia-accent/5"></div>
           <motion.div
@@ -117,8 +128,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 >
                   <Link 
                     href={item.href} 
-                    className="block px-4 py-3 text-gray-700 hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/10 hover:to-extendia-accent/10 rounded-xl transition-all duration-300 font-semibold relative group overflow-hidden"
+                    className="block px-4 py-3 text-white hover:text-extendia-primary hover:bg-gradient-to-r hover:from-extendia-primary/10 hover:to-extendia-accent/10 rounded-xl transition-all duration-300 font-semibold relative group overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent text-shadow-md"
                     onClick={onClose}
+                    role="menuitem"
+                    aria-label={`${item.name} page`}
+                    tabIndex={0}
                   >
                     <span className="relative z-10">{item.name}</span>
                     <motion.div

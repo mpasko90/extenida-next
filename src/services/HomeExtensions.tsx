@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { CheckCircle, Home, Clock, DollarSign, Users } from "lucide-react";
+import { CheckCircle, Clock, DollarSign } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -59,7 +59,7 @@ const HomeExtensions = () => {
   ];
 
   const benefits = [
-    "Increase your home's value by 15-20%",
+    "Increase your home&apos;s value by 15-20%",
     "Avoid the stress and cost of moving house",
     "Custom design to match your exact needs",
     "Minimal disruption to daily life",

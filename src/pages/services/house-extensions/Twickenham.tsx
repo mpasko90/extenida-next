@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Home, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
@@ -45,7 +45,7 @@ const HouseExtensionsTwickenham = () => {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Twickenham House Extensions</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Home to the world's most famous rugby stadium, Twickenham combines historic charm with community spirit. Our house extensions respect the area's heritage while providing robust, well-built additions that match the strength and character of this iconic location.
+                Home to the world&apos;s most famous rugby stadium, Twickenham combines historic charm with community spirit. Our house extensions respect the area&apos;s heritage while providing robust, well-built additions that match the strength and character of this iconic location.
               </p>
             </motion.div>
           </div>

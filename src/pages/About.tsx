@@ -179,7 +179,7 @@ const About = () => {
                 and memberships to ensure the highest standards of work.
               </p>
               <div className="space-y-4">
-                {certifications.map((cert, index) => (
+                {certifications.map((cert) => (
                   <div key={cert} className="flex items-start">
                     <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">{cert}</span>

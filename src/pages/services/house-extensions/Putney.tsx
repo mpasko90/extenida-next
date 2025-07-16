@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Home, MapPin } from "lucide-react";
+import { Home } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
@@ -45,7 +45,7 @@ const HouseExtensionsPutney = () => {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Putney House Extensions</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Putney's riverside location requires specialized knowledge for house extensions. Our team understands flood risk assessments, Thames-side building regulations, and the unique challenges of extending properties near the river.
+                Putney&apos;s riverside location requires specialized knowledge for house extensions. Our team understands flood risk assessments, Thames-side building regulations, and the unique challenges of extending properties near the river.
               </p>
             </motion.div>
           </div>

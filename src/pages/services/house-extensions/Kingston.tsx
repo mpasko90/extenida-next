@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Home, MapPin } from "lucide-react";
+import { Home } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 

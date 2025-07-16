@@ -31,10 +31,13 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Animated Background */}
       <motion.div
-        className="absolute inset-0 z-0 bg-extendia-secondary"
+        className="absolute inset-0 z-0"
         animate={{
-          opacity: [0.9, 1, 0.9],
-          scale: [1, 1.02, 1]
+          background: [
+            "linear-gradient(135deg, var(--extendia-primary) 0%, var(--extendia-secondary) 50%, var(--extendia-accent) 100%)",
+            "linear-gradient(225deg, var(--extendia-accent) 0%, var(--extendia-secondary) 50%, var(--extendia-primary) 100%)",
+            "linear-gradient(315deg, var(--extendia-primary) 0%, var(--extendia-accent) 50%, var(--extendia-secondary) 100%)"
+          ]
         }}
         transition={{
           duration: 10,
@@ -44,72 +47,22 @@ const HeroSection = () => {
       />
 
       {/* Floating Patterns */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
-        {/* Technical paper grid - vertical lines */}
-        {[...Array(20)].map((_, i) => (
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Large floating circles */}
+        {[...Array(12)].map((_, i) => (
           <motion.div
-            key={`grid-v-${i}`}
-            className="absolute h-full w-px bg-white/20"
+            key={i}
+            className="absolute w-24 h-24 border-2 border-white/10 rounded-full"
             style={{
-              left: `${i * 5}%`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
             }}
             animate={{
-              opacity: [0.2, 0.3, 0.2],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.1,
-            }}
-          />
-        ))}
-
-        {/* Technical paper grid - horizontal lines */}
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={`grid-h-${i}`}
-            className="absolute w-full h-px bg-white/20"
-            style={{
-              top: `${i * 5}%`,
-            }}
-            animate={{
-              opacity: [0.2, 0.3, 0.2],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.1,
-            }}
-          />
-        ))}
-
-        {/* Diagonal technical lines */}
-        {[
-          { left: -10, top: 10, width: 400, rotate: 45 },
-          { left: 30, top: 20, width: 400, rotate: -30 },
-          { left: 50, top: 40, width: 350, rotate: 15 },
-          { left: 20, top: 60, width: 400, rotate: -45 },
-          { left: 60, top: 70, width: 350, rotate: 30 },
-          { left: 40, top: 30, width: 400, rotate: -15 },
-          { left: 70, top: 50, width: 350, rotate: 60 },
-          { left: 10, top: 80, width: 400, rotate: -60 },
-          { left: 80, top: 90, width: 350, rotate: 45 },
-          { left: 90, top: 20, width: 400, rotate: -30 }
-        ].map((line, i) => (
-          <motion.div
-            key={`line-${i}`}
-            className="absolute h-px bg-gradient-to-r from-white/30 via-white/40 to-white/30"
-            style={{
-              left: `${line.left}%`,
-              top: `${line.top}%`,
-              width: line.width,
-              transform: `rotate(${line.rotate}deg)`,
-            }}
-            animate={{
-              opacity: [0.3, 0.4, 0.3],
-              scaleX: [1, 1.05, 1],
+              y: [0, -30, 0],
+              x: [0, Math.random() * 30 - 15, 0],
+              rotate: [0, 360],
+              scale: [0.8, 1.2, 0.8],
+              opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
               duration: 8 + i * 0.5,
@@ -120,70 +73,33 @@ const HeroSection = () => {
           />
         ))}
 
-        {/* Technical corner elements */}
-        {[
-          { left: 5, top: 5 },
-          { right: 5, top: 5 },
-          { left: 5, bottom: 5 },
-          { right: 5, bottom: 5 }
-        ].map((corner, i) => (
-          <motion.div
-            key={`corner-${i}`}
-            className="absolute w-48 h-48 border-2 border-white/20"
-            style={{
-              ...corner,
-              borderWidth: "2px 0 0 2px",
-              transform: `rotate(${i * 90}deg)`,
-              transformOrigin: Object.keys(corner)[0] === "left" ? 
-                (Object.keys(corner)[1] === "top" ? "0 0" : "0 100%") : 
-                (Object.keys(corner)[1] === "top" ? "100% 0" : "100% 100%")
-            }}
-            animate={{
-              opacity: [0.2, 0.3, 0.2],
-              scale: [1, 1.05, 1],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.5,
-            }}
-          />
-        ))}
-
-        {/* Blueprint grid marks */}
+        {/* Smaller decorative elements */}
         {[...Array(8)].map((_, i) => (
           <motion.div
-            key={`grid-${i}`}
-            className="absolute flex items-center justify-center"
+            key={`shape-${i}`}
+            className="absolute w-8 h-8 bg-gradient-to-r from-extendia-accent to-extendia-primary rounded-lg opacity-20"
             style={{
-              left: `${15 + (i * 10)}%`,
-              top: `${Math.sin(i) * 20 + 50}%`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
             }}
-          >
-            <motion.div
-              className="w-6 h-6 border border-white/10"
-              style={{
-                transform: `rotate(45deg)`,
-              }}
-              animate={{
-                opacity: [0.1, 0.3, 0.1],
-                scale: [1, 1.2, 1],
-                rotate: ["45deg", "135deg", "45deg"]
-              }}
-              transition={{
-                duration: 10,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 0.4,
-              }}
-            />
-          </motion.div>
+            animate={{
+              y: [0, -40, 0],
+              x: [0, Math.random() * 40 - 20, 0],
+              rotate: [0, 180],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: 6 + i * 0.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.3,
+            }}
+          />
         ))}
       </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-extendia-primary/40 to-extendia-secondary/60 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-extendia-primary/40 via-transparent to-extendia-accent/40 z-10" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-20">
         <div className="flex justify-center">

@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowUp, Crown } from "lucide-react";
+import { Crown } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
@@ -24,7 +24,7 @@ const LoftConversionsRichmond = () => {
               Loft Conversions in <span className="text-extendia-accent">Richmond</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Heritage-sensitive loft conversions in Richmond's conservation areas
+              Heritage-sensitive loft conversions in Richmond&apos;s conservation areas
             </p>
             <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
               Get Free Quote
@@ -45,7 +45,7 @@ const LoftConversionsRichmond = () => {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Richmond Loft Conversions</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Richmond's Georgian and Victorian properties require sensitive loft conversions that respect architectural heritage. Our team specializes in conservation area requirements and Listed Building considerations while creating beautiful additional living spaces.
+                Richmond&apos;s Georgian and Victorian properties require sensitive loft conversions that respect architectural heritage. Our team specializes in conservation area requirements and Listed Building considerations while creating beautiful additional living spaces.
               </p>
             </motion.div>
           </div>
