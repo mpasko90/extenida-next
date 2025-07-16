@@ -1,13 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+
 import PageLayout from "@/components/PageLayout";
+
 
 /**
  * Strona "O nas" (Next.js App Router)
  * Zachowuje dotychczasowy wygląd i strukturę.
  */
 export default function AboutPage() {
+  
+
   return (
     <PageLayout 
       title="About Us" 

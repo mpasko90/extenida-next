@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/header/Logo";
 import DesktopNavigation from "@/components/header/DesktopNavigation";
@@ -27,11 +27,11 @@ const Header = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 transition-colors
-        ${isScrolled
-          ? 'bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-lg shadow-black/5'
-          : 'bg-transparent border-b border-transparent'}
-      `}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? 'bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-lg shadow-black/5' 
+          : 'bg-transparent'
+      }`}
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -63,7 +63,7 @@ const Header = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center justify-between h-20">
-          <Logo variant={isScrolled ? "navy" : "white"} />
+          <Logo />
           <DesktopNavigation />
 
           {/* Contact Info & CTA */}
@@ -78,7 +78,7 @@ const Header = () => {
                 asChild 
                 className="relative bg-gradient-to-r from-extendia-accent to-extendia-accent/90 hover:from-extendia-accent/90 hover:to-extendia-accent text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
-                <Link href="/contact">
+                <Link href="/contact" className="block">
                   <span className="relative z-10">Get Free Quote</span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10"

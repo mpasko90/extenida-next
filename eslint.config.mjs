@@ -1,16 +1,38 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
 
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import tseslint from "typescript-eslint";
+import pluginReact from "eslint-plugin-react";
+import { FlatCompat } from "@eslint/eslintrc";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+    baseDirectory: __dirname,
 });
 
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+export default [
+  {ignores: [".next/", "dist/"]},
+  {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
+  {languageOptions: { globals: {...globals.browser, ...globals.node} }},
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...compat.extends("next/core-web-vitals"),
+  {
+    files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
+    plugins: {
+      react: pluginReact,
+    },
+    languageOptions: {
+      ...pluginReact.configs.recommended.languageOptions,
+    },
+    rules: {
+        ...pluginReact.configs.recommended.rules,
+      "react/react-in-jsx-scope": "off",
+    },
+  },
 ];
-
-export default eslintConfig;
