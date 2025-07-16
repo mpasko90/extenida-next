@@ -215,7 +215,7 @@ const LoftConversions = () => {
               </h2>
               <p className="text-lg text-gray-600 mb-8">
                 Loft conversions are one of the most cost-effective ways to add space and value to your home, 
-                utilizing space that's already there but currently unused.
+                utilizing space that&apos;s already there but currently unused.
               </p>
               <div className="space-y-4">
                 {benefits.map((benefit) => (

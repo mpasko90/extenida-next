@@ -285,7 +285,7 @@ const Contact = () => {
                         </div>
                         <div>
                           <h4 className="font-semibold text-gray-900">Initial Consultation</h4>
-                          <p className="text-gray-600 text-sm">We'll call you within 24 hours to discuss your project</p>
+                          <p className="text-gray-600 text-sm">We&apos;ll call you within 24 hours to discuss your project</p>
                         </div>
                       </div>
                       <div className="flex items-start">

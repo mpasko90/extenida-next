@@ -143,7 +143,7 @@ const KingstonUponThames = () => {
                 Why Choose Us for Your <span className="text-extendia-accent">Kingston Project?</span>
               </h2>
               <div className="space-y-4 text-gray-600">
-                <p>• Deep understanding of Kingston's Victorian and Edwardian architecture</p>
+                <p>• Deep understanding of Kingston&apos;s Victorian and Edwardian architecture</p>
                 <p>• Established relationships with Kingston Council planning department</p>
                 <p>• Knowledge of local conservation areas and planning restrictions</p>
                 <p>• Experience with typical Kingston property layouts and potential</p>

@@ -100,7 +100,7 @@ const KingstonUponThames = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Services in Kingston</h2>
-            <p className="text-lg text-gray-600">Specialized services tailored to Kingston's unique property characteristics</p>
+            <p className="text-lg text-gray-600">Specialized services tailored to Kingston&apos;s unique property characteristics</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -143,7 +143,7 @@ const KingstonUponThames = () => {
                 Why Choose Us for Your <span className="text-extendia-accent">Kingston Project?</span>
               </h2>
               <div className="space-y-4 text-gray-600">
-                <p>• Deep understanding of Kingston's Victorian and Edwardian architecture</p>
+                <p>• Deep understanding of Kingston&apos;s Victorian and Edwardian architecture</p>
                 <p>• Established relationships with Kingston Council planning department</p>
                 <p>• Knowledge of local conservation areas and planning restrictions</p>
                 <p>• Experience with typical Kingston property layouts and potential</p>

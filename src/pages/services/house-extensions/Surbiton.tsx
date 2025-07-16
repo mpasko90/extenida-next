@@ -24,7 +24,7 @@ const HouseExtensionsSurbiton = () => {
               House Extensions in <span className="text-extendia-accent">Surbiton</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Family-focused house extensions in Surbiton's residential community
+              Family-focused house extensions in Surbiton&apos;s residential community
             </p>
             <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
               Get Free Quote
@@ -45,7 +45,7 @@ const HouseExtensionsSurbiton = () => {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Surbiton House Extensions</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Surbiton's family-friendly community values quality and reliability in home improvements. Our house extensions focus on creating additional space for growing families while maintaining the character of this sought-after residential area.
+                Surbiton&apos;s family-friendly community values quality and reliability in home improvements. Our house extensions focus on creating additional space for growing families while maintaining the character of this sought-after residential area.
               </p>
             </motion.div>
           </div>

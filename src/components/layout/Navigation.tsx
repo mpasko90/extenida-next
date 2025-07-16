@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -42,18 +44,20 @@ export const Navigation = () => {
           <div key={item.href} className="relative group">
             <Link
               href={item.href}
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="font-medium px-3 py-2 rounded-lg transition-all duration-300 text-white hover:text-extendia-accent text-shadow-md hover:bg-white/10"
+              aria-expanded={item.submenu ? "false" : undefined}
+              aria-haspopup={item.submenu ? "true" : undefined}
             >
               {item.title}
             </Link>
 
             {item.submenu && (
-              <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+              <div className="absolute left-0 mt-2 w-48 bg-gray-800/95 backdrop-blur-sm rounded-md shadow-lg py-1 z-10 hidden group-hover:block border border-gray-700/50">
                 {item.submenu.map((subItem) => (
                   <Link
                     key={subItem.href}
                     href={subItem.href}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    className="block px-4 py-2 text-sm text-gray-100 hover:text-extendia-accent hover:bg-gray-700/50"
                   >
                     {subItem.title}
                   </Link>
@@ -68,7 +72,9 @@ export const Navigation = () => {
       <div className="md:hidden">
         <button
           onClick={toggleMenu}
-          className="text-gray-500 hover:text-gray-700 focus:outline-none"
+          className="text-white hover:text-extendia-accent focus:outline-none"
+          aria-label="Toggle mobile menu"
+          title="Toggle mobile menu"
         >
           <svg
             className="h-6 w-6"
@@ -97,35 +103,39 @@ export const Navigation = () => {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-16 inset-x-0 z-50 bg-white shadow-md">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {menuItems.map((item) => (
-              <div key={item.href}>
-                <Link
-                  href={item.href}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.title}
-                </Link>
+        <div 
+          className="md:hidden absolute top-16 inset-x-0 z-50 bg-extendia-secondary shadow-lg border-t border-gray-200/10"
+        >
+          <nav aria-label="Mobile menu">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {menuItems.map((item) => (
+                <div key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="block px-3 py-2 text-base font-medium text-white hover:text-extendia-accent hover:bg-white/10 rounded-lg"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.title}
+                  </Link>
 
-                {item.submenu && (
-                  <div className="pl-6 space-y-1">
-                    {item.submenu.map((subItem) => (
-                      <Link
-                        key={subItem.href}
-                        href={subItem.href}
-                        className="block px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {subItem.title}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+                  {item.submenu && (
+                    <div className="pl-6 space-y-1">
+                      {item.submenu.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          href={subItem.href}
+                          className="block px-3 py-2 text-sm font-medium text-white/80 hover:text-extendia-accent hover:bg-white/10 rounded-lg"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {subItem.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </nav>
         </div>
       )}
     </nav>

@@ -4,7 +4,7 @@ import PageLayout from "@/components/PageLayout";
 
 const Terms = () => {
   return (
-    <PageLayout title="Terms of Service" description="Extendia's Terms of Service - Terms and conditions for using our services.">
+    <PageLayout title="Terms of Service" description="Extendia&apos;s Terms of Service - Terms and conditions for using our services.">
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <motion.div
@@ -51,7 +51,7 @@ const Terms = () => {
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Liability</h2>
               <p className="text-gray-600 mb-4">
                 Our liability is limited to the value of work performed. We maintain appropriate 
-                insurance coverage including public liability and employer's liability insurance.
+                insurance coverage including public liability and employer&apos;s liability insurance.
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Cancellation</h2>

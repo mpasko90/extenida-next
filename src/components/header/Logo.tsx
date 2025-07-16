@@ -27,8 +27,7 @@ const Logo = ({ variant = "navy" }: LogoProps) => {
           priority
         />
         <div className="hidden sm:block">
-          <h1 className={`text-xl font-bold ${variant === "white" ? "text-white" : "text-gray-900"}`}>Extendia</h1>
-          <p className={`text-xs font-medium ${variant === "white" ? "text-gray-200" : "text-gray-600"}`}>Building Excellence in London</p>
+          <h1 className={`text-2xl font-bold ${variant === "white" ? "text-white" : "text-gray-900"}`}>Extendia</h1>
         </div>
       </motion.div>
     </Link>

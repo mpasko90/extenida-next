@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { CheckCircle, Home, Clock, DollarSign, Users } from "lucide-react";
+import { CheckCircle, Clock, DollarSign } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

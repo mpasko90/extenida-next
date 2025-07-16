@@ -89,7 +89,7 @@ const About = () => {
                 covering everything from loft conversions to complete home renovations across South West London.
               </p>
               <p className="text-lg text-gray-600">
-                Today, we're proud to have completed over 500 successful projects, helping families create the homes 
+                Today, we&apos;re proud to have completed over 500 successful projects, helping families create the homes 
                 of their dreams while adding significant value to their properties.
               </p>
             </motion.div>

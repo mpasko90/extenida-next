@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Home, Crown } from "lucide-react";
+import { Crown } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
@@ -24,7 +24,7 @@ const HouseExtensionsRichmond = () => {
               House Extensions in <span className="text-extendia-accent">Richmond</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Heritage-sensitive house extensions in Richmond's conservation areas
+              Heritage-sensitive house extensions in Richmond&apos;s conservation areas
             </p>
             <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
               Get Free Quote
@@ -45,7 +45,7 @@ const HouseExtensionsRichmond = () => {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Richmond House Extensions</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Richmond's Georgian and Victorian architecture requires careful consideration for extensions. Our expertise in conservation areas and Listed Building requirements ensures your extension complements the historic character while adding modern functionality.
+                Richmond&apos;s Georgian and Victorian architecture requires careful consideration for extensions. Our expertise in conservation areas and Listed Building requirements ensures your extension complements the historic character while adding modern functionality.
               </p>
             </motion.div>
           </div>

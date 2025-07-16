@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowUp, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
@@ -45,7 +45,7 @@ const LoftConversionsTwickenham = () => {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Twickenham Loft Conversions</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Twickenham's strong community spirit is reflected in our robust, well-built loft conversions. From riverside properties to historic homes near the stadium, we create durable conversions that match the strength and character of rugby's spiritual home.
+                Twickenham&apos;s strong community spirit is reflected in our robust, well-built loft conversions. From riverside properties to historic homes near the stadium, we create durable conversions that match the strength and character of rugby&apos;s spiritual home.
               </p>
             </motion.div>
           </div>

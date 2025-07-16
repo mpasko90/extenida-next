@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowUp, Trophy } from "lucide-react";
+import { Trophy } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 
@@ -45,7 +45,7 @@ const LoftConversionsWimbledon = () => {
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Wimbledon Loft Conversions</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Wimbledon's prestigious status demands the highest quality loft conversions. Our championship-standard work creates elegant additional living spaces that enhance both property values and lifestyle in this world-famous tennis location.
+                Wimbledon&apos;s prestigious status demands the highest quality loft conversions. Our championship-standard work creates elegant additional living spaces that enhance both property values and lifestyle in this world-famous tennis location.
               </p>
             </motion.div>
           </div>
