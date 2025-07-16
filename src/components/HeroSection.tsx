@@ -378,7 +378,7 @@ const HeroSection = () => {
                       ))}
                     </div>
                     <p className="text-sm text-gray-100">
-                      "Extendia delivered our house extension in Kingston on time and on budget. Highly recommend for any project in South West London!"
+                                            &quot;Extendia delivered our house extension in Kingston on time and on budget. Highly recommend for any project in South West London!&quot;
                     </p>
                     <p className="text-xs text-gray-200 mt-1">- Sarah M., Kingston</p>
                   </div>
