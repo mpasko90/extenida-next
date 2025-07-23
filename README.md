@@ -1,4 +1,4 @@
-# Extenida Next
+# Extendia Next
 
 ## Overview
 

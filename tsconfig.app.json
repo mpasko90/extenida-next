@@ -23,9 +23,10 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"]
     },
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"]
+  "include": ["app", "components", "lib", "types", "features", "hooks"],
+  "exclude": ["src"]
 }
