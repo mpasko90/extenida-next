@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Extendia Design System */
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217 35% 38%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* Extendia Custom Colors */
+    --extendia-primary: 220 45% 47%; /* #3A6AB0 */
+    --extendia-secondary: 217 35% 38%; /* #3F577B */
+    --extendia-accent: 38 95% 56%; /* #F59E0B */
+    --extendia-card: 217 45% 70%; /* #97B1D6 */
+    --extendia-text-primary: 0 0% 100%; /* #FFFFFF */
+    --extendia-text-secondary: 0 0% 73%; /* #B9B9B9 */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  /* Ensure no white flash during header animation */
+  html {
+    background-color: hsl(var(--extendia-primary));
+    scroll-behavior: smooth;
+  }
+}
+
+/* Extendia Custom Utilities */
+@layer utilities {
+  .text-extendia-primary {
+    color: hsl(var(--extendia-text-primary));
+  }
+  
+  .text-extendia-secondary {
+    color: hsl(var(--extendia-text-secondary));
+  }
+  
+  .bg-extendia-primary {
+    background-color: hsl(var(--extendia-primary));
+  }
+  
+  .bg-extendia-secondary {
+    background-color: hsl(var(--extendia-secondary));
+  }
+  
+  .bg-extendia-accent {
+    background-color: hsl(var(--extendia-accent));
+  }
+  
+  .bg-extendia-card {
+    background-color: hsl(var(--extendia-card));
+  }
+
+  /* Text shadows for navigation */
+  .nav-text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .nav-text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .nav-text-shadow-md {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  }
+  
+  .nav-text-shadow-light {
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  }
+}
