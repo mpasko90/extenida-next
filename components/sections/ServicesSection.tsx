@@ -74,7 +74,7 @@ const ServicesSection = () => {
     }
   };
 
-  // Zamiast Math.random, ustal deterministyczne pozycje dla 12 kropek
+  // Instead of Math.random, set deterministic positions for 12 dots
   const dotPositions = [
     { left: "10%", top: "20%" },
     { left: "30%", top: "40%" },

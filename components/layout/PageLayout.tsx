@@ -2,8 +2,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -25,9 +23,7 @@ const PageLayout = ({ children, title, description }: PageLayoutProps) => {
           <meta name="description" content={description} />
         </>
       )}
-      <Header />
-      <main>{children}</main>
-      <Footer />
+      <main className="pt-20">{children}</main>
     </motion.div>
   );
 };

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -42,7 +42,6 @@ const DesktopNavigation = () => {
     { name: "Kitchen Renovations", href: "/services/KitchenRenovations" },
     { name: "Bathroom Renovations", href: "/services/BathroomRenovations" },
     { name: "Bathrooms", href: "/services/Bathrooms" },
-    { name: "Patios & Driveways", href: "/services/PatiosDriveways" },
   ];
 
   const areas = [
@@ -76,6 +75,25 @@ const DesktopNavigation = () => {
               role="menuitem"
             >
               <span className="relative z-10">Home</span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10 rounded-lg pointer-events-none"
+                initial={{ scale: 0, opacity: 0 }}
+                whileHover={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              />
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-extendia-primary to-extendia-accent transition-all duration-300 hover:w-full rounded-xl"></span>
+            </Link>
+          </NavigationMenuItem>
+
+          <NavigationMenuItem>
+            <Link 
+              href="/journey"
+              aria-current={pathname === "/journey" ? "page" : undefined}
+              aria-label="Your Journey page"
+              className={`relative px-4 py-2 text-white hover:text-extendia-accent transition-colors duration-300 font-medium overflow-hidden rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 drop-shadow-lg hover:drop-shadow-xl nav-text-shadow ${pathname === "/journey" ? "text-extendia-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-extendia-primary after:to-extendia-accent after:rounded-xl after:transition-all after:duration-300" : ""}`}
+              role="menuitem"
+            >
+              <span className="relative z-10">Your Journey</span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10 rounded-lg pointer-events-none"
                 initial={{ scale: 0, opacity: 0 }}

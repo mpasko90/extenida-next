@@ -34,11 +34,6 @@ export const Footer = () => {
                   Party Wall Surveys
                 </Link>
               </li>
-              <li>
-                <Link href="/services/driveways" className="text-gray-300 hover:text-white">
-                  Driveways & Patios
-                </Link>
-              </li>
             </ul>
           </div>
 

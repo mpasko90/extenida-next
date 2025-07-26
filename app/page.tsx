@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HeroSection, ServicesSection, TestimonialsSection, FAQSection } from "@/components/sections";
+import { HeroSection, WhyChooseUsSection, ServicesSection, TestimonialsSection, AwardsSection, FAQSection } from "@/components/sections";
 
 /**
- * Strona główna (Next.js App Router)
- * Zachowuje dotychczasowy wygląd i strukturę.
+ * Home page (Next.js App Router)
+ * Maintains the current layout and structure.
  */
 export default function HomePage() {
   return (
@@ -17,8 +17,10 @@ export default function HomePage() {
     >
       <main className="pt-20">
         <HeroSection />
+        <WhyChooseUsSection />
         <ServicesSection />
         <TestimonialsSection />
+        <AwardsSection />
         <FAQSection />
       </main>
     </motion.div>

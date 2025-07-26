@@ -45,7 +45,6 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     { name: "Kitchen Renovations", href: "/services/KitchenRenovations" },
     { name: "Bathroom Renovations", href: "/services/BathroomRenovations" },
     { name: "Bathrooms", href: "/services/Bathrooms" },
-    { name: "Patios & Driveways", href: "/services/PatiosDriveways" },
   ];
 
   const areas = [
@@ -117,6 +116,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <div className="space-y-4">
               {[
                 { name: "Home", href: "/" },
+                { name: "Your Journey", href: "/journey" },
                 { name: "Portfolio", href: "/portfolio" },
                 { name: "Blog", href: "/blog" },
                 { name: "Contact", href: "/contact" }

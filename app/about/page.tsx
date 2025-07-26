@@ -5,8 +5,8 @@ import { PageLayout } from "@/components/layout";
 
 
 /**
- * Strona "O nas" (Next.js App Router)
- * Zachowuje dotychczasowy wygląd i strukturę.
+ * About Us page (Next.js App Router)
+ * Maintains the current layout and structure.
  */
 export default function AboutPage() {
   

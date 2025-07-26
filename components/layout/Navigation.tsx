@@ -11,18 +11,18 @@ export const Navigation = () => {
   };
 
   const menuItems = [
-    { title: 'Strona główna', href: '/' },
+    { title: 'Home', href: '/' },
+    { title: 'Your Journey', href: '/journey' },
     {
       title: 'Services',
       href: '/services',
       submenu: [
         { title: 'House Extensions', href: '/services/house-extensions' },
-        { title: 'Loft Conversions', href: '/services/loft-conversions' },
-        { title: 'Driveways & Patios', href: '/services/driveways' }
+        { title: 'Loft Conversions', href: '/services/loft-conversions' }
       ]
     },
     {
-      title: 'Obszary',
+      title: 'Areas',
       href: '/areas-served',
       submenu: [
         { title: 'Wimbledon', href: '/areas-served/wimbledon' },
@@ -30,8 +30,8 @@ export const Navigation = () => {
         { title: 'Richmond', href: '/areas-served/richmond' }
       ]
     },
-    { title: 'Galeria', href: '/gallery' },
-    { title: 'O nas', href: '/about' },
+    { title: 'Gallery', href: '/gallery' },
+    { title: 'About Us', href: '/about' },
     { title: 'Blog', href: '/blog' },
     { title: 'Contact', href: '/contact' }
   ];

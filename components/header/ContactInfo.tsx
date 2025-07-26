@@ -1,15 +1,14 @@
-
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Phone, Mail } from "lucide-react";
 
 const ContactInfo = () => {
   return (
-    <div className="flex items-center space-x-4 text-sm text-black">
-      <motion.a 
-        href="tel:+442012345678" 
-        className="flex items-center space-x-2 hover:text-white transition-colors duration-300 relative group"
+    <div className="flex items-center space-x-4 text-sm text-white">
+      <motion.a
+        href="tel:+442012345678"
+        className="flex items-center space-x-2 hover:text-extendia-accent transition-colors duration-300 relative group"
         whileHover={{ scale: 1.05 }}
       >
         <Phone className="w-4 h-4" />
@@ -21,10 +20,12 @@ const ContactInfo = () => {
           transition={{ duration: 0.2 }}
         />
       </motion.a>
+      
       <div className="w-px h-4 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
-      <motion.a 
-        href="mailto:info@extendia.co.uk" 
-        className="flex items-center space-x-2 hover:text-white transition-colors duration-300 relative group"
+      
+      <motion.a
+        href="mailto:info@extendia.co.uk"
+        className="flex items-center space-x-2 hover:text-extendia-accent transition-colors duration-300 relative group"
         whileHover={{ scale: 1.05 }}
       >
         <Mail className="w-4 h-4" />

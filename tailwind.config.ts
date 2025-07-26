@@ -66,6 +66,7 @@ export default {
 					primary: 'hsl(var(--extendia-primary))',
 					secondary: 'hsl(var(--extendia-secondary))',
 					accent: 'hsl(var(--extendia-accent))',
+					'accent-dark': 'hsl(var(--extendia-accent-dark))',
 					card: 'hsl(var(--extendia-card))',
 					'text-primary': 'hsl(var(--extendia-text-primary))',
 					'text-secondary': 'hsl(var(--extendia-text-secondary))',
@@ -92,11 +93,16 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+        'border-spin': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'border-spin': 'border-spin 7s linear infinite',
 			}
 		}
 	},
