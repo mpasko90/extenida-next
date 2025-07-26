@@ -39,6 +39,7 @@
     --extendia-primary: 220 45% 47%; /* #3A6AB0 */
     --extendia-secondary: 217 35% 38%; /* #3F577B */
     --extendia-accent: 38 95% 56%; /* #F59E0B */
+    --extendia-accent-dark: 35 85% 45%; /* #D97706 - Ciemniejszy, bardziej kontrastowy pomarańcz */
     --extendia-card: 217 45% 70%; /* #97B1D6 */
     --extendia-text-primary: 0 0% 100%; /* #FFFFFF */
     --extendia-text-secondary: 0 0% 73%; /* #B9B9B9 */
@@ -86,7 +87,7 @@
 /* Extendia Custom Utilities */
 @layer utilities {
   .text-extendia-primary {
-    color: hsl(var(--extendia-text-primary));
+    color: hsl(var(--extendia-primary));
   }
   
   .text-extendia-secondary {

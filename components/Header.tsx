@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const navigation = [
   {
@@ -19,7 +20,6 @@ const navigation = [
       { label: "Loft Conversions", href: "/services/loft-conversions" },
       { label: "Kitchen Renovations", href: "/services/kitchen-renovations" },
       { label: "Bathroom Renovations", href: "/services/bathroom-renovations" },
-      { label: "Patios & Driveways", href: "/services/patios-driveways" },
     ],
   },
   {
@@ -48,6 +48,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,12 +69,13 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center">
             <Image
-              src={scrolled ? "/Extendia_logo_navy.png" : "/Extendia_logo_white.png"}
-              alt="Extenida Logo"
-              width={150}
-              height={40}
-              className="h-10 w-auto"
-            />
+                  src="/logo-gray.png"
+                  width={isMobile ? 120 : 150}
+                  height={isMobile ? 24 : 30}
+                  alt="Extendia Logo"
+                  className="transition-all duration-300"
+                  priority
+                />
           </Link>
 
           {/* Desktop Navigation */}

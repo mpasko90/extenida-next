@@ -7,6 +7,7 @@ import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin } from "lucide-react
 const navigation = {
   company: [
     { name: "About", href: "/about" },
+    { name: "Your Journey", href: "/journey" },
     { name: "Portfolio", href: "/portfolio" },
     { name: "Contact", href: "/contact" },
   ],
@@ -15,7 +16,6 @@ const navigation = {
     { name: "Loft Conversions", href: "/services/loft-conversions" },
     { name: "Kitchen Renovations", href: "/services/kitchen-renovations" },
     { name: "Bathroom Renovations", href: "/services/bathroom-renovations" },
-    { name: "Patios & Driveways", href: "/services/patios-driveways" },
   ],
   areas: [
     { name: "Kingston Upon Thames", href: "/areas/kingston" },

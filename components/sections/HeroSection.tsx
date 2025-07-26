@@ -21,11 +21,11 @@ const HeroSection = () => {
   }, []);
 
   const trustIndicators = [
-    { icon: Star, label: "End to End Service", value: "From design to completion" },
-    { icon: Shield, label: "Simple Process", value: "Streamlined & efficient" },
-    { icon: Users, label: "Tailored to Your Needs", value: "Bespoke solutions" },
-    { icon: Clock, label: "Up to 5 Years Warranty", value: "Insurance backed guarantee" },
-    { icon: Award, label: "30+ Years Experience", value: "Proven expertise" },
+    { icon: Star, value: "End to End Service", label: "From design to completion" },
+    { icon: Shield, value: "Simple Process", label: "Streamlined & efficient" },
+    { icon: Users, value: "Tailored to Your Needs", label: "Bespoke solutions" },
+    { icon: Clock, label: "Up to 5 Years Warranty", value: "Insurance backed warranty" },
+    { icon: Award, value: "30+ Years Experience", label: "Proven expertise" },
   ];
 
   const containerVariants = {
@@ -62,7 +62,7 @@ const HeroSection = () => {
 
       {/* Floating Patterns */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
-        {/* Diagonal grid pattern - 45-degree lines */}
+        {/* Diagonal grid pattern - equal spacing and thin lines */}
         <svg 
           className="absolute inset-0 w-full h-full" 
           viewBox="0 0 100 100" 
@@ -73,20 +73,20 @@ const HeroSection = () => {
               id="diagonal-grid" 
               x="0" 
               y="0" 
-              width="8" 
-              height="8" 
+              width="10" 
+              height="10" 
               patternUnits="userSpaceOnUse"
               patternTransform="rotate(45)"
             >
               <path 
-                d="M0,4 L8,4" 
-                stroke="rgba(255,255,255,0.2)" 
-                strokeWidth="0.5"
+                d="M0,5 L10,5" 
+                stroke="rgba(255,255,255,0.15)" 
+                strokeWidth="0.25"
               />
               <path 
-                d="M4,0 L4,8" 
-                stroke="rgba(255,255,255,0.2)" 
-                strokeWidth="0.5"
+                d="M5,0 L5,10" 
+                stroke="rgba(255,255,255,0.15)" 
+                strokeWidth="0.25"
               />
             </pattern>
           </defs>
@@ -94,11 +94,12 @@ const HeroSection = () => {
             width="100%" 
             height="100%" 
             fill="url(#diagonal-grid)"
-            animate={{
-              opacity: [0.3, 0.5, 0.3],
+            animate={prefersReducedMotion ? { opacity: 0.3 } : {
+              opacity: [0.2, 0.4, 0.2],
+              scale: [1, 1.01, 1],
             }}
-            transition={{
-              duration: 6,
+            transition={prefersReducedMotion ? {} : {
+              duration: 8,
               repeat: Infinity,
               ease: "easeInOut",
             }}
@@ -124,12 +125,12 @@ const HeroSection = () => {
               </h1>
               
               <p className="text-xl text-white max-w-2xl mx-auto drop-shadow-md mb-4">
-                <span className="text-extendia-accent font-semibold">More than an ordinary Design & Build...</span>
+                Building Excellence in <span className="text-extendia-accent font-semibold">Every Project</span>
               </p>
               
               <p className="text-lg text-white max-w-3xl mx-auto drop-shadow-md leading-relaxed">
-                Our premium, end to end service is designed for the busy homeowners and property investors who need 
-                a simple process without the hassle of managing the project and sourcing the materials and fixtures.
+                Transform your home with our comprehensive construction services. From design to completion, 
+                we deliver quality craftsmanship and attention to detail in every project.
               </p>
             </motion.div>
 

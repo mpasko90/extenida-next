@@ -176,7 +176,6 @@ export const ContactForm = ({
                 <option value="house-extensions">House Extensions</option>
                 <option value="loft-conversions">Loft Conversions</option>
                 <option value="party-wall-surveys">Party Wall Surveys</option>
-                <option value="driveways">Driveways & Patios</option>
                 <option value="other">Other</option>
               </select>
             </div>
