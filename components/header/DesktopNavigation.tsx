@@ -106,7 +106,7 @@ const DesktopNavigation = () => {
           
           <NavigationMenuItem>
             <NavigationMenuTrigger 
-              className="px-4 py-2 text-white hover:text-extendia-accent transition-all duration-300 font-medium bg-transparent hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 data-[state=open]:bg-gradient-to-r data-[state=open]:from-extendia-primary/5 data-[state=open]:to-extendia-accent/5 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 shadow-none hover:shadow-md drop-shadow-lg hover:drop-shadow-xl nav-text-shadow"
+              className="relative px-4 py-2 text-white hover:text-extendia-accent transition-colors duration-300 font-medium overflow-hidden rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 drop-shadow-lg hover:drop-shadow-xl nav-text-shadow bg-transparent hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 data-[state=open]:bg-gradient-to-r data-[state=open]:from-extendia-primary/5 data-[state=open]:to-extendia-accent/5"
               aria-expanded="false"
               aria-haspopup="true"
               aria-controls="services-menu"

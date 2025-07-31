@@ -15,7 +15,7 @@ const Logo = () => {
     >
       <Link 
         href="/" 
-        className="flex flex-col items-center space-y-1 group relative overflow-hidden rounded-xl p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent"
+        className="flex items-center space-x-2 group relative overflow-hidden rounded-xl p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent lg:flex-col lg:space-x-0 lg:space-y-1"
         aria-label="Extendia Home"
       >
         <motion.div
@@ -41,7 +41,7 @@ const Logo = () => {
         </motion.div>
         
         <motion.div
-          className="hidden sm:block relative z-10"
+          className="relative z-10"
           initial={{ opacity: 0.8 }}
           whileHover={{ opacity: 1 }}
         >

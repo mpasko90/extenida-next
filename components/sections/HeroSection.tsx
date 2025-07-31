@@ -121,17 +121,91 @@ const HeroSection = () => {
           >
             <motion.div variants={itemVariants} className="space-y-4">              
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg leading-tight">
-                House Extensions, Loft Conversions & Renovations in <span className="text-extendia-accent">South West London</span>
+                House Extensions, Loft Conversions & Renovations in <span className="text-extendia-accent">South West London</span> and <span className="text-extendia-accent">Surrey</span>
               </h1>
-              
-              <p className="text-xl text-white max-w-2xl mx-auto drop-shadow-md mb-4">
-                Building Excellence in <span className="text-extendia-accent font-semibold">Every Project</span>
-              </p>
-              
-              <p className="text-lg text-white max-w-3xl mx-auto drop-shadow-md leading-relaxed">
-                Transform your home with our comprehensive construction services. From design to completion, 
-                we deliver quality craftsmanship and attention to detail in every project.
-              </p>
+
+              {/* Trust Indicators */}
+              <motion.div
+                variants={containerVariants}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 pt-8"
+                role="list"
+                aria-label="Company credentials and certifications"
+              >
+                {trustIndicators.map((indicator, index) => (
+                  <motion.div
+                    key={indicator.label}
+                    variants={itemVariants}
+                    transition={{ 
+                      duration: prefersReducedMotion ? 0 : 0.5,
+                      delay: prefersReducedMotion ? 0 : index * 0.1,
+                    }}
+                    whileHover={prefersReducedMotion ? {} : { 
+                      scale: 1.05,
+                      transition: { duration: 0.2 }
+                    }}
+                    className="text-center group relative focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-extendia-primary rounded-2xl"
+                    role="listitem"
+                    tabIndex={0}
+                    aria-label={`${indicator.label}: ${indicator.value}`}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        // Handle interaction if needed
+                      }
+                    }}
+                  >
+                    {/* Animated background */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl backdrop-blur-sm"
+                      initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.8 }}
+                      whileHover={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+                      transition={{ duration: prefersReducedMotion ? 0.1 : 0.3 }}
+                    />
+                    
+                    <div className="relative z-10 p-3">
+                      <motion.div 
+                        className="inline-flex items-center justify-center w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full mb-2 group-hover:bg-white/30 transition-colors duration-300 relative overflow-hidden"
+                        whileHover={prefersReducedMotion ? {} : { rotate: 360 }}
+                        transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
+                      >
+                        <indicator.icon 
+                          className="w-5 h-5 text-black group-hover:scale-110 transition-transform duration-300" 
+                          aria-hidden="true"
+                        />
+                        {!prefersReducedMotion && (
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-extendia-accent/20 to-transparent rounded-full"
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                          />
+                        )}
+                      </motion.div>
+                      
+                      <motion.div 
+                        className="text-lg lg:text-xl font-bold text-white group-hover:text-extendia-accent transition-colors duration-300"
+                        animate={prefersReducedMotion ? {} : {
+                          textShadow: [
+                            "0 0 10px rgba(255,255,255,0.3)",
+                            "0 0 20px rgba(255,255,255,0.6)",
+                            "0 0 10px rgba(255,255,255,0.3)",
+                          ]
+                        }}
+                        transition={prefersReducedMotion ? {} : {
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: index * 0.5
+                        }}
+                      >
+                        {indicator.value}
+                      </motion.div>
+                      <div className="text-xs lg:text-sm text-white/80 font-medium">
+                        {indicator.label}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
 
             {/* CTA Buttons */}
@@ -182,89 +256,6 @@ const HeroSection = () => {
                   </Button>
                 </Link>
               </motion.div>
-            </motion.div>
-
-            {/* Trust Indicators */}
-            <motion.div
-              variants={containerVariants}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 pt-8"
-              role="list"
-              aria-label="Company credentials and certifications"
-            >
-              {trustIndicators.map((indicator, index) => (
-                <motion.div
-                  key={indicator.label}
-                  variants={itemVariants}
-                  transition={{ 
-                    duration: prefersReducedMotion ? 0 : 0.5,
-                    delay: prefersReducedMotion ? 0 : index * 0.1,
-                  }}
-                  whileHover={prefersReducedMotion ? {} : { 
-                    scale: 1.05,
-                    transition: { duration: 0.2 }
-                  }}
-                  className="text-center group relative focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-extendia-primary rounded-2xl"
-                  role="listitem"
-                  tabIndex={0}
-                  aria-label={`${indicator.label}: ${indicator.value}`}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      // Handle interaction if needed
-                    }
-                  }}
-                >
-                  {/* Animated background */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl backdrop-blur-sm"
-                    initial={{ opacity: 0, scale: prefersReducedMotion ? 1 : 0.8 }}
-                    whileHover={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
-                    transition={{ duration: prefersReducedMotion ? 0.1 : 0.3 }}
-                  />
-                  
-                  <div className="relative z-10 p-3">
-                    <motion.div 
-                      className="inline-flex items-center justify-center w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full mb-2 group-hover:bg-white/30 transition-colors duration-300 relative overflow-hidden"
-                      whileHover={prefersReducedMotion ? {} : { rotate: 360 }}
-                      transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
-                    >
-                      <indicator.icon 
-                        className="w-5 h-5 text-black group-hover:scale-110 transition-transform duration-300" 
-                        aria-hidden="true"
-                      />
-                      {!prefersReducedMotion && (
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-extendia-accent/20 to-transparent rounded-full"
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                        />
-                      )}
-                    </motion.div>
-                    
-                    <motion.div 
-                      className="text-lg lg:text-xl font-bold text-white group-hover:text-extendia-accent transition-colors duration-300"
-                      animate={prefersReducedMotion ? {} : {
-                        textShadow: [
-                          "0 0 10px rgba(255,255,255,0.3)",
-                          "0 0 20px rgba(255,255,255,0.6)",
-                          "0 0 10px rgba(255,255,255,0.3)",
-                        ]
-                      }}
-                      transition={prefersReducedMotion ? {} : {
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: index * 0.5
-                      }}
-                    >
-                      {indicator.value}
-                    </motion.div>
-                    <div className="text-xs lg:text-sm text-white/80 font-medium">
-                      {indicator.label}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
             </motion.div>
           </motion.div>
         </div>
