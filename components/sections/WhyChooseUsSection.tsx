@@ -44,10 +44,10 @@ const WhyChooseUsSection = () => {
           {/* Kolumna z tekstem */}
           <motion.div variants={itemVariants} className="text-center md:text-left">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Why Choose <span className="text-extendia-accent-dark">Extendia?</span>
+              Why Choose <span className="text-extendia-accent">Extendia?</span>
             </h2>
             <h3 className="text-2xl md:text-3xl font-semibold text-slate-700 max-w-xl mx-auto md:mx-0 !leading-tight mb-4">
-              More than an ordinary <strong className="text-extendia-accent-dark">Design & Build...</strong>
+              More than an ordinary <strong className="text-extendia-accent">Design & Build...</strong>
             </h3>
             <p className="text-lg md:text-xl text-slate-600 max-w-xl mx-auto md:mx-0">
               <strong className="font-semibold text-slate-700">Our premium, end to end service</strong> is designed for the <strong className="font-semibold text-slate-700">busy homeowners</strong> and <strong className="font-semibold text-slate-700">property investors</strong> who need a <strong className="font-semibold text-slate-700">simple process without the hassle</strong> of managing the project and sourcing the materials and fixtures.
