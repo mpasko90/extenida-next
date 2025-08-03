@@ -27,6 +27,6 @@
     },
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["app", "components", "lib", "types", "features", "hooks"],
+  "include": ["app", "components", "lib", "types", "features", "hooks", "data"],
   "exclude": ["src"]
 }
