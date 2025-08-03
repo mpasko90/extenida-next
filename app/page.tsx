@@ -1,7 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HeroSection, WhyChooseUsSection, ServicesSection, TestimonialsSection, AwardsSection, FAQSection } from "@/components/sections";
+import { 
+  HeroSection, 
+  WhyChooseUsSection, 
+  ServicesSection, 
+  TestimonialsSection, 
+  AwardsSection, 
+  OurStorySection,
+  ValuesInfographicSection,
+  FAQSection 
+} from "@/components/sections";
 
 /**
  * Home page (Next.js App Router)
@@ -21,6 +30,8 @@ export default function HomePage() {
         <ServicesSection />
         <TestimonialsSection />
         <AwardsSection />
+        <OurStorySection />
+        <ValuesInfographicSection />
         <FAQSection />
       </main>
     </motion.div>

@@ -1,42 +1,64 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { CheckCircle, ArrowRight, Phone, Calendar, Home } from "lucide-react";
+import { CheckCircle, ArrowRight, Phone, Calendar, Home, FileText, Handshake, Hammer } from "lucide-react";
 import { PageLayout } from "@/components/layout";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 export default function JourneyPage() {
   const journeySteps = [
     {
       step: 1,
-      title: "Initial Consultation",
-      description: "Initial consultation to understand your needs, requirements, and vision",
+      title: "Initial Telephone Consultation",
+      description: "We'll discuss your requirements, answer your initial questions, and understand your vision for your home project",
       icon: Phone,
-      timeline: "Week 1"
+      iconBg: "from-blue-500 to-blue-600"
     },
     {
       step: 2,
-      title: "Design & Planning",
-      description: "Create detailed plans and handle all planning permissions",
-      icon: Calendar,
-      timeline: "Weeks 2-6"
+      title: "Home/Site Survey",
+      description: "Our experts will visit your property to assess the site, take measurements, and discuss your ideas in person",
+      icon: Home,
+      iconBg: "from-indigo-500 to-indigo-600"
     },
     {
       step: 3,
-      title: "Construction",
-      description: "Professional construction with regular updates and quality checks",
-      icon: Home,
-      timeline: "Weeks 7-16"
+      title: "Written Proposal",
+      description: "We'll provide you with a detailed written proposal outlining the scope, materials, costs, and timeframe",
+      icon: FileText,
+      iconBg: "from-purple-500 to-purple-600"
     },
     {
       step: 4,
+      title: "Home/Site Design Meeting",
+      description: "Collaborative design session to refine plans and ensure every detail meets your expectations",
+      icon: Calendar,
+      iconBg: "from-pink-500 to-pink-600"
+    },
+    {
+      step: 5,
+      title: "Written Agreement",
+      description: "Formalize our partnership with a comprehensive written agreement covering all project aspects",
+      icon: Handshake,
+      iconBg: "from-red-500 to-red-600"
+    },
+    {
+      step: 6,
+      title: "Construction",
+      description: "Professional construction with regular updates and quality checks throughout the process",
+      icon: Hammer,
+      iconBg: "from-amber-500 to-amber-600"
+    },
+    {
+      step: 7,
       title: "Completion",
-      description: "Final inspections, handover, and aftercare support",
+      description: "Final inspections, handover, and aftercare support to ensure your complete satisfaction",
       icon: CheckCircle,
-      timeline: "Week 17"
+      iconBg: "from-green-500 to-green-600"
     }
   ];
+
+  // Timeline configuration
 
   return (
     <PageLayout>
@@ -64,57 +86,44 @@ export default function JourneyPage() {
         </div>
       </section>
 
-      {/* Journey Steps */}
+      {/* Journey Steps - Vertical Timeline */}
       <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+          <div className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-extendia-primary/30 before:to-transparent">
             {journeySteps.map((step, index) => (
-              <motion.div
+              <motion.div 
                 key={step.step}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className={`flex flex-col lg:flex-row items-center gap-8 ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                }`}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
               >
-                <div className="flex-1">
-                  <Card className="relative overflow-hidden bg-white shadow-xl border-0 hover:shadow-2xl transition-all duration-300 group">
-                    {/* Gradient background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-extendia-primary/5 via-white to-extendia-accent/5"></div>
-                    <div className="relative z-10">
-                      <CardHeader className="pb-4">
-                        <div className="flex items-center gap-4 mb-6">
-                          <div className="relative">
-                            <div className="bg-gradient-to-br from-extendia-primary to-extendia-accent text-white rounded-full w-14 h-14 flex items-center justify-center font-bold text-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
-                              {step.step}
-                            </div>
-                            <div className="absolute -inset-1 bg-gradient-to-br from-extendia-primary to-extendia-accent rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
-                          </div>
-                          <div className="bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10 text-extendia-primary px-4 py-2 rounded-full text-sm font-semibold border border-extendia-primary/20">
-                            {step.timeline}
-                          </div>
-                        </div>
-                        <CardTitle className="text-2xl font-bold text-gray-900 flex items-center gap-3 group-hover:text-extendia-primary transition-colors duration-300">
-                          <step.icon className="w-8 h-8 text-extendia-accent group-hover:text-extendia-primary transition-colors duration-300" />
-                          {step.title}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-lg text-gray-700 leading-relaxed">{step.description}</p>
-                      </CardContent>
+                {/* Icon */}
+                <motion.div 
+                  className={`flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gradient-to-br ${step.iconBg} text-white shadow-lg shadow-${step.iconBg.split(" ")[0].replace("from-", "")}/30 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10`}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <step.icon className="w-5 h-5" />
+                </motion.div>
+
+                {/* Content */}
+                <motion.div 
+                  className="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] bg-white p-5 rounded-lg border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  whileHover={{ y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <div className="flex flex-col">
+                    <h3 className="text-xl font-bold text-extendia-primary flex items-center gap-2 mb-1">
+                      <span className="bg-gradient-to-r from-extendia-primary to-extendia-accent inline-block text-transparent bg-clip-text">{step.title}</span>
+                    </h3>
+                    <div className="flex items-center mb-3">
+                      <span className="bg-extendia-accent/10 text-extendia-accent text-sm font-semibold px-3 py-1 rounded-full">Step {step.step} of 7</span>
                     </div>
-                  </Card>
-                </div>
-                <div className="flex-1 flex justify-center">
-                  <div className="relative w-64 h-48 bg-gradient-to-br from-extendia-primary/10 to-extendia-accent/10 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 border border-extendia-primary/20">
-                    <div className="relative">
-                      <step.icon className="w-20 h-20 text-extendia-primary group-hover:text-extendia-accent transition-colors duration-300" />
-                      <div className="absolute inset-0 bg-gradient-to-br from-extendia-primary/20 to-extendia-accent/20 rounded-full blur-xl opacity-50"></div>
-                    </div>
+                    <p className="text-gray-600">{step.description}</p>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>

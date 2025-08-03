@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Trophy, Medal, Star, Shield, CheckCircle } from "lucide-react";
+import { Award, Trophy } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const AwardsSection = () => {
@@ -22,46 +23,31 @@ const AwardsSection = () => {
 
   const awards = [
     {
-      icon: Trophy,
-      title: "Construction Excellence Award",
-      year: "2023",
-      organization: "South West London Building Association",
-      description: "Outstanding achievement in residential construction and design innovation."
-    },
-    {
-      icon: Medal,
-      title: "Best Home Extension",
-      year: "2023",
-      organization: "London Home Improvement Awards",
-      description: "Recognized for exceptional craftsmanship in home extension projects."
-    },
-    {
-      icon: Star,
-      title: "Customer Service Excellence",
-      year: "2022",
-      organization: "UK Construction Awards",
-      description: "Awarded for maintaining highest standards of customer satisfaction."
-    },
-    {
-      icon: Shield,
-      title: "Safety First Certification",
-      year: "2022",
-      organization: "Health & Safety Executive",
-      description: "Certified for exemplary safety practices and zero-incident record."
-    },
-    {
       icon: Award,
-      title: "Sustainable Building Award",
-      year: "2021",
-      organization: "Green Building Council",
-      description: "Recognition for eco-friendly construction practices and materials."
+      image: "/images/awards/2023-Architecture-Awards-Logo.png",
+      title: "Most Experienced Construction Company",
+      year: "2023",
+      organization: "Architecture Awards (Build Review)",
+      description: "Celebrated for our extensive industry experience, proven project management expertise, and consistent delivery of exceptional building and renovation projects in London.",
+      link: "https://www.build-review.com/winners/extendia/"
     },
     {
-      icon: CheckCircle,
-      title: "Quality Assurance Gold",
-      year: "2021",
-      organization: "Construction Quality Mark",
-      description: "Highest rating for consistent quality delivery across all projects."
+      icon: Trophy,
+      image: "/images/awards/Ready_Best_of_Houzz_Service_2023.webp",
+      title: "Best of Houzz Service",
+      year: "2023",
+      organization: "Houzz",
+      description: "Awarded to top-rated professionals on Houzz for exceptional service quality and client satisfaction throughout the year.",
+      link: "https://www.houzz.co.uk/professionals/design-build-firms/extendia-pfvwgb-pf~2163000585"
+    },
+    {
+      icon: Trophy,
+      image: "/images/awards/Ready_Best_of_Houzz_Service_2022.webp",
+      title: "Best of Houzz Service",
+      year: "2022",
+      organization: "Houzz",
+      description: "Recognized for consistently delivering high-quality service and maintaining outstanding client relationships on the Houzz platform.",
+      link: "https://www.houzz.co.uk/professionals/design-build-firms/extendia-pfvwgb-pf~2163000585"
     }
   ];
 
@@ -211,8 +197,8 @@ const AwardsSection = () => {
           </h2>
           
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Our commitment to excellence has been recognized by industry leaders and organizations 
-            across London. These awards reflect our dedication to quality, safety, and customer satisfaction.
+            Our commitment to excellence has been recognized with prestigious industry awards and certifications.
+            We&apos;re proud to display these official badges that showcase our dedication to quality and customer satisfaction.
           </p>
         </motion.div>
 
@@ -222,7 +208,7 @@ const AwardsSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-10"
         >
           {awards.map((award, index) => (
             <motion.div
@@ -234,20 +220,51 @@ const AwardsSection = () => {
               }}
               className="group relative"
             >
-              {/* Modern Light Card with Dark Text */}
+              {/* Modern Light Card with Award Image */}
               <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-2xl p-8 hover:bg-white/90 hover:border-extendia-accent/20 transition-all duration-500 overflow-hidden shadow-xl hover:shadow-2xl">
                 
-                {/* Simple Award Icon */}
-                <div className="relative z-10 mb-6">
+                {/* Award Image */}
+                <div className="relative z-10 mb-8 flex items-center justify-center">
                   <motion.div 
-                    className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-extendia-accent to-extendia-primary rounded-2xl shadow-lg border border-gray-100"
+                    className="h-32 flex items-center justify-center"
                     whileHover={prefersReducedMotion ? {} : { 
                       scale: 1.05,
                       transition: { duration: 0.3, ease: "easeOut" }
                     }}
-                    style={{ transformOrigin: "center" }}
                   >
-                    <award.icon className="w-8 h-8 text-white" />
+                    {award.image && award.link ? (
+                      <a 
+                        href={award.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:opacity-90 transition-opacity duration-300"
+                        aria-label={`View ${award.title} ${award.year} award details`}
+                      >
+                        <Image 
+                          src={award.image} 
+                          alt={`${award.title} ${award.year}`}
+                          width={180}
+                          height={120}
+                          className="max-h-full max-w-full object-contain"
+                          style={{
+                            width: 'auto',
+                            height: 'auto'
+                          }}
+                        />
+                      </a>
+                    ) : award.image && (
+                      <Image 
+                        src={award.image} 
+                        alt={`${award.title} ${award.year}`}
+                        width={180}
+                        height={120}
+                        className="max-h-full max-w-full object-contain"
+                        style={{
+                          width: 'auto',
+                          height: 'auto'
+                        }}
+                      />
+                    )}
                   </motion.div>
                 </div>
 
@@ -260,7 +277,17 @@ const AwardsSection = () => {
                   </div>
                   
                   <h3 className="text-xl font-bold text-extendia-primary mb-2 group-hover:text-extendia-accent transition-colors duration-500">
-                    {award.title}
+                    {award.link ? (
+                      <a 
+                        href={award.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:underline decoration-extendia-accent decoration-2 underline-offset-4"
+                        aria-label={`View ${award.title} ${award.year} award details`}
+                      >
+                        {award.title}
+                      </a>
+                    ) : award.title}
                   </h3>
                   
                   <p className="text-sm font-medium text-gray-600 mb-3">
@@ -274,6 +301,16 @@ const AwardsSection = () => {
 
                 {/* Geometric decorative element */}
                 <div className="absolute top-4 right-4 w-3 h-3 bg-extendia-accent/20 transform rotate-45 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Link indicator */}
+                {award.link && (
+                  <div className="absolute bottom-4 right-4 text-extendia-accent opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
@@ -290,10 +327,10 @@ const AwardsSection = () => {
           <div className="relative bg-white/90 backdrop-blur-sm border border-gray-200/60 rounded-2xl p-8 shadow-xl max-w-2xl mx-auto">
             <div className="relative z-10">
               <h3 className="text-2xl font-bold text-extendia-primary mb-4">
-                Experience Award-Winning Quality
+                Work with an Award-Winning Company
               </h3>
               <p className="text-gray-700 mb-6">
-                Join hundreds of satisfied customers who have trusted us with their home improvement projects.
+                Join our growing list of satisfied clients who have experienced our award-winning construction and design services.
               </p>
               <motion.div
                 whileHover={{ scale: 1.05 }}

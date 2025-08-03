@@ -2,6 +2,8 @@ export { default as HeroSection } from './HeroSection';
 export { default as ServicesSection } from './ServicesSection';
 export { default as TestimonialsSection } from './TestimonialsSection';
 export { default as AwardsSection } from './AwardsSection';
+export { default as OurStorySection } from './OurStorySection';
+export { default as ValuesInfographicSection } from './ValuesSection';
 export { default as FAQSection } from './FAQSection';
 export { default as ProcessTimeline } from './ProcessTimeline';
 export { default as BathroomGallery } from './BathroomGallery';
