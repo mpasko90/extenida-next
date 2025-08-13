@@ -18,35 +18,13 @@ const ServicesSection = () => {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
+  // Simplified services list per request (no descriptions/icons/features)
   const services = [
-    {
-      title: "Home Extensions",
-      description: "Create additional space with stunning single and double-storey extensions tailored to your lifestyle.",
-      features: ["Single & Double Storey", "Kitchen Extensions", "Planning Permission Support"],
-      color: "from-blue-500 to-blue-600",
-      emoji: "🏠"
-    },
-    {
-      title: "Loft Conversions",
-      description: "Transform your unused loft space into a beautiful bedroom, office, or entertainment area.",
-      features: ["Dormer Conversions", "Mansard Extensions", "Structural Calculations"],
-      color: "from-green-500 to-green-600",
-      emoji: "🏢"
-    },
-    {
-      title: "Kitchen Renovations",
-      description: "Design and build the kitchen of your dreams with premium materials and expert craftsmanship.",
-      features: ["Custom Design", "Premium Appliances", "Project Management"],
-      color: "from-orange-500 to-orange-600",
-      emoji: "👨‍🍳"
-    },
-    {
-      title: "Bathroom Renovations",
-      description: "Create a luxurious spa-like retreat with our complete bathroom renovation services.",
-      features: ["Luxury Finishes", "Wet Rooms", "Accessibility Options"],
-      color: "from-purple-500 to-purple-600",
-      emoji: "🛁"
-    }
+    { title: "Home Extension" },
+    { title: "Loft Conversion" },
+    { title: "House/Flat Renovations" },
+    { title: "Bathroom Renovations" },
+    { title: "Kitchen Renovations" }
   ];
 
   const containerVariants = {
@@ -146,7 +124,7 @@ const ServicesSection = () => {
             />
           </motion.h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            House Extensions, Loft Conversions, Kitchen & Bathroom Renovations, and more. Serving Kingston, Putney, Richmond, Surbiton, Twickenham, and Wimbledon. Fully managed, free quotes, 10 year guarantee.
+            House Extensions, Loft Conversions, Kitchen & Bathroom Renovations, and more. Serving Kingston, Putney, Richmond, Surbiton, Twickenham, and Wimbledon.
           </p>
         </motion.div>
         {/* Services Grid */}
@@ -159,47 +137,14 @@ const ServicesSection = () => {
           role="list"
           aria-label="Building services offered in South West London"
         >
-          {services.map((service) => (
+      {services.map((service) => (
             <motion.article
               key={service.title}
-              variants={itemVariants}
-              className="bg-white rounded-2xl shadow-lg p-6 xl:p-5 flex flex-col items-start hover:shadow-2xl transition-shadow duration-300 focus-within:ring-2 focus-within:ring-extendia-accent focus-within:ring-offset-2 group"
+        variants={itemVariants}
+        className="bg-white rounded-2xl shadow-lg p-6 xl:p-5 flex flex-col items-start hover:shadow-2xl transition-shadow duration-300 focus-within:ring-2 focus-within:ring-extendia-accent focus-within:ring-offset-2 group"
               role="listitem"
             >
-              <div className={`w-12 h-12 xl:w-10 xl:h-10 flex items-center justify-center rounded-full mb-4 text-2xl xl:text-xl bg-gradient-to-br ${service.color} shadow-lg`} aria-hidden="true">
-                {service.emoji}
-              </div>
-              <h3 className="text-xl xl:text-lg font-bold text-extendia-accent mb-2">{service.title}</h3>
-              <p className="text-gray-700 mb-4 text-sm xl:text-xs leading-relaxed">{service.description}</p>
-              <ul className="space-y-1 xl:space-y-0.5 mb-6 xl:mb-4" role="list" aria-label={`${service.title} features`}>
-                {service.features.map((feature, idx) => (
-                  <motion.li 
-                    key={idx} 
-                    className="flex items-center text-gray-800 text-sm xl:text-xs"
-                    initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
-                    whileInView={prefersReducedMotion ? {} : { opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={prefersReducedMotion ? {} : { delay: idx * 0.1 }}
-                    role="listitem"
-                  >
-                    <motion.div 
-                      className="w-1.5 h-1.5 xl:w-1 xl:h-1 bg-gradient-to-r from-extendia-accent to-extendia-primary rounded-full mr-2 xl:mr-1.5 flex-shrink-0"
-                      animate={prefersReducedMotion ? {} : {
-                        scale: [1, 1.3, 1],
-                        opacity: [0.7, 1, 0.7],
-                      }}
-                      transition={prefersReducedMotion ? {} : {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: idx * 0.3
-                      }}
-                      aria-hidden="true"
-                    />
-                    {feature}
-                  </motion.li>
-                ))}
-              </ul>
+        <h3 className="text-xl xl:text-lg font-bold text-extendia-accent mb-6">{service.title}</h3>
               <Link 
                 href="/services" 
                 className="mt-auto inline-block bg-extendia-accent text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-extendia-accent/90 focus-visible:ring-2 focus-visible:ring-extendia-accent focus-visible:ring-offset-2 transition-all duration-300"
