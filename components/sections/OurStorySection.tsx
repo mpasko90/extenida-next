@@ -64,25 +64,7 @@ const OurStorySection = () => {
               </p>
             </div>
 
-            {/* Company Values */}
-            <div className="mt-10 grid grid-cols-2 gap-4">
-              <div className="p-4 bg-white rounded-lg shadow-md border border-gray-100">
-                <h3 className="font-semibold text-extendia-primary mb-1">Trust</h3>
-                <p className="text-sm text-gray-600">Transparent communication at every step of your project</p>
-              </div>
-              <div className="p-4 bg-white rounded-lg shadow-md border border-gray-100">
-                <h3 className="font-semibold text-extendia-primary mb-1">Quality</h3>
-                <p className="text-sm text-gray-600">Uncompromising standards in materials and craftsmanship</p>
-              </div>
-              <div className="p-4 bg-white rounded-lg shadow-md border border-gray-100">
-                <h3 className="font-semibold text-extendia-primary mb-1">Expertise</h3>
-                <p className="text-sm text-gray-600">30+ years of combined experience in construction</p>
-              </div>
-              <div className="p-4 bg-white rounded-lg shadow-md border border-gray-100">
-                <h3 className="font-semibold text-extendia-primary mb-1">Client Focus</h3>
-                <p className="text-sm text-gray-600">Your vision and satisfaction are our top priorities</p>
-              </div>
-            </div>
+            {/* Values grid removed as per request */}
           </motion.div>
         </div>
       </div>
