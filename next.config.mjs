@@ -19,6 +19,15 @@ const baseConfig = {
       }
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/blog',
+        destination: '/',
+        permanent: true
+      }
+    ];
+  },
   webpack: (config) => {
     config.resolve.alias['@'] = path.resolve(__dirname, '.');
     return config;

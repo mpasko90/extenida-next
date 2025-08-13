@@ -32,7 +32,6 @@ export const Navigation = () => {
     },
     { title: 'Gallery', href: '/gallery' },
     { title: 'About Us', href: '/about' },
-    { title: 'Blog', href: '/blog' },
     { title: 'Contact', href: '/contact' }
   ];
 

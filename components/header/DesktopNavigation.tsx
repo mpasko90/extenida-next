@@ -205,7 +205,7 @@ const DesktopNavigation = () => {
             </NavigationMenuContent>
           </NavigationMenuItem>
 
-          {["Portfolio", "Blog", "Contact"].map((item) => {
+          {["Portfolio", "Contact"].map((item) => {
             const href = `/${item.toLowerCase()}`;
             const isActive = pathname === href;
             return (

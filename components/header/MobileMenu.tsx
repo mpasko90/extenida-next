@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { companyInfo } from "../../lib/companyInfo";
 import Link from "next/link";
 import { Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -114,11 +115,10 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           
           <div className="px-6 py-8 space-y-6 relative z-10">
             <div className="space-y-4">
-              {[
+              {[ 
                 { name: "Home", href: "/" },
                 { name: "Your Journey", href: "/journey" },
                 { name: "Portfolio", href: "/portfolio" },
-                { name: "Blog", href: "/blog" },
                 { name: "Contact", href: "/contact" }
               ].map((item, index) => (
                 <motion.div
@@ -267,12 +267,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             >
               <div className="flex flex-col space-y-3">
                 <motion.a 
-                  href="tel:+442012345678" 
+                  href={companyInfo.phone.href}
                   className="flex items-center space-x-3 px-4 py-2 text-gray-600 hover:text-extendia-accent transition-colors duration-300 relative group nav-text-shadow-light"
                   whileHover={{ scale: 1.02 }}
                 >
                   <Phone className="w-5 h-5" />
-                  <span>020 1234 5678</span>
+                  <span>{companyInfo.phone.display}</span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10 rounded-lg"
                     initial={{ scale: 0, opacity: 0 }}
@@ -281,12 +281,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   />
                 </motion.a>
                 <motion.a 
-                  href="mailto:info@extendia.co.uk" 
+                  href={`mailto:${companyInfo.email}`}
                   className="flex items-center space-x-3 px-4 py-2 text-gray-600 hover:text-extendia-accent transition-colors duration-300 relative group nav-text-shadow-light"
                   whileHover={{ scale: 1.02 }}
                 >
                   <Mail className="w-5 h-5" />
-                  <span>info@extendia.co.uk</span>
+                  <span>{companyInfo.email}</span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10 rounded-lg"
                     initial={{ scale: 0, opacity: 0 }}
