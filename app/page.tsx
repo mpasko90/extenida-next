@@ -24,7 +24,7 @@ export default function HomePage() {
       transition={{ duration: 0.5 }}
       className="min-h-screen"
     >
-      <main className="pt-20">
+      <main>
         <HeroSection />
         <WhyChooseUsSection />
         <ServicesSection />

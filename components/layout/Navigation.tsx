@@ -17,17 +17,17 @@ export const Navigation = () => {
       title: 'Services',
       href: '/services',
       submenu: [
-        { title: 'House Extensions', href: '/services/house-extensions' },
+        { title: 'Home Extensions', href: '/services/home-extensions' },
         { title: 'Loft Conversions', href: '/services/loft-conversions' }
       ]
     },
     {
       title: 'Areas',
-      href: '/areas-served',
+      href: '/areas',
       submenu: [
-        { title: 'Wimbledon', href: '/areas-served/wimbledon' },
-        { title: 'Kingston', href: '/areas-served/kingston' },
-        { title: 'Richmond', href: '/areas-served/richmond' }
+        { title: 'Wimbledon', href: '/areas/wimbledon' },
+        { title: 'Kingston', href: '/areas/kingston' },
+        { title: 'Richmond', href: '/areas/richmond' }
       ]
     },
     { title: 'Gallery', href: '/gallery' },

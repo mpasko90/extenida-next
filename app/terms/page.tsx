@@ -46,7 +46,7 @@ export default function TermsPage() {
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Warranties</h2>
               <p className="text-gray-600 mb-4">
-                We provide a 10-year warranty on structural work and a 2-year warranty on all other work. 
+                We provide a 5 years warranty on structural work and a 2-year warranty on all other work. 
                 Warranties are subject to terms and conditions provided at completion.
               </p>
 

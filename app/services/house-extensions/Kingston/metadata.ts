@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "House Extensions Kingston Upon Thames | Extenida",
+  title: "House Extensions Kingston Upon Thames | Extendia",
   description: "Expert house extension services tailored for Kingston Upon Thames properties. We specialize in period properties and modern homes.",
 };

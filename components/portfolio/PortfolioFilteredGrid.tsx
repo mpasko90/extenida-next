@@ -12,9 +12,8 @@ interface PortfolioFilteredGridProps {
 
 const serviceTypeLabels: Record<PortfolioProject['serviceType'], string> = {
   'house-extension': 'House Extensions',
-  'loft-conversion': 'Loft Conversions',
-  'kitchen-renovation': 'Kitchen Renovations',
-  'bathroom-renovation': 'Bathroom Renovations'
+  'bathroom': 'Bathroom Projects',
+  'refurbishment': 'Refurbishments'
 };
 
 export function PortfolioFilteredGrid({ projects }: PortfolioFilteredGridProps) {

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -23,7 +22,7 @@ const PageLayout = ({ children, title, description }: PageLayoutProps) => {
           <meta name="description" content={description} />
         </>
       )}
-      <main className="pt-20">{children}</main>
+      <main>{children}</main>
     </motion.div>
   );
 };

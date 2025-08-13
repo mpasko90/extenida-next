@@ -22,7 +22,7 @@ const business = {
 };
 
 export const ContactForm = ({
-  title = 'Get Your Free Quote',
+  title = 'Get Your Quote',
   subtitle = "Tell us about your project and we'll provide a detailed quote within 24 hours.",
   showContactInfo = true
 }: ContactFormProps) => {
@@ -75,7 +75,7 @@ export const ContactForm = ({
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Failed to send form');
       setSubmitStatus('success');
-      setSubmitMessage("Thank you for your message! We'll contact you within 24 hours with your free quote.");
+  setSubmitMessage("Thank you for your message! We'll contact you within 24 hours with your quote.");
       setFormData({ name: '', email: '', phone: '', subject: '', message: '', company: '' });
     } catch (err) {
       setSubmitStatus('error');
@@ -122,7 +122,7 @@ export const ContactForm = ({
               <Clock className="w-5 h-5 text-extendia-primary mt-1" />
               <div>
                 <h4 className="font-medium text-slate-900 dark:text-slate-100">Response Time</h4>
-                <p className="text-slate-600 dark:text-slate-400">Free quotes within 24 hours</p>
+                <p className="text-slate-600 dark:text-slate-400">Quotes within 24 hours</p>
                 <p className="text-sm text-slate-500">Emergency support available</p>
               </div>
             </div>
@@ -144,23 +144,23 @@ export const ContactForm = ({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Full Name *</label>
-                    <Input id="name" name="name" type="text" placeholder="Enter your full name" value={formData.name} onChange={handleChange} required />
+                    <Input id="name" name="name" type="text" placeholder="Enter your full name" value={formData.name} onChange={handleChange} required className="bg-white dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2" />
                     {errors.name && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>}
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email Address *</label>
-                    <Input id="email" name="email" type="email" placeholder="Enter your email address" value={formData.email} onChange={handleChange} required />
+                    <Input id="email" name="email" type="email" placeholder="Enter your email address" value={formData.email} onChange={handleChange} required className="bg-white dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2" />
                     {errors.email && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>}
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Phone Number</label>
-                    <Input id="phone" name="phone" type="tel" placeholder={business.phone.display} value={formData.phone} onChange={handleChange} />
+                    <Input id="phone" name="phone" type="tel" placeholder={business.phone.display} value={formData.phone} onChange={handleChange} className="bg-white dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2" />
                   </div>
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Project Type</label>
-                    <select id="subject" name="subject" value={formData.subject} onChange={handleChange} className="block w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-3 py-2 text-slate-900 dark:text-slate-100 shadow-sm focus:border-extendia-primary focus:outline-none focus:ring-1 focus:ring-extendia-primary">
+                    <select id="subject" name="subject" value={formData.subject} onChange={handleChange} className="block w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800/60 px-3 py-2 text-slate-900 dark:text-slate-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-extendia-primary/60">
                       <option value="">Select project type</option>
                       <option value="Home Extensions">Home Extensions</option>
                       <option value="Loft Conversions">Loft Conversions</option>
@@ -173,13 +173,13 @@ export const ContactForm = ({
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Project Details *</label>
-                  <Textarea id="message" name="message" placeholder="Please tell us about your project..." rows={5} value={formData.message} onChange={handleChange} required />
+                  <Textarea id="message" name="message" placeholder="Please tell us about your project..." rows={5} value={formData.message} onChange={handleChange} required className="bg-white dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2" />
                   <p className="mt-1 text-xs text-slate-500">The more details you provide, the more accurate quote we can give you.</p>
                   {errors.message && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>}
                 </div>
                 <div className="flex justify-end">
                   <Button type="submit" disabled={isSubmitting} className="bg-extendia-primary hover:bg-extendia-primary/90 text-white px-8 py-3 font-semibold">
-                    {isSubmitting ? 'Sending...' : 'Get Free Quote'}
+                    {isSubmitting ? 'Sending...' : 'Get Quote'}
                   </Button>
                 </div>
               </div>

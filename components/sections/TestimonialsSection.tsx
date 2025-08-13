@@ -1,362 +1,169 @@
-import { motion } from "framer-motion";
+"use client";
+import * as React from "react";
+import { motion as m } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { useRef, useEffect, useState, useCallback } from "react";
-import useEmblaCarousel from 'embla-carousel-react';
-import { extendiaReviews, type Review } from "@/data/extendia-reviews";
-import { ChevronLeft, ChevronRight, Star, StarHalf, Quote, MapPin } from "lucide-react";
+import { extendiaReviews } from "@/data/extendia-reviews";
+import { Star, MapPin, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
-// London locations for random assignment
-const londonLocations = [
-  "Wimbledon", "Richmond", "Putney", "Kingston", "Twickenham", 
-  "Surbiton", "Clapham", "Wandsworth", "Fulham", "Chelsea", "Kensington"
-];
+// Derive a lean testimonial model (limit number for performance)
+const TESTIMONIALS = extendiaReviews.slice(0, 18).map(r => ({
+  id: r.id,
+  author: r.author,
+  quote: r.content.length > 320 ? r.content.slice(0, 317) + "…" : r.content,
+  rating: r.rating || 5,
+  location: r.location || "London",
+  service: r.project || (r.content.toLowerCase().includes("bathroom") ? "Bathroom Renovation" : r.content.toLowerCase().includes("kitchen") ? "Kitchen Project" : r.content.toLowerCase().includes("loft") ? "Loft Conversion" : r.content.toLowerCase().includes("extension") ? "House Extension" : "Home Improvement")
+}));
 
-// Project types for random assignment
-const projectTypes = [
-  "Loft Conversion", "Kitchen Extension", "Bathroom Renovation", 
-  "House Extension", "Side Return Extension", "Full Renovation",
-  "Home Refurbishment", "Garden Room", "Basement Conversion"
-];
+const stats = {
+  total: extendiaReviews.length,
+  average: extendiaReviews.reduce((s, r) => s + (r.rating || 0), 0) / extendiaReviews.filter(r => r.rating).length
+};
 
-// Avatar emojis for random assignment
-const avatarEmojis = ["👩‍💼", "👨‍💻", "👩‍🎨", "👨‍🔧", "👩‍🏫", "👨‍💼", "👩‍🔧", "👨‍🎨"];
+const TestimonialsSection: React.FC = () => {
+  const [api, setApi] = React.useState<CarouselApi | null>(null);
+  const [index, setIndex] = React.useState(0);
+  const [snaps, setSnaps] = React.useState<number[]>([]);
 
-// Extend reviews with location and project if not present
-const enrichedReviews = extendiaReviews.map((review: Review, index: number) => {
-  // Extract project type from content if possible, or assign based on index
-  let project = review.project;
-  if (!project) {
-    if (review.content.toLowerCase().includes("loft")) {
-      project = "Loft Conversion";
-    } else if (review.content.toLowerCase().includes("kitchen")) {
-      project = "Kitchen Extension";
-    } else if (review.content.toLowerCase().includes("bathroom")) {
-      project = "Bathroom Renovation";
-    } else if (review.content.toLowerCase().includes("extension")) {
-      project = "House Extension";
-    } else {
-      // Use a consistent project type based on index, not random
-      project = projectTypes[index % projectTypes.length];
-    }
-  }
-
-  // Generate a consistent id if not provided
-  const id = review.id || `review-${review.author.replace(/\s+/g, '-').toLowerCase()}-${review.content.slice(0, 10).replace(/\s+/g, '-').toLowerCase()}`;
-  
-  // Use the index for consistent selection of location and emoji
-  const locationIndex = index % londonLocations.length;
-  const emojiIndex = index % avatarEmojis.length;
-  
-  return {
-    ...review,
-    id: id,
-    name: review.author, // Map author to name for UI consistency
-    text: review.content, // Map content to text for UI consistency
-    location: review.location || londonLocations[locationIndex],
-    project: project,
-    image: avatarEmojis[emojiIndex],
-    rating: review.rating || ((index % 2 === 0 ? 5 : 4)).toString() // Simple alternating 4-5 rating as string
-  };
-}).slice(0, 12); // Limit to 12 reviews for better performance
-
-const TestimonialsSection = () => {
-  // Check for reduced motion preference
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: true,
-    align: "start",
-    slidesToScroll: 1,
-    breakpoints: {
-      '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1024px)': { slidesToScroll: 3 }
-    }
-  });
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-    
-    const handleChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-    
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  // Embla Carousel functionality
-  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-  const scrollTo = useCallback((index: number) => emblaApi && emblaApi.scrollTo(index), [emblaApi]);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi, setSelectedIndex]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    setScrollSnaps(emblaApi.scrollSnapList());
-    emblaApi.on("select", onSelect);
-    onSelect();
-
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi, onSelect]);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
+  // Autoplay using Carousel API (lightweight custom loop)
+  React.useEffect(() => {
+    if (!api) return;
+    let raf: number;
+    let last = performance.now();
+    const interval = 5500;
+    const tick = (now: number) => {
+      if (!api) return;
+      if (now - last > interval) {
+        api.scrollNext();
+        last = now;
       }
-    }
-  };
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [api]);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
-  };
+  React.useEffect(() => {
+    if (!api) return;
+    setSnaps(api.scrollSnapList());
+    const onSelect = () => setIndex(api.selectedScrollSnap());
+    api.on("select", onSelect);
+    onSelect();
+    return () => { api.off("select", onSelect); };
+  }, [api]);
 
-  // Array of refs for cards
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const scrollTo = (i: number) => api?.scrollTo(i);
+  const scrollPrev = () => api?.scrollPrev();
+  const scrollNext = () => api?.scrollNext();
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900/90 via-extendia-primary/80 to-extendia-accent/10 relative overflow-hidden">
-      {/* Animated Background */}
-      <motion.div
-        className="absolute -z-10 inset-0 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <motion.div
-          className="absolute top-1/4 -left-32 w-96 h-96 bg-gradient-to-br from-extendia-accent/30 to-extendia-primary/20 rounded-full blur-3xl"
-          animate={prefersReducedMotion ? {} : {
-            x: [0, 40, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.1, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={prefersReducedMotion ? {} : { duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 -right-32 w-80 h-80 bg-gradient-to-br from-extendia-card/20 to-extendia-accent/30 rounded-full blur-3xl"
-          animate={prefersReducedMotion ? {} : {
-            x: [0, -40, 0],
-            y: [0, 40, 0],
-            scale: [1.1, 1, 1.1],
-            rotate: [360, 180, 0],
-          }}
-          transition={prefersReducedMotion ? {} : { duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </motion.div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
-            What Homeowners in <span className="text-extendia-accent">South West London</span> Say
+  <section data-testid="testimonials-section" className="py-20 sm:py-24 bg-gradient-to-b from-gray-900/90 via-extendia-primary/80 to-extendia-accent/10 relative overflow-hidden">
+      {/* Dotted subtle background */}
+      <div className="absolute inset-0 opacity-15 pointer-events-none select-none">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1.2" className="fill-white/30" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dots)" />
+        </svg>
+      </div>
+  {/* Use full-bleed wrapper while keeping inner content padded */}
+  <div className="max-w-[2000px] mx-auto px-2 sm:px-4 md:px-6 relative z-10 w-full">
+        <m.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55 }} className="text-center mb-14">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
+            Trusted by Homeowners Across London
           </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto drop-shadow-md">
-            Discover why families in Kingston, Putney, Richmond, Surbiton, Twickenham, and Wimbledon trust Extendia for their house extensions, loft conversions, and renovations.
+          <p className="mt-5 text-lg text-white/75 max-w-3xl mx-auto">
+            Our commitment to craftsmanship and communication is reflected in what our clients say about working with us.
           </p>
-        </motion.div>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className={`w-6 h-6 ${stats.average > i ? "text-extendia-accent" : "text-white/25"}`} fill="currentColor" />
+              ))}
+            </div>
+            <p className="font-semibold text-white text-xl">
+              {stats.average.toFixed(1)}<span className="ml-2 font-normal text-white/60 text-base">based on {stats.total}+ reviews</span>
+            </p>
+          </div>
+        </m.div>
 
-        {/* Testimonials Carousel */}
         <div className="relative">
-          <div className="embla overflow-hidden" ref={emblaRef}>
-            <motion.div 
-              className="embla__container flex"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {enrichedReviews.map((testimonial, idx) => {
-                // 3D tilt effect handlers
-                const handleMouseMove = (e: React.MouseEvent) => {
-                  const card = cardRefs.current[idx];
-                  if (!card) return;
-                  const rect = card.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-                  const centerX = rect.width / 2;
-                  const centerY = rect.height / 2;
-                  const rotateX = ((y - centerY) / centerY) * 8; // max 8deg
-                  const rotateY = ((x - centerX) / centerX) * -8;
-                  card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03,1.03,1.03)`;
-                };
-                const handleMouseLeave = () => {
-                  const card = cardRefs.current[idx];
-                  if (!card) return;
-                  card.style.transform = "rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
-                };
-                return (
-                  <motion.div
-                    key={testimonial.id}
-                    variants={itemVariants}
-                    className="embla__slide flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.33%] px-4 py-6"
+          <Carousel
+            setApi={setApi}
+            opts={{ loop: true, align: "start" }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-3 lg:-ml-4">
+              {TESTIMONIALS.map((t, i) => (
+                <CarouselItem
+                  key={t.id}
+                  className="pl-2 md:pl-3 lg:pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-[20%]"
+                >
+                  <m.div
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: i * 0.05 }}
+                    className="h-full flex"
                   >
-                    <Card
-                      ref={el => { cardRefs.current[idx] = el; }}
-                      onMouseMove={handleMouseMove}
-                      onMouseLeave={handleMouseLeave}
-                      className="h-full bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-lg border border-extendia-accent/20 shadow-2xl rounded-3xl flex flex-col justify-between focus-within:ring-2 focus-within:ring-extendia-accent group transition-all duration-300 cursor-pointer overflow-hidden"
-                      style={{ transition: "transform 0.3s cubic-bezier(.25,.8,.25,1)" }}
-                      tabIndex={0}
-                      aria-label={`Testimonial from ${testimonial.name}, ${testimonial.location}`}
-                    >
-                      <CardContent className="p-0 flex flex-col h-full">
-                        {/* Quote icon in the background */}
-                        <div className="absolute -top-4 -right-4 text-extendia-accent/10 z-0 pointer-events-none">
-                          <Quote size={120} strokeWidth={1.5} />
+                    <Card className="flex flex-col w-full bg-white/10 backdrop-blur-md border border-white/15 shadow-lg hover:shadow-extendia-accent/10 transition-all duration-300 rounded-2xl group relative overflow-hidden">
+                      <CardContent className="p-6 flex flex-col grow">
+                        <Quote className="absolute top-4 right-4 w-10 h-10 text-white/10 group-hover:scale-110 transition-transform" />
+                        <div className="flex items-center mb-3">
+                          {[...Array(5)].map((_, s) => (
+                            <Star key={s} className={`w-4 h-4 ${t.rating > s ? "text-extendia-accent" : "text-white/25"}`} fill="currentColor" />
+                          ))}
                         </div>
-                        
-                        {/* Top rating bar */}
-                        <div className="bg-gradient-to-r from-extendia-accent to-extendia-primary p-1.5 flex items-center justify-between">
-                          <div className="flex items-center">
-                            {testimonial.rating === 5 ? (
-                              <div className="flex items-center gap-0.5">
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                              </div>
-                            ) : testimonial.rating === 4 ? (
-                              <div className="flex items-center gap-0.5">
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <Star className="h-4 w-4 text-white/40" aria-hidden="true" />
-                              </div>
-                            ) : (
-                              <div className="flex items-center gap-0.5">
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <Star className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                                <StarHalf className="h-4 w-4 fill-white text-white" aria-hidden="true" />
-                              </div>
-                            )}
-                          </div>
-                          <Badge className="bg-white/20 text-white text-[10px] py-0.5 px-2 backdrop-blur-sm font-medium">
-                            {testimonial.source || "Verified"}
-                          </Badge>
-                        </div>
-                        
-                        {/* Content */}
-                        <div className="p-6 flex flex-col flex-1 z-10">
-                          {/* Quote text with gradient scrollable area */}
-                          <div className="mb-5 relative flex-1 overflow-y-auto max-h-60 pr-2 scrollbar-thin scrollbar-track-transparent">
-                            <p className="text-white/90 text-base font-normal leading-relaxed">
-                              {testimonial.text}
-                            </p>
-                            {/* Fade gradient at bottom of long text */}
-                            <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white/10 to-transparent pointer-events-none"></div>
-                          </div>
-                          
-                          {/* Author info */}
-                          <div className="flex items-center mt-auto pt-4 border-t border-extendia-accent/20">
-                            <Avatar className="h-10 w-10 ring-2 ring-extendia-accent/40 rounded-full">
-                              <AvatarFallback className="bg-gradient-to-br from-extendia-primary to-extendia-accent text-white text-base font-semibold">
-                                {testimonial.image}
-                              </AvatarFallback>
-                            </Avatar>
-                            <div className="ml-3">
-                              <p className="text-white font-semibold text-sm">{testimonial.name}</p>
-                              <div className="flex items-center gap-3 text-white/70 text-xs mt-0.5">
-                                <div className="flex items-center gap-1">
-                                  <MapPin size={12} className="text-extendia-accent" />
-                                  <span>{testimonial.location}</span>
-                                </div>
-                                <Badge variant="outline" className="text-[10px] py-0 border-extendia-accent/40 text-extendia-accent bg-extendia-accent/5">
-                                  {testimonial.project}
-                                </Badge>
-                              </div>
-                            </div>
+                        <p className="text-white/90 leading-relaxed text-base flex-1 line-clamp-[12]">{t.quote}</p>
+                        <div className="pt-5 mt-5 border-t border-white/10">
+                          <p className="font-semibold text-white text-sm">{t.author}</p>
+                          <div className="flex items-center text-xs text-white/60 mt-1">
+                            <MapPin className="w-3.5 h-3.5 mr-1" />
+                            <span>{t.location} · {t.service}</span>
                           </div>
                         </div>
                       </CardContent>
                     </Card>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          </div>
-          
-          {/* Navigation Buttons */}
-          <motion.button 
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-gradient-to-r from-extendia-accent to-extendia-primary text-white p-4 rounded-full shadow-lg hover:shadow-extendia-accent/25 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white -ml-5 md:ml-5 backdrop-blur-md"
-            onClick={scrollPrev}
-            aria-label="Previous testimonial"
-            whileTap={{ scale: 0.9 }}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            <ChevronLeft size={24} />
-          </motion.button>
-          <motion.button 
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-gradient-to-r from-extendia-primary to-extendia-accent text-white p-4 rounded-full shadow-lg hover:shadow-extendia-accent/25 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white -mr-5 md:mr-5 backdrop-blur-md"
-            onClick={scrollNext}
-            aria-label="Next testimonial"
-            whileTap={{ scale: 0.9 }}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            <ChevronRight size={24} />
-          </motion.button>
-          
-          {/* Dots indicators with count */}
-          <div className="flex items-center justify-center mt-8 gap-2">
-            <div className="bg-extendia-primary/30 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-4 shadow-lg">
-              <span className="text-white text-sm font-medium">
-                {selectedIndex + 1} <span className="text-white/70">/ {scrollSnaps.length}</span>
-              </span>
-              
-              <div className="flex items-center gap-1.5">
-                {scrollSnaps.map((_, idx) => (
-                  <button
-                    key={idx}
-                    className={`transition-all focus:outline-none group ${
-                      idx === selectedIndex 
-                        ? "scale-100" 
-                        : "scale-75 opacity-70 hover:opacity-100"
-                    }`}
-                    onClick={() => scrollTo(idx)}
-                    aria-label={`Go to slide ${idx + 1}`}
-                  >
-                    <span className={`block h-2 w-2 rounded-full transition-all ${
-                      idx === selectedIndex 
-                        ? "bg-extendia-accent scale-100 ring-2 ring-extendia-accent/30" 
-                        : "bg-white/50 group-hover:bg-white/80"
-                    }`} />
-                  </button>
-                ))}
-              </div>
-            </div>
+                  </m.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden" />
+            <CarouselNext className="hidden" />
+          </Carousel>
+          {/* Custom nav buttons preserving styling */}
+          <button onClick={scrollPrev} aria-label="Previous testimonials" className="absolute left-1 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur-md border border-white/20 shadow transition focus:outline-none focus:ring-2 focus:ring-extendia-accent">
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button onClick={scrollNext} aria-label="Next testimonials" className="absolute right-1 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur-md border border-white/20 shadow transition focus:outline-none focus:ring-2 focus:ring-extendia-accent">
+            <ChevronRight className="w-5 h-5" />
+          </button>
+          <div className="flex justify-center mt-8 gap-2" role="tablist" aria-label="Testimonial slides">
+            {snaps.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollTo(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                aria-selected={i === index}
+                role="tab"
+                className={`h-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-extendia-accent ${i === index ? "w-8 bg-extendia-accent" : "w-2 bg-white/40 hover:bg-white/70"}`}
+              />
+            ))}
           </div>
         </div>
-
-
       </div>
-      <div className="w-full h-8 bg-gradient-to-b from-transparent to-extendia-primary/30 blur-md opacity-80 pointer-events-none" aria-hidden="true"></div>
+      <div className="w-full h-8 bg-gradient-to-b from-transparent to-extendia-primary/30 blur-md opacity-80 pointer-events-none" aria-hidden="true" />
     </section>
   );
 };

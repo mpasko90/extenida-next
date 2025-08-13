@@ -21,11 +21,17 @@ const baseConfig = {
   },
   async redirects() {
     return [
-      {
-        source: '/blog',
-        destination: '/',
-        permanent: true
-      }
+      { source: '/blog', destination: '/', permanent: true },
+      // Legacy PascalCase service paths -> canonical slug paths
+  { source: '/services/HomeExtensions', destination: '/services/home-extensions', permanent: true },
+      { source: '/services/LoftConversions', destination: '/services/loft-conversions', permanent: true },
+      { source: '/services/KitchenRenovations', destination: '/services/kitchen-renovations', permanent: true },
+      { source: '/services/BathroomRenovations', destination: '/services/bathroom-renovations', permanent: true }
+  ,
+  // Legacy non-canonical slug variant -> canonical
+  { source: '/services/house-extensions', destination: '/services/home-extensions', permanent: true },
+  // Consolidated service slug
+  { source: '/services/kitchen-installations', destination: '/services/kitchen-renovations', permanent: true }
     ];
   },
   webpack: (config) => {

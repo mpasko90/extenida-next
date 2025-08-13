@@ -38,7 +38,7 @@ export default function HomeExtensionsPage() {
     "Custom design to match your exact needs",
     "Minimal disruption to daily life",
     "Professional project management",
-    "10-year structural warranty"
+  "5 years structural warranty"
   ];
 
   return (

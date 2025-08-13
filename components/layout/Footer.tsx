@@ -20,18 +20,13 @@ export const Footer = () => {
             <h3 className="text-lg font-medium mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/services/house-extensions" className="text-gray-300 hover:text-white">
-                  House Extensions
+                <Link href="/services/home-extensions" className="text-gray-300 hover:text-white">
+                  Home Extensions
                 </Link>
               </li>
               <li>
                 <Link href="/services/loft-conversions" className="text-gray-300 hover:text-white">
                   Loft Conversions
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/party-wall-surveys" className="text-gray-300 hover:text-white">
-                  Party Wall Surveys
                 </Link>
               </li>
             </ul>
@@ -41,17 +36,17 @@ export const Footer = () => {
             <h3 className="text-lg font-medium mb-4">Areas</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/areas-served/wimbledon" className="text-gray-300 hover:text-white">
+                <Link href="/areas/wimbledon" className="text-gray-300 hover:text-white">
                   Wimbledon
                 </Link>
               </li>
               <li>
-                <Link href="/areas-served/kingston" className="text-gray-300 hover:text-white">
+                <Link href="/areas/kingston" className="text-gray-300 hover:text-white">
                   Kingston
                 </Link>
               </li>
               <li>
-                <Link href="/areas-served/richmond" className="text-gray-300 hover:text-white">
+                <Link href="/areas/richmond" className="text-gray-300 hover:text-white">
                   Richmond
                 </Link>
               </li>

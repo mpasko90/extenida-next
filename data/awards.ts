@@ -1,0 +1,74 @@
+// Awards data ported from Extendia Alpha
+// Centralized for reuse in sections/pages.
+
+export interface AwardEntry {
+  id: string;
+  title: string;
+  year: string; // allow ranges
+  organization: string;
+  description: string;
+  image?: string;
+  link?: string;
+  groupKey?: string;
+}
+
+export const awards: AwardEntry[] = [
+  {
+    id: 'houzz-service-2025',
+    title: 'Best of Houzz – Service',
+    year: '2025',
+    organization: 'Houzz',
+    description: 'Awarded for sustained excellence in client reviews and project delivery standards (2024/25 cycle).',
+  // Using original Alpha asset path (contains spaces) now present in public folder.
+  image: '/images/awards/boh-promo-kit 2025/UK BOH25 Service/02_Social_Assets/IG_Feed_Service_Award.png',
+    link: 'https://www.houzz.co.uk/professionals/design-build-firms/extendia-pfvwgb-pf~2163000585',
+    groupKey: 'houzz-service'
+  },
+  {
+    id: 'houzz-service-2023',
+    title: 'Best of Houzz – Service',
+    year: '2023',
+    organization: 'Houzz',
+    description: 'Maintained superior homeowner satisfaction metrics and verified service quality.',
+    image: '/images/awards/Ready_Best_of_Houzz_Service_2023.webp',
+    link: 'https://www.houzz.co.uk/professionals/design-build-firms/extendia-pfvwgb-pf~2163000585',
+    groupKey: 'houzz-service'
+  },
+  {
+    id: 'houzz-service-2022',
+    title: 'Best of Houzz – Service',
+    year: '2022',
+    organization: 'Houzz',
+    description: 'First recognition establishing our consecutive service excellence benchmark.',
+    image: '/images/awards/Ready_Best_of_Houzz_Service_2022.webp',
+    link: 'https://www.houzz.co.uk/professionals/design-build-firms/extendia-pfvwgb-pf~2163000585',
+    groupKey: 'houzz-service'
+  },
+  {
+    id: 'architecture-experience-2023',
+    title: 'Most Experienced Construction Company',
+    year: '2023',
+    organization: 'Architecture Awards (Build Review)',
+    description: 'Recognised for comprehensive project delivery capability and consistent quality across London residential enhancements.',
+    image: '/images/awards/2023-Architecture-Awards-Logo.png',
+    link: 'https://www.build-review.com/winners/extendia/'
+  }
+];
+
+// Helper to aggregate multi-year awards (e.g., combine years for same groupKey)
+export function aggregateAwards(list: AwardEntry[]) {
+  const map = new Map<string, AwardEntry & { years: string[] }>();
+  list.forEach(a => {
+    if (a.groupKey) {
+      const existing = map.get(a.groupKey);
+      if (existing) {
+        existing.years.push(a.year);
+      } else {
+        map.set(a.groupKey, { ...a, years: [a.year] });
+      }
+    }
+  });
+  return Array.from(map.values())
+    .map(entry => ({ ...entry, yearDisplay: entry.years.sort().join(', ') }))
+    .sort((a,b) => b.years[0].localeCompare(a.years[0]));
+}

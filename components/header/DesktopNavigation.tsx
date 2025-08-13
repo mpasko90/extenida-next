@@ -17,19 +17,19 @@ const DesktopNavigation = () => {
   const services = [
     { 
       name: "Home Extensions", 
-      href: "/services/HomeExtensions",
+      href: "/services/home-extensions",
       locations: [
-        { name: "Kingston", href: "/services/house-extensions/Kingston" },
-        { name: "Putney", href: "/services/house-extensions/Putney" },
-        { name: "Richmond", href: "/services/house-extensions/Richmond" },
-        { name: "Surbiton", href: "/services/house-extensions/Surbiton" },
-        { name: "Twickenham", href: "/services/house-extensions/Twickenham" },
-        { name: "Wimbledon", href: "/services/house-extensions/Wimbledon" },
+        { name: "Kingston", href: "/services/home-extensions/kingston" },
+        { name: "Putney", href: "/services/home-extensions/putney" },
+        { name: "Richmond", href: "/services/home-extensions/richmond" },
+        { name: "Surbiton", href: "/services/home-extensions/surbiton" },
+        { name: "Twickenham", href: "/services/home-extensions/twickenham" },
+        { name: "Wimbledon", href: "/services/home-extensions/wimbledon" },
       ]
     },
     { 
       name: "Loft Conversions", 
-      href: "/services/LoftConversions",
+      href: "/services/loft-conversions",
       locations: [
         { name: "Kingston", href: "/services/loft-conversions/Kingston" },
         { name: "Putney", href: "/services/loft-conversions/Putney" },
@@ -39,24 +39,20 @@ const DesktopNavigation = () => {
         { name: "Wimbledon", href: "/services/loft-conversions/Wimbledon" },
       ]
     },
-    { name: "Kitchen Renovations", href: "/services/KitchenRenovations" },
-    { name: "Bathroom Renovations", href: "/services/BathroomRenovations" },
-    { name: "Bathrooms", href: "/services/Bathrooms" },
+  { name: "Kitchen Renovations", href: "/services/kitchen-renovations" },
+  { name: "Bathroom Renovations", href: "/services/bathroom-renovations" },
   ];
 
   const areas = [
-    { name: "Kingston Upon Thames", href: "/areas/KingstonUponThames" },
-    { name: "Putney", href: "/areas/Putney" },
-    { name: "Richmond", href: "/areas/Richmond" },
-    { name: "Surbiton", href: "/areas/Surbiton" },
-    { name: "Twickenham", href: "/areas/Twickenham" },
-    { name: "Wimbledon", href: "/areas/Wimbledon" },
+    { name: "Kingston", href: "/areas/kingston" },
+    { name: "Putney", href: "/areas/putney" },
+    { name: "Richmond", href: "/areas/richmond" },
+    { name: "Surbiton", href: "/areas/surbiton" },
+    { name: "Twickenham", href: "/areas/twickenham" },
+    { name: "Wimbledon", href: "/areas/wimbledon" },
   ];
 
-  const resources = [
-    { name: "Cost Calculator", href: "/resources/CostCalculator" },
-    { name: "Extension Ideas", href: "/resources/ExtensionIdeas" },
-  ];
+  // Resources removed per current scope (no public resources section)
 
   return (
     <nav 
@@ -185,21 +181,7 @@ const DesktopNavigation = () => {
                     </div>
                   </div>
 
-                  <div>
-                    <h3 className="font-medium text-white mb-3 px-4 nav-text-shadow-md">Resources</h3>
-                    <div className="space-y-1">
-                      {resources.map((resource) => (
-                        <Link
-                          key={resource.href}
-                          href={resource.href}
-                          aria-current={pathname === resource.href ? "page" : undefined}
-                          className={`block text-sm px-3 py-1 text-white hover:text-extendia-accent hover:bg-gradient-to-r hover:from-extendia-primary/5 hover:to-extendia-accent/5 rounded-lg transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 nav-text-shadow-sm ${pathname === resource.href ? "text-extendia-accent bg-gradient-to-r from-extendia-primary/10 to-extendia-accent/10" : ""}`}
-                        >
-                          {resource.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+                  {/* Resources section intentionally removed */}
                 </div>
               </motion.div>
             </NavigationMenuContent>

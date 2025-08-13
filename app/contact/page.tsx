@@ -20,7 +20,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">Get Your Free Quote Today</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">Get Your Quote Today</h2>
               <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Tell us about your project and we'll provide a detailed, competitive quote with no hidden costs.</p>
             </div>
             <ContactForm />

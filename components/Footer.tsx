@@ -13,13 +13,13 @@ const navigation = {
     { name: "Contact", href: "/contact" },
   ],
   services: [
-    { name: "House Extensions", href: "/services/house-extensions" },
+  { name: "Home Extensions", href: "/services/home-extensions" },
     { name: "Loft Conversions", href: "/services/loft-conversions" },
     { name: "Kitchen Renovations", href: "/services/kitchen-renovations" },
     { name: "Bathroom Renovations", href: "/services/bathroom-renovations" },
   ],
   areas: [
-    { name: "Kingston Upon Thames", href: "/areas/kingston" },
+  { name: "Kingston", href: "/areas/kingston" },
     { name: "Richmond", href: "/areas/richmond" },
     { name: "Putney", href: "/areas/putney" },
     { name: "Wimbledon", href: "/areas/wimbledon" },
