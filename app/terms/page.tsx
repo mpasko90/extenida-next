@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { PageLayout } from "@/components/layout";
+import { companyInfo } from '@/lib/companyInfo';
 
 export default function TermsPage() {
   return (
@@ -63,9 +64,9 @@ export default function TermsPage() {
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Contact Information</h2>
               <p className="text-gray-600">
-                <strong>Email:</strong> info@extendia.co.uk<br />
-                <strong>Phone:</strong> 020 1234 5678<br />
-                <strong>Address:</strong> South West London
+                <strong>Email:</strong> {companyInfo.email}<br />
+                <strong>Phone:</strong> {companyInfo.phone.display}<br />
+                <strong>Address:</strong> {companyInfo.registeredOfficeFormatted}
               </p>
             </div>
           </motion.div>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Trophy, TreePine, Star } from "lucide-react";
 import { PageLayout } from "@/components/layout";
+import { companyInfo } from '@/lib/companyInfo';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -248,7 +249,7 @@ export default function WimbledonPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="bg-white text-extendia-primary hover:bg-gray-100 px-8 py-3 text-lg">
-                <a href="tel:+442012345678">Call: 020 1234 5678</a>
+                <a href={companyInfo.phone.href}>Call: {companyInfo.phone.display}</a>
               </Button>
               <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-extendia-primary px-8 py-3 text-lg">
                 <a href="/contact">Get Quote</a>
