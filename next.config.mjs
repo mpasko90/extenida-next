@@ -1,18 +1,33 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
+import bundleAnalyzer from '@next/bundle-analyzer';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === '1' });
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const baseConfig = {
+  images: {
+    formats: ['image/webp','image/avif'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'extendia.co.uk',
+        pathname: '/wp-content/uploads/**'
+      }
+    ]
+  },
   webpack: (config) => {
     config.resolve.alias['@'] = path.resolve(__dirname, '.');
     return config;
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  eslint: { ignoreDuringBuilds: true },
+  reactStrictMode: true,
+  experimental: {
+    optimizePackageImports: ['lucide-react']
+  }
 };
 
-export default nextConfig; 
+export default withBundleAnalyzer(baseConfig);
