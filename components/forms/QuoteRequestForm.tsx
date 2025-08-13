@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { companyInfo } from '@/lib/companyInfo';
 
 const QuoteRequestForm = () => {
   const [formData, setFormData] = useState({
@@ -169,11 +170,11 @@ const QuoteRequestForm = () => {
           <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-600">
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-extendia-accent" />
-              <span>020 1234 5678</span>
+                            <span>{companyInfo.phone.display}</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-extendia-accent" />
-              <span>info@extendia.co.uk</span>
+                            <span>{companyInfo.email}</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-extendia-accent" />

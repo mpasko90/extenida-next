@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calculator, DollarSign } from "lucide-react";
 import { PageLayout } from "@/components/layout";
+import { companyInfo } from '@/lib/companyInfo';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -227,7 +228,7 @@ export default function CostCalculatorPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3 text-lg">
-                Call: 020 1234 5678
+                Call: {companyInfo.phone.display}
               </Button>
               <Button variant="outline" className="border-white text-white hover:bg-white hover:text-extendia-primary px-8 py-3 text-lg">
                 Book Survey
