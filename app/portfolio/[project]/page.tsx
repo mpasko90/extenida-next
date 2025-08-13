@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { getProjects, getProjectBySlug } from '@/data';
 import { VirtualTourEmbed } from '@/components/portfolio/VirtualTourEmbed';
+import { LightboxGallery } from '@/components/portfolio/LightboxGallery';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-// (No Link component needed for simplified alpha-like version)
 
 interface Props { 
   params: Promise<{ project: string }> 
@@ -64,24 +64,8 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         )}
       </header>
-      <ul role="list" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {data.images.map(img => (
-          <li key={img.id} className="relative rounded-lg overflow-hidden bg-slate-800 border border-slate-700">
-            <figure>
-              <Image
-                src={img.thumb}
-                alt={img.alt ? `${data.title} – ${img.alt}` : data.title}
-                width={600}
-                height={400}
-                unoptimized
-                className="w-full h-auto object-cover bg-slate-700/40"
-              />
-              {img.alt && <figcaption className="sr-only">{img.alt}</figcaption>}
-            </figure>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-12">
+      <LightboxGallery images={data.images} className="mb-12" />
+      <div className="mt-4">
         <a href="/portfolio" className="text-sm text-blue-600 dark:text-blue-400 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900" aria-label="Back to all portfolio projects">← Back to portfolio</a>
       </div>
     </main>

@@ -21,19 +21,19 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const services = [
     { 
       name: "Home Extensions", 
-      href: "/services/HomeExtensions",
+      href: "/services/home-extensions",
       locations: [
-        { name: "Kingston", href: "/services/house-extensions/Kingston" },
-        { name: "Putney", href: "/services/house-extensions/Putney" },
-        { name: "Richmond", href: "/services/house-extensions/Richmond" },
-        { name: "Surbiton", href: "/services/house-extensions/Surbiton" },
-        { name: "Twickenham", href: "/services/house-extensions/Twickenham" },
-        { name: "Wimbledon", href: "/services/house-extensions/Wimbledon" },
+        { name: "Kingston", href: "/services/home-extensions/kingston" },
+        { name: "Putney", href: "/services/home-extensions/putney" },
+        { name: "Richmond", href: "/services/home-extensions/richmond" },
+        { name: "Surbiton", href: "/services/home-extensions/surbiton" },
+        { name: "Twickenham", href: "/services/home-extensions/twickenham" },
+        { name: "Wimbledon", href: "/services/home-extensions/wimbledon" },
       ]
     },
     { 
       name: "Loft Conversions", 
-      href: "/services/LoftConversions",
+      href: "/services/loft-conversions",
       locations: [
         { name: "Kingston", href: "/services/loft-conversions/Kingston" },
         { name: "Putney", href: "/services/loft-conversions/Putney" },
@@ -43,24 +43,20 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         { name: "Wimbledon", href: "/services/loft-conversions/Wimbledon" },
       ]
     },
-    { name: "Kitchen Renovations", href: "/services/KitchenRenovations" },
-    { name: "Bathroom Renovations", href: "/services/BathroomRenovations" },
-    { name: "Bathrooms", href: "/services/Bathrooms" },
+  { name: "Kitchen Renovations", href: "/services/kitchen-renovations" },
+  { name: "Bathroom Renovations", href: "/services/bathroom-renovations" },
   ];
 
   const areas = [
-    { name: "Kingston Upon Thames", href: "/areas/KingstonUponThames" },
-    { name: "Putney", href: "/areas/Putney" },
-    { name: "Richmond", href: "/areas/Richmond" },
-    { name: "Surbiton", href: "/areas/Surbiton" },
-    { name: "Twickenham", href: "/areas/Twickenham" },
-    { name: "Wimbledon", href: "/areas/Wimbledon" },
+    { name: "Kingston", href: "/areas/kingston" },
+    { name: "Putney", href: "/areas/putney" },
+    { name: "Richmond", href: "/areas/richmond" },
+    { name: "Surbiton", href: "/areas/surbiton" },
+    { name: "Twickenham", href: "/areas/twickenham" },
+    { name: "Wimbledon", href: "/areas/wimbledon" },
   ];
 
-  const resources = [
-    { name: "Cost Calculator", href: "/resources/CostCalculator" },
-    { name: "Extension Ideas", href: "/resources/ExtensionIdeas" },
-  ];
+  // Resources removed per scope
 
   const mobileMenuVariants = {
     hidden: { 
@@ -237,26 +233,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               </div>
             </motion.div>
 
-            {/* Resources Section */}
-            <motion.div
-              custom={7}
-              variants={menuItemVariants}
-              className="border-t border-gray-200/50 pt-4"
-            >
-              <h3 className="px-4 text-sm font-semibold text-gray-500 mb-2 nav-text-shadow-light">Resources</h3>
-              <div className="space-y-1">
-                {resources.map((resource) => (
-                  <Link
-                    key={resource.href}
-                    href={resource.href}
-                    className="block px-4 py-2 text-gray-700 hover:text-extendia-accent transition-colors duration-300 nav-text-shadow-light"
-                    onClick={onClose}
-                  >
-                    {resource.name}
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
+            {/* Resources section intentionally removed */}
 
             <motion.div
               custom={5}

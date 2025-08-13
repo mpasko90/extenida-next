@@ -41,13 +41,6 @@ const ServicesSection = () => {
       emoji: "👨‍🍳"
     },
     {
-      title: "Party Wall Surveys",
-      description: "Professional party wall surveys and agreements to ensure your project complies with regulations.",
-      features: ["Party Wall Awards", "Neighbour Liaison", "Legal Compliance"],
-      color: "from-teal-500 to-teal-600",
-      emoji: "📋"
-    },
-    {
       title: "Bathroom Renovations",
       description: "Create a luxurious spa-like retreat with our complete bathroom renovation services.",
       features: ["Luxury Finishes", "Wet Rooms", "Accessibility Options"],
@@ -162,7 +155,7 @@ const ServicesSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 lg:gap-6"
+          className="grid gap-8 lg:gap-6 [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))]"
           role="list"
           aria-label="Building services offered in South West London"
         >
@@ -218,7 +211,6 @@ const ServicesSection = () => {
           ))}
         </motion.div>
       </div>
-      <div className="w-full h-8 bg-gradient-to-b from-transparent to-extendia-accent/30 blur-md opacity-80 pointer-events-none" aria-hidden="true"></div>
     </section>
   );
 };

@@ -25,8 +25,8 @@ const BathroomRenovations = () => {
     },
     {
       icon: Shield,
-      title: "Full Guarantee",
-      description: "10-year warranty on all bathroom renovation work."
+  title: "Warranty",
+  description: "5-years warranty on all bathroom renovation work."
     }
   ];
 
@@ -254,7 +254,7 @@ const BathroomRenovations = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
-                <a href="/contact">Get Free Quote</a>
+                <a href="/contact">Get Quote</a>
               </Button>
               <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-extendia-primary px-8 py-3">
                 <a href={companyInfo.phone.href}>Call: {companyInfo.phone.display}</a>

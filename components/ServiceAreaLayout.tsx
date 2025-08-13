@@ -108,7 +108,7 @@ export default function ServiceAreaLayout({
   return (
     <>
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-extenida-primary to-extendia-secondary text-white">
+      <section className="py-20 bg-gradient-to-br from-extendia-primary to-extendia-secondary text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -120,8 +120,8 @@ export default function ServiceAreaLayout({
               {serviceTitle} in <span className="text-extendia-accent">{areaName}</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">{serviceDescription}</p>
-            <Button className="bg-extendia-accent hover:bg-extenida-accent/90 text-white px-8 py-3">
-              Get Free Quote
+            <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
+              Get Quote
             </Button>
           </motion.div>
         </div>
@@ -389,7 +389,7 @@ export default function ServiceAreaLayout({
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-extenida-primary to-extendia-secondary text-white">
+      <section className="py-20 bg-gradient-to-br from-extendia-primary to-extendia-secondary text-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -405,8 +405,8 @@ export default function ServiceAreaLayout({
               Contact us today for a free consultation and quote.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="bg-extendia-accent hover:bg-extenida-accent/90 text-white px-8 py-3">
-                <a href="/contact">Get Free Quote</a>
+              <Button asChild className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
+                <a href="/contact">Get Quote</a>
               </Button>
               <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-extendia-primary px-8 py-3">
                 <a href="tel:+442039165670">Call: 020 3916 5670</a>

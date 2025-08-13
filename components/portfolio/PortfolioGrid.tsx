@@ -14,9 +14,11 @@ export function PortfolioGrid({ projects, className = '' }: PortfolioGridProps) 
       {projects.map(project => {
         const cover = project.images[0];
         return (
-          <div
+          <Link
+            href={`/portfolio/${project.slug}`}
             key={project.slug}
-            className="group relative rounded-lg overflow-hidden bg-slate-800 border border-slate-700"
+            aria-label={`View project: ${project.title}`}
+            className="group relative block rounded-lg overflow-hidden bg-slate-800 border border-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 transition-shadow hover:shadow-lg"
           >
             {cover && (
               <div className="relative aspect-[4/3] bg-slate-700/40">
@@ -40,9 +42,9 @@ export function PortfolioGrid({ projects, className = '' }: PortfolioGridProps) 
             <div className="absolute bottom-0 left-0 right-0 p-4 space-y-1">
               <h3 className="text-white font-semibold text-sm leading-snug line-clamp-2">{project.title}</h3>
               <p className="text-xs text-blue-300 uppercase tracking-wide">{project.serviceType.replace('-', ' ')} • {project.location}</p>
-              <Link href={`/portfolio/${project.slug}`} className="inline-block mt-2 text-xs font-medium text-white/90 hover:text-white underline underline-offset-4">View project</Link>
+              <span className="mt-2 inline-flex items-center text-xs font-medium text-white/90 group-hover:text-white underline underline-offset-4 decoration-slate-400/60">View project →</span>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>

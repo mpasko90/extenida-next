@@ -141,7 +141,7 @@ export default function WimbledonPage() {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="text-center h-full">
+                <Card className="text-center h-full" variant="accent">
                   <CardContent className="p-8">
                     <area.icon className="w-8 h-8 text-extendia-accent mx-auto mb-4" />
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">{area.name}</h3>
