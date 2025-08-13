@@ -1,8 +1,10 @@
+import React from 'react';
 import { motion } from "framer-motion";
 import { Home, Ruler, Shield, TrendingUp, Users, Award } from "lucide-react";
 import PageLayout from "../../components/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
+import { companyInfo } from "../../lib/companyInfo";
 
 const LoftConversions = () => {
   const benefits = [
@@ -88,11 +90,11 @@ const LoftConversions = () => {
 
   return (
     <PageLayout
-      title="Loft Conversions South West London | Extenida"
+      title="Loft Conversions South West London | Extendia"
       description="Professional loft conversion services in South West London. Expert solutions for period and modern properties with local area knowledge."
     >
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-extenida-primary to-extendia-secondary text-white">
+  <section className="py-20 bg-gradient-to-br from-extendia-primary to-extendia-secondary text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -106,7 +108,7 @@ const LoftConversions = () => {
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
               Transform your unused loft space into a beautiful living area with our expert conversion services.
             </p>
-            <Button className="bg-extenida-accent hover:bg-extenida-accent/90 text-white px-8 py-3">
+            <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
               Get Free Consultation
             </Button>
           </motion.div>
@@ -138,7 +140,7 @@ const LoftConversions = () => {
               >
                 <Card className="text-center h-full hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">
-                    <benefit.icon className="w-12 h-12 text-extenida-accent mx-auto mb-4" />
+                    <benefit.icon className="w-12 h-12 text-extendia-accent mx-auto mb-4" />
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
                     <p className="text-gray-600">{benefit.description}</p>
                   </CardContent>
@@ -235,7 +237,7 @@ const LoftConversions = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-extenida-primary to-extendia-secondary text-white">
+  <section className="py-20 bg-gradient-to-br from-extendia-primary to-extendia-secondary text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -245,17 +247,17 @@ const LoftConversions = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <h2 className="text-4xl font-bold mb-6">
-              Ready to Transform Your <span className="text-extenida-accent">Loft Space?</span>
+              Ready to Transform Your <span className="text-extendia-accent">Loft Space?</span>
             </h2>
             <p className="text-xl text-blue-100 mb-8">
               Contact us today for a free consultation and expert advice on your loft conversion project.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="bg-extenida-accent hover:bg-extenida-accent/90 text-white px-8 py-3">
+              <Button asChild className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
                 <a href="/contact">Get Free Quote</a>
               </Button>
               <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-extendia-primary px-8 py-3">
-                <a href="tel:+442039165670">Call: 020 3916 5670</a>
+                <a href={companyInfo.phone.href}>Call: {companyInfo.phone.display}</a>
               </Button>
             </div>
           </motion.div>

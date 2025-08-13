@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin } from "lucide-react";
+import { companyInfo } from "../lib/companyInfo";
 
 const navigation = {
   company: [
@@ -56,7 +57,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Image
               src="/Extendia_logo_white.png"
-              alt="Extenida Logo"
+              alt="Extendia Logo"
               width={150}
               height={40}
               className="h-10 w-auto mb-6"
@@ -68,21 +69,21 @@ export default function Footer() {
               <li className="flex items-start">
                 <MapPin className="h-6 w-6 text-extendia-accent flex-shrink-0 mt-1" />
                 <span className="ml-3 text-gray-300">
-                  123 London Road<br />
-                  Kingston Upon Thames<br />
-                  London, KT1 2XX
+                  {companyInfo.registeredOffice.line1}<br />
+                  {companyInfo.registeredOffice.line2}<br />
+                  {companyInfo.registeredOffice.city}, {companyInfo.registeredOffice.postcode}
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone className="h-6 w-6 text-extendia-accent flex-shrink-0" />
-                <a href="tel:+442039165670" className="ml-3 text-gray-300 hover:text-white">
-                  020 3916 5670
+                <a href={companyInfo.phone.href} className="ml-3 text-gray-300 hover:text-white">
+                  {companyInfo.phone.display}
                 </a>
               </li>
               <li className="flex items-center">
                 <Mail className="h-6 w-6 text-extendia-accent flex-shrink-0" />
-                <a href="mailto:info@extenida.co.uk" className="ml-3 text-gray-300 hover:text-white">
-                  info@extenida.co.uk
+                <a href={`mailto:${companyInfo.email}`} className="ml-3 text-gray-300 hover:text-white">
+                  {companyInfo.email}
                 </a>
               </li>
             </ul>
@@ -135,7 +136,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Extenida. All rights reserved.
+              © {new Date().getFullYear()} {companyInfo.name}. Company No. {companyInfo.companyNumber}. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               {navigation.social.map((item) => {

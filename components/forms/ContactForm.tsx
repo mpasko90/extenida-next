@@ -1,210 +1,191 @@
+"use client";
+
 import { useState, FormEvent } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { companyInfo } from '../../lib/companyInfo';
 
 interface ContactFormProps {
   title?: string;
   subtitle?: string;
+  showContactInfo?: boolean;
 }
 
+const business = {
+  name: companyInfo.name,
+  phone: companyInfo.phone,
+  email: { address: companyInfo.email, href: `mailto:${companyInfo.email}` },
+  serviceArea: 'South West London & surrounding areas',
+  registeredOffice: companyInfo.registeredOfficeFormatted
+};
+
 export const ContactForm = ({
-  title = "Contact Us",
-  subtitle = "Fill out the form to get a quote or ask a question.",
+  title = 'Get Your Free Quote',
+  subtitle = "Tell us about your project and we'll provide a detailed quote within 24 hours.",
+  showContactInfo = true
 }: ContactFormProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    service: '',
+    subject: '',
     message: '',
+    company: '' // honeypot
   });
-
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitMessage, setSubmitMessage] = useState('');
+  const [startTime] = useState(Date.now());
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error for this field when user types
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
-    }
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
-
-    // Basic validation
     if (!formData.name.trim()) newErrors.name = 'Full name is required';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Invalid email format';
-    }
+    if (!formData.email.trim()) newErrors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Invalid email format';
     if (!formData.message.trim()) newErrors.message = 'Message is required';
-
+    else if (formData.message.trim().length < 10) newErrors.message = 'Please provide more details about your project';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
-    // Validate form before submission
     if (!validateForm()) return;
-
     setIsSubmitting(true);
     setSubmitStatus('idle');
     setSubmitMessage('');
 
     try {
-      // Send data to your API route
-      const response = await fetch('/api/contact', {
+      const submissionTime = Date.now() - startTime;
+      const payload = { ...formData, source: 'contact-page', t: submissionTime };
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'An error occurred while sending the form');
-      }
-
-      // Success!
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to send form');
       setSubmitStatus('success');
-      setSubmitMessage('Thank you for your message! We will contact you shortly.');
-
-      // Reset the form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: '',
-      });
-
-    } catch (error) {
-      // Handle errors
+      setSubmitMessage("Thank you for your message! We'll contact you within 24 hours with your free quote.");
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '', company: '' });
+    } catch (err) {
       setSubmitStatus('error');
-      setSubmitMessage(error instanceof Error ? error.message : 'An error occurred while sending the form');
+      setSubmitMessage(err instanceof Error ? err.message : 'An error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
-      {title && <h2 className="text-2xl font-bold text-gray-900 mb-2">{title}</h2>}
-      {subtitle && <p className="text-gray-600 mb-6">{subtitle}</p>}
-
-      {/* Status Messages */}
-      {submitStatus === 'success' && (
-        <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-md">
-          {submitMessage}
-        </div>
-      )}
-
-      {submitStatus === 'error' && (
-        <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-md">
-          {submitMessage}
-        </div>
-      )}
-
-      <form onSubmit={handleSubmit}>
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-              <Input
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Enter your full name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-              {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Enter your email address"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-              {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone (optional)</label>
-              <Input
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="Enter your phone number"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
-                Service Type
-              </label>
-              <select
-                id="service"
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                className="block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
-              >
-                <option value="">Select service</option>
-                <option value="house-extensions">House Extensions</option>
-                <option value="loft-conversions">Loft Conversions</option>
-                <option value="party-wall-surveys">Party Wall Surveys</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-          </div>
-
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+      {showContactInfo && (
+        <div className="lg:col-span-1 space-y-8">
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-            <Textarea
-              id="message"
-              name="message"
-              placeholder="W czym możemy Ci pomóc? Podaj więcej szczegółów dotyczących Twojego projektu"
-              rows={5}
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-            {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">Get in Touch</h3>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">Ready to transform your home? Contact us for a free consultation and detailed quote.</p>
           </div>
-
-          <div className="flex justify-end">
-            <Button
-              type="submit"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </Button>
+          <div className="space-y-6">
+            <div className="flex items-start space-x-4">
+              <Phone className="w-5 h-5 text-extendia-primary mt-1" />
+              <div>
+                <h4 className="font-medium text-slate-900 dark:text-slate-100">Phone</h4>
+                <p className="text-slate-600 dark:text-slate-400"><a href={business.phone.href}>{business.phone.display}</a></p>
+                <p className="text-sm text-slate-500">Available 8 AM - 6 PM</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <Mail className="w-5 h-5 text-extendia-primary mt-1" />
+              <div>
+                <h4 className="font-medium text-slate-900 dark:text-slate-100">Email</h4>
+                <p className="text-slate-600 dark:text-slate-400"><a href={business.email.href}>{business.email.address}</a></p>
+                <p className="text-sm text-slate-500">We respond within 4 hours</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <MapPin className="w-5 h-5 text-extendia-primary mt-1" />
+              <div>
+                <h4 className="font-medium text-slate-900 dark:text-slate-100">Registered Office</h4>
+                <p className="text-slate-600 dark:text-slate-400">{business.registeredOffice}</p>
+                <p className="text-sm text-slate-500">Service area: {business.serviceArea}</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <Clock className="w-5 h-5 text-extendia-primary mt-1" />
+              <div>
+                <h4 className="font-medium text-slate-900 dark:text-slate-100">Response Time</h4>
+                <p className="text-slate-600 dark:text-slate-400">Free quotes within 24 hours</p>
+                <p className="text-sm text-slate-500">Emergency support available</p>
+              </div>
+            </div>
           </div>
         </div>
-      </form>
+      )}
+      <div className={showContactInfo ? 'lg:col-span-2' : 'lg:col-span-3'}>
+        <div className="bg-white dark:bg-slate-950 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 p-6 md:p-8">
+          {title && <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">{title}</h2>}
+            {subtitle && <p className="text-slate-600 dark:text-slate-400 mb-6">{subtitle}</p>}
+            {submitStatus === 'success' && <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-400 rounded-lg">{submitMessage}</div>}
+            {submitStatus === 'error' && <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 rounded-lg">{submitMessage}</div>}
+            <form onSubmit={handleSubmit}>
+              <div className="hidden">
+                <label htmlFor="company">Company</label>
+                <input id="company" name="company" type="text" value={formData.company} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+              </div>
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Full Name *</label>
+                    <Input id="name" name="name" type="text" placeholder="Enter your full name" value={formData.name} onChange={handleChange} required />
+                    {errors.name && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>}
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email Address *</label>
+                    <Input id="email" name="email" type="email" placeholder="Enter your email address" value={formData.email} onChange={handleChange} required />
+                    {errors.email && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>}
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Phone Number</label>
+                    <Input id="phone" name="phone" type="tel" placeholder={business.phone.display} value={formData.phone} onChange={handleChange} />
+                  </div>
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Project Type</label>
+                    <select id="subject" name="subject" value={formData.subject} onChange={handleChange} className="block w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-3 py-2 text-slate-900 dark:text-slate-100 shadow-sm focus:border-extendia-primary focus:outline-none focus:ring-1 focus:ring-extendia-primary">
+                      <option value="">Select project type</option>
+                      <option value="Home Extensions">Home Extensions</option>
+                      <option value="Loft Conversions">Loft Conversions</option>
+                      <option value="Bathroom Renovations">Bathroom Renovations</option>
+                      <option value="Kitchen Extensions">Kitchen Extensions</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Project Details *</label>
+                  <Textarea id="message" name="message" placeholder="Please tell us about your project..." rows={5} value={formData.message} onChange={handleChange} required />
+                  <p className="mt-1 text-xs text-slate-500">The more details you provide, the more accurate quote we can give you.</p>
+                  {errors.message && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>}
+                </div>
+                <div className="flex justify-end">
+                  <Button type="submit" disabled={isSubmitting} className="bg-extendia-primary hover:bg-extendia-primary/90 text-white px-8 py-3 font-semibold">
+                    {isSubmitting ? 'Sending...' : 'Get Free Quote'}
+                  </Button>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
     </div>
   );
 };

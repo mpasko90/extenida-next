@@ -75,12 +75,6 @@ export default async function ProjectPage({ params }: Props) {
                 height={400}
                 unoptimized
                 className="w-full h-auto object-cover bg-slate-700/40"
-                onError={(e) => {
-                  const target = e.currentTarget as HTMLImageElement;
-                  if (target.src !== img.full) {
-                    target.src = img.full;
-                  }
-                }}
               />
               {img.alt && <figcaption className="sr-only">{img.alt}</figcaption>}
             </figure>

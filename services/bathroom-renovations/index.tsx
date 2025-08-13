@@ -1,8 +1,10 @@
+import React from 'react';
 import { motion } from "framer-motion";
 import { Droplets, Sparkles, Palette, Ruler, Shield, Award } from "lucide-react";
 import PageLayout from "../../components/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
+import { companyInfo } from "../../lib/companyInfo";
 
 const BathroomRenovations = () => {
   const benefits = [
@@ -88,11 +90,11 @@ const BathroomRenovations = () => {
 
   return (
     <PageLayout
-      title="Bathroom Renovations South West London | Extenida"
+      title="Bathroom Renovations South West London | Extendia"
       description="Luxury bathroom renovation services in South West London. Expert designs and installations for modern and period properties."
     >
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-extenida-primary to-extendia-secondary text-white">
+  <section className="py-20 bg-gradient-to-br from-extendia-primary to-extendia-secondary text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -106,7 +108,7 @@ const BathroomRenovations = () => {
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
               Transform your bathroom into a luxurious sanctuary with our expert renovation services.
             </p>
-            <Button className="bg-extendia-accent hover:bg-extenida-accent/90 text-white px-8 py-3">
+            <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
               Get Free Consultation
             </Button>
           </motion.div>
@@ -235,7 +237,7 @@ const BathroomRenovations = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-extenida-primary to-extendia-secondary text-white">
+  <section className="py-20 bg-gradient-to-br from-extendia-primary to-extendia-secondary text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -251,11 +253,11 @@ const BathroomRenovations = () => {
               Contact us today for a free consultation and design ideas for your dream bathroom.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="bg-extenida-accent hover:bg-extenida-accent/90 text-white px-8 py-3">
+              <Button asChild className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
                 <a href="/contact">Get Free Quote</a>
               </Button>
               <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-extendia-primary px-8 py-3">
-                <a href="tel:+442039165670">Call: 020 3916 5670</a>
+                <a href={companyInfo.phone.href}>Call: {companyInfo.phone.display}</a>
               </Button>
             </div>
           </motion.div>
