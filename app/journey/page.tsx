@@ -63,7 +63,6 @@ export default function JourneyPage() {
               ) : undefined
             }))}
             alternate
-            showProgress
           />
         </div>
       </section>
