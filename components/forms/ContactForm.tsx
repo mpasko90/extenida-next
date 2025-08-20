@@ -173,9 +173,9 @@ export const ContactForm = ({
                       <option value="">Select project type</option>
                       <option value="Home Extensions">Home Extensions</option>
                       <option value="Loft Conversions">Loft Conversions</option>
+                      <option value="House/Flat Renovations">House/Flat Renovations</option>
                       <option value="Bathroom Renovations">Bathroom Renovations</option>
                       <option value="Kitchen Extensions">Kitchen Extensions</option>
-                      <option value="General Inquiry">General Inquiry</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
