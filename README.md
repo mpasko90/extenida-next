@@ -10,6 +10,7 @@ Copy `.env.example` to `.env.local` and set:
 
 - `NEXT_PUBLIC_SITE_URL` – canonical site URL (used by metadataBase, robots.txt, sitemap.xml)
 - `NEXT_PUBLIC_GSC_VERIFICATION` – Google Search Console verification token (optional)
+- `NEXT_PUBLIC_GA_ID` – Google Analytics Measurement ID (optional, e.g., G-XXXXXXXXXX)
 
 On Vercel, add these in Project Settings → Environment Variables for Production and Preview and redeploy.
 
@@ -17,7 +18,7 @@ SEO endpoints served by the App Router:
 - `/robots.txt` – built from `app/robots.ts` and references your site URL
 - `/sitemap.xml` – built from `app/sitemap.ts` and includes static pages, services, areas, and portfolio
 
-Note: A static `public/robots.txt` exists but the App Router route (`app/robots.ts`) takes precedence at runtime.
+Privacy note: GA is loaded only when `NEXT_PUBLIC_GA_ID` is set. Consider cookie consent for GDPR and enable IP anonymization (already on in config).
 
 ## Documentation
 
