@@ -5,6 +5,7 @@ import { Header, Footer } from "@/components/layout";
 import ClientProviders from "@/components/ClientProviders";
 import { Metadata } from "next";
 import HeaderOffset from "@/components/layout/HeaderOffset";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
           <Footer />
         </ClientProviders>
+        <SpeedInsights />
       </body>
     </html>
   );
