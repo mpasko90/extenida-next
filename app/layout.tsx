@@ -6,11 +6,14 @@ import ClientProviders from "@/components/ClientProviders";
 import { Metadata } from "next";
 import HeaderOffset from "@/components/layout/HeaderOffset";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
+import { GoogleAnalytics } from "@/components/providers/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://extendia.co.uk";
 const gscToken = process.env.NEXT_PUBLIC_GSC_VERIFICATION; // optional token for meta verification
+const gaId = process.env.NEXT_PUBLIC_GA_ID; // optional Google Analytics ID (G-XXXXXXXXXX)
 
 export const metadata: Metadata = {
   title: {
@@ -55,6 +58,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {gscToken ? (
           <meta name="google-site-verification" content={gscToken} />
         ) : null}
+        {/* Google Analytics */}
+        {gaId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}', { anonymize_ip: true });
+              `}
+            </Script>
+          </>
+        ) : null}
       </head>
       <body className={`${inter.className} bg-extendia-primary text-gray-900 antialiased`}>
         <ClientProviders>
@@ -65,6 +85,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
           <Footer />
         </ClientProviders>
+        {gaId ? <GoogleAnalytics /> : null}
         <SpeedInsights />
       </body>
     </html>
