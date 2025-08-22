@@ -8,6 +8,7 @@ import HeaderOffset from "@/components/layout/HeaderOffset";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import { GoogleAnalytics } from "@/components/providers/GoogleAnalytics";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -85,7 +86,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
           <Footer />
         </ClientProviders>
-        {gaId ? <GoogleAnalytics /> : null}
+        {gaId ? (
+          <Suspense fallback={null}>
+            <GoogleAnalytics />
+          </Suspense>
+        ) : null}
         <SpeedInsights />
       </body>
     </html>
