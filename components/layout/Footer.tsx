@@ -72,7 +72,7 @@ export const Footer = () => {
             <Link href="/terms" className="text-gray-300 hover:text-white">
               Terms of Service
             </Link>
-            <Link href="/sitemap" className="text-gray-300 hover:text-white">
+            <Link href="/sitemap.xml" className="text-gray-300 hover:text-white">
               Sitemap
             </Link>
           </div>
