@@ -10,6 +10,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"] });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://extendia.co.uk";
+const gscToken = process.env.NEXT_PUBLIC_GSC_VERIFICATION; // optional token for meta verification
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +29,8 @@ export const metadata: Metadata = {
     apple: [
       { url: "/extendia-logo-color.webp" }
     ]
-  }
+  },
+  verification: gscToken ? { google: gscToken } : undefined,
 };
 
 export const viewport = {
@@ -50,6 +52,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preload" as="image" href="/extendia-logo-color.webp" />
+        {gscToken ? (
+          <meta name="google-site-verification" content={gscToken} />
+        ) : null}
       </head>
       <body className={`${inter.className} bg-extendia-primary text-gray-900 antialiased`}>
         <ClientProviders>
