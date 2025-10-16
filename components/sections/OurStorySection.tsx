@@ -27,7 +27,7 @@ const OurStorySection = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/our-story/our-story.jpg"
+                src="/images/wp-content/uploads/2021/05/About_us_extendia.jpg"
                 alt="Patryk and Michal Peplinski, founders of Extendia"
                 width={600}
                 height={450}

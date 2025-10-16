@@ -1,22 +1,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 const ServicesSection = () => {
-  // Check for reduced motion preference
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-    
-    const handleChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-    
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
+  // Reduced motion preference is not used in this simplified section.
 
   // Simplified services list per request (no descriptions/icons/features)
   const services = [

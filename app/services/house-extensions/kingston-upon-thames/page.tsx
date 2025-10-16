@@ -109,7 +109,7 @@ export default function HouseExtensionsKingstonPage() {
           location: "Kingston Hill",
           cost: "£45,000 - £55,000",
           duration: "8-10 weeks",
-          image: "/images/projects/kingston-victorian-extension.jpg"
+          image: "/images/wp-content/uploads/2021/05/extendia_house_extension.jpg"
         },
         {
           title: "Edwardian Side Return",
@@ -117,7 +117,7 @@ export default function HouseExtensionsKingstonPage() {
           location: "Kingston Vale",
           cost: "£65,000 - £75,000",
           duration: "10-12 weeks",
-          image: "/images/projects/kingston-side-return.jpg"
+          image: "/images/wp-content/uploads/2021/05/house_extentions_extendia.jpg"
         },
         {
           title: "Double Storey Extension",
@@ -125,7 +125,7 @@ export default function HouseExtensionsKingstonPage() {
           location: "New Malden",
           cost: "£85,000 - £100,000",
           duration: "14-16 weeks",
-          image: "/images/projects/kingston-double-storey.jpg"
+          image: "/images/wp-content/uploads/2021/05/extendia_house_extension.jpg"
         }
       ]}
       faqItems={[

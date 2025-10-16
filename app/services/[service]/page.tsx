@@ -70,7 +70,7 @@ export default async function ServicePage({ params }: PageProps) {
 
       {/* Features */}
       <section className="max-w-6xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-6">What\'s Included</h2>
+  <h2 className="text-2xl font-semibold mb-6">What&apos;s Included</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {svc.features.map(f => (
             <Card key={f} className="p-5" variant="accent">
@@ -126,7 +126,7 @@ export default async function ServicePage({ params }: PageProps) {
         <Card className="p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700" variant="highlight">
           <div>
             <h2 className="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-50">Ready to discuss {svc.name.toLowerCase()}?</h2>
-            <p className="text-slate-600 dark:text-slate-400 max-w-xl">Book a consultation – we'll assess feasibility, outline options and provide a transparent starting cost band.</p>
+            <p className="text-slate-600 dark:text-slate-400 max-w-xl">Book a consultation – we&apos;ll assess feasibility, outline options and provide a transparent starting cost band.</p>
           </div>
           <div className="flex flex-col gap-3 w-full md:w-auto">
             <Button asChild><a href="/contact">Request Quote</a></Button>

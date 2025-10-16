@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import { Droplets, Sparkles, Palette, Ruler, Shield, Award } from "lucide-react";
+import { Droplets, Sparkles, Palette, Shield, Award } from "lucide-react";
 import PageLayout from "../../components/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";

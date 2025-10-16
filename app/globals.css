@@ -86,6 +86,9 @@
 
 /* Extendia Custom Utilities */
 @layer utilities {
+  .header-offset {
+    padding-top: var(--header-offset, var(--header-h, 80px));
+  }
   .text-extendia-primary {
     color: hsl(var(--extendia-primary));
   }

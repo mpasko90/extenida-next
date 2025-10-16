@@ -114,3 +114,6 @@ coverage/
 NEW_WEBSITE_COMMENTS_V1\[1].pdf
 why-us.md
 .env.example
+
+# WordPress media uploads (large files, not for git)
+public/images/wp-content/uploads/

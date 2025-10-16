@@ -109,7 +109,7 @@ export default function LoftConversionsRichmondPage() {
           location: "Richmond Hill",
           cost: "£75,000 - £90,000",
           duration: "12-14 weeks",
-          image: "/images/projects/richmond-mansard-conversion.jpg"
+          image: "/images/wp-content/uploads/2021/05/loft_conversion_extendia.jpg"
         },
         {
           title: "Edwardian House Velux",
@@ -117,7 +117,7 @@ export default function LoftConversionsRichmondPage() {
           location: "East Sheen",
           cost: "£35,000 - £45,000",
           duration: "6-8 weeks",
-          image: "/images/projects/richmond-velux-conversion.jpg"
+          image: "/images/wp-content/uploads/2021/05/loft_conversion_extendia.jpg"
         },
         {
           title: "Period Property Dormer",
@@ -125,7 +125,7 @@ export default function LoftConversionsRichmondPage() {
           location: "Kew",
           cost: "£55,000 - £70,000",
           duration: "10-12 weeks",
-          image: "/images/projects/richmond-dormer-conversion.jpg"
+          image: "/images/wp-content/uploads/2021/05/loft_conversion_extendia.jpg"
         }
       ]}
       faqItems={[

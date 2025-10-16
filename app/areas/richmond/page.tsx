@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { MapPin, Leaf, TreePine, Star } from 'lucide-react';
 import { PageLayout } from '@/components/layout';
 import { companyInfo } from '@/lib/companyInfo';
@@ -39,7 +40,7 @@ export default function RichmondPage() {
               Building in <span className="text-extendia-accent">Richmond</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Premium extensions & renovations in one of London\'s greenest riverside boroughs
+              Premium extensions & renovations in one of London&apos;s greenest riverside boroughs
             </p>
             <Button asChild className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
               <a href="/contact">Get Consultation</a>
@@ -62,7 +63,7 @@ export default function RichmondPage() {
                 Why Extend in Richmond?
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Richmond\'s balance of heritage conservation areas, riverside settings and large garden plots creates ideal conditions for high-quality extension projects.
+                Richmond&apos;s balance of heritage conservation areas, riverside settings and large garden plots creates ideal conditions for high-quality extension projects.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
@@ -85,10 +86,12 @@ export default function RichmondPage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <img
+              <Image
                 src="/api/placeholder/600/400"
                 alt="Richmond home extension"
-                className="rounded-lg shadow-xl"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-xl h-auto w-full"
               />
             </motion.div>
           </div>

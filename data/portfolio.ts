@@ -22,8 +22,8 @@ export interface PortfolioProject {
 function img(base: string, names: string[]): PortfolioImage[] {
   return names.map(n => ({
     id: n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$|/g,''),
-    full: `https://extendia.co.uk/wp-content/uploads/${base}/${n}.jpg`,
-    thumb: `https://extendia.co.uk/wp-content/uploads/${base}/${n}-600x400.jpg`,
+    full: `/images/wp-content/uploads/${base}/${n}-scaled.jpg`,
+    thumb: `/images/wp-content/uploads/${base}/${n}-600x400.jpg`,
     alt: n.replace(/[-_]/g,' ').trim()
   }));
 }

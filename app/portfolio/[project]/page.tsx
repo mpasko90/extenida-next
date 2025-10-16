@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getProjects, getProjectBySlug } from '@/data';
 import { VirtualTourEmbed } from '@/components/portfolio/VirtualTourEmbed';
 import { LightboxGallery } from '@/components/portfolio/LightboxGallery';
-import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 interface Props { 
@@ -66,7 +66,7 @@ export default async function ProjectPage({ params }: Props) {
       </header>
       <LightboxGallery images={data.images} className="mb-12" />
       <div className="mt-4">
-        <a href="/portfolio" className="text-sm text-blue-600 dark:text-blue-400 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900" aria-label="Back to all portfolio projects">← Back to portfolio</a>
+        <Link href="/portfolio" className="text-sm text-blue-600 dark:text-blue-400 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900" aria-label="Back to all portfolio projects">← Back to portfolio</Link>
       </div>
     </main>
   );

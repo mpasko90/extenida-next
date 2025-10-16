@@ -4,7 +4,7 @@ import { useState, FormEvent } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { companyInfo } from '../../lib/companyInfo';
 
 interface ContactFormProps {

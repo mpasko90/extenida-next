@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Ruler, Lightbulb, Hammer, Clock, Award } from "lucide-react";
+import { Ruler, Lightbulb, Hammer, Clock, Award } from "lucide-react";
 import PageLayout from "../../components/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
@@ -87,7 +87,7 @@ const HouseExtensions = () => {
               House Extensions in <span className="text-extendia-accent">South West London</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Transform your home with our expert extension services, tailored to your local area's architecture and requirements.
+              Transform your home with our expert extension services, tailored to your local area&apos;s architecture and requirements.
             </p>
             <Button className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
               Get Free Consultation
@@ -192,7 +192,7 @@ const HouseExtensions = () => {
               Ready to Start Your <span className="text-extendia-accent">Extension Project?</span>
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Contact us today for a free consultation and let's discuss how we can transform your home.
+              Contact us today for a free consultation and let&apos;s discuss how we can transform your home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">

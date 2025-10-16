@@ -51,10 +51,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" as="image" href="/extendia-logo-color.webp" />
         {gscToken ? (
           <meta name="google-site-verification" content={gscToken} />
@@ -81,7 +79,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <ClientProviders>
           <Header />
           <HeaderOffset />
-          <div style={{ paddingTop: 'var(--header-offset, var(--header-h, 80px))' }}>
+          <div className="header-offset">
             {children}
           </div>
           <Footer />

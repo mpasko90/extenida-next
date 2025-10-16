@@ -8,42 +8,42 @@ const BathroomGallery = () => {
   
   const galleryImages = [
     {
-      src: "/placeholder.svg",
+      src: "/images/wp-content/uploads/2021/05/bathroom_extendia.jpg",
       alt: "Modern bathroom with walk-in shower",
       category: "Complete Renovation",
       location: "Putney",
       description: "Contemporary bathroom featuring a spacious walk-in shower, floating vanity, and premium tiles."
     },
     {
-      src: "/placeholder.svg", 
+      src: "/images/wp-content/uploads/2021/11/Douglas-Road-Extendia--.jpg", 
       alt: "Luxury bathroom with freestanding tub",
       category: "Luxury Suite",
       location: "Richmond",
       description: "Luxurious bathroom with freestanding tub, marble finishes, and underfloor heating."
     },
     {
-      src: "/placeholder.svg",
+      src: "/images/wp-content/uploads/2021/11/Douglas-Road-Extendia-2-1.jpg",
       alt: "Compact ensuite bathroom",
       category: "Space Optimization",
       location: "Kingston",
       description: "Clever use of space in a small ensuite with built-in storage and modern fixtures."
     },
     {
-      src: "/placeholder.svg",
+      src: "/images/wp-content/uploads/2021/11/Douglas-Road-Extendia-4.jpg",
       alt: "Traditional style bathroom renovation",
       category: "Traditional Style",
       location: "Wimbledon",
       description: "Classic bathroom design with period features and modern functionality."
     },
     {
-      src: "/placeholder.svg",
+      src: "/images/wp-content/uploads/2021/11/Douglas-Road-Extendia-7.jpg",
       alt: "Family bathroom with double vanity",
       category: "Family Bathroom",
       location: "Surbiton",
       description: "Family-friendly bathroom with double vanity, bathtub, and ample storage."
     },
     {
-      src: "/placeholder.svg",
+      src: "/images/wp-content/uploads/2021/11/Douglas-Road-Extendia-10.jpg",
       alt: "Wet room design",
       category: "Wet Room",
       location: "Twickenham",

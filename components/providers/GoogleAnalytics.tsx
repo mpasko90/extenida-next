@@ -19,7 +19,7 @@ export function GoogleAnalytics() {
     if (typeof window.gtag !== "function") return;
 
     const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : "");
-    // @ts-ignore - window.gtag provided by gtag.js
+    // @ts-expect-error window.gtag provided by gtag.js
     window.gtag("event", "page_view", {
       page_path: url,
     });

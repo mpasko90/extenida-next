@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { MapPin, Landmark, TreePine, Star } from 'lucide-react';
 import { PageLayout } from '@/components/layout';
 import { companyInfo } from '@/lib/companyInfo';
@@ -85,10 +86,12 @@ export default function KingstonPage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <img
+              <Image
                 src="/api/placeholder/600/400"
                 alt="Kingston home extension"
-                className="rounded-lg shadow-xl"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-xl h-auto w-full"
               />
             </motion.div>
           </div>

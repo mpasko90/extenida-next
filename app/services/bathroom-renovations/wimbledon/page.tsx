@@ -109,7 +109,7 @@ export default function BathroomRenovationsWimbledonPage() {
           location: "Wimbledon Village",
           cost: "£25,000 - £35,000",
           duration: "3-4 weeks",
-          image: "/images/projects/wimbledon-luxury-bathroom.jpg"
+          image: "/images/wp-content/uploads/2021/11/Douglas-Road-Extendia--.jpg"
         },
         {
           title: "Family Bathroom Renovation",
@@ -117,7 +117,7 @@ export default function BathroomRenovationsWimbledonPage() {
           location: "South Wimbledon",
           cost: "£12,000 - £18,000",
           duration: "2-3 weeks",
-          image: "/images/projects/wimbledon-family-bathroom.jpg"
+          image: "/images/wp-content/uploads/2021/11/Douglas-Road-Extendia-7.jpg"
         },
         {
           title: "Accessible Wet Room",
@@ -125,7 +125,7 @@ export default function BathroomRenovationsWimbledonPage() {
           location: "Raynes Park",
           cost: "£15,000 - £22,000",
           duration: "2-3 weeks",
-          image: "/images/projects/wimbledon-accessible-wetroom.jpg"
+          image: "/images/wp-content/uploads/2021/11/Douglas-Road-Extendia-10.jpg"
         }
       ]}
       faqItems={[

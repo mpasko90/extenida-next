@@ -15,7 +15,7 @@ const compat = new FlatCompat({
     baseDirectory: __dirname,
 });
 
-export default [
+const config = [
   {ignores: [".next/", "dist/"]},
   {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
   {languageOptions: { globals: {...globals.browser, ...globals.node} }},
@@ -36,3 +36,5 @@ export default [
     },
   },
 ];
+
+export default config;

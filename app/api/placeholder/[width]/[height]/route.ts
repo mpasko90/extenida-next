@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 
-export function GET(_req: Request, { params }: any) {
+interface RouteParams { width: string; height: string }
+
+export function GET(_req: Request, { params }: { params: RouteParams }) {
   const w = Math.max(1, Math.min(2000, parseInt(params.width, 10) || 1));
   const h = Math.max(1, Math.min(2000, parseInt(params.height, 10) || 1));
   const bg = '1e293b'; // slate-800

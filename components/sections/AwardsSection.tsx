@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Trophy } from "lucide-react";
+import { Trophy } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState, useMemo } from "react";
 import { awards as AWARDS_DATA } from "@/data/awards";
@@ -183,7 +183,7 @@ const AwardsSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6 lg:gap-8"
         >
-          {awards.map((award, index) => (
+          {awards.map((award) => (
             <motion.div
               key={award.id}
               variants={itemVariants}

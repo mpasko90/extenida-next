@@ -56,7 +56,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Image
-              src="/Extendia_logo_white.png"
+              src="/images/wp-content/uploads/2021/05/Extendia_logo_white.png"
               alt="Extendia Logo"
               width={150}
               height={40}

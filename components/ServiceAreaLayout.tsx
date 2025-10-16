@@ -1,6 +1,6 @@
 "use client";
 
-import React, { type ElementType } from "react";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -10,7 +10,6 @@ import { CheckCircle, Award, Shield, Calendar, Users, Building, MapPin, Star, Cl
          HomeIcon, Wrench, ShieldCheck, TrendingUp, Heart, Lightbulb, Leaf } from "lucide-react";
 
 interface ServiceAreaPageProps {
-  serviceName: string;
   areaName: string;
   serviceTitle: string;
   serviceDescription: string;
@@ -52,32 +51,29 @@ interface ServiceAreaPageProps {
   };
 }
 
-// Icon mapping function for dynamic icon assignment
-const getIcon = (iconName: string) => {
-  const iconMap: Record<string, React.ComponentType<any>> = {
-    'HomeIcon': HomeIcon,
-    'Building': Building,
-    'Wrench': Wrench,
-    'ShieldCheck': ShieldCheck,
-    'Clock': Clock,
-    'Phone': Phone,
-    'CheckCircle': CheckCircle,
-    'TrendingUp': TrendingUp,
-    'Heart': Heart,
-    'Lightbulb': Lightbulb,
-    'Leaf': Leaf,
-    'Award': Award,
-    'Shield': Shield,
-    'Calendar': Calendar,
-    'Users': Users,
-    'MapPin': MapPin,
-    'Star': Star,
-  };
-  return iconMap[iconName] || CheckCircle;
+type IconType = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+const iconMap: Record<string, IconType> = {
+  HomeIcon,
+  Building,
+  Wrench,
+  ShieldCheck,
+  Clock,
+  Phone,
+  CheckCircle,
+  TrendingUp,
+  Heart,
+  Lightbulb,
+  Leaf,
+  Award,
+  Shield,
+  Calendar,
+  Users,
+  MapPin,
+  Star,
 };
+const getIcon = (iconName?: string): IconType => (iconName && iconMap[iconName]) || CheckCircle;
 
 export default function ServiceAreaLayout({
-  serviceName,
   areaName,
   serviceTitle,
   serviceDescription,
@@ -88,23 +84,6 @@ export default function ServiceAreaLayout({
   faqItems = [],
   compliance,
 }: ServiceAreaPageProps) {
-  const iconMap = {
-    CheckCircle,
-    Award,
-    Shield,
-    Calendar,
-    Users,
-    Building,
-    MapPin,
-    Star,
-    Clock,
-    Phone,
-  };
-
-  const getIcon = (iconName?: string) => {
-    if (!iconName) return CheckCircle;
-    return iconMap[iconName as keyof typeof iconMap] || CheckCircle;
-  };
   return (
     <>
       {/* Hero Section */}

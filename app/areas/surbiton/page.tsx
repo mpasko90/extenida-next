@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { MapPin, Landmark, TreePine, Star } from 'lucide-react';
 import { PageLayout } from '@/components/layout';
 import { companyInfo } from '@/lib/companyInfo';
@@ -39,7 +40,7 @@ export default function SurbitonPage() {
               Building in <span className="text-extendia-accent">Surbiton</span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Modern extensions & refurbishments for Surbiton\'s suburban villas & Art Deco apartments
+              Modern extensions & refurbishments for Surbiton&apos;s suburban villas & Art Deco apartments
             </p>
             <Button asChild className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3">
               <a href="/contact">Get Consultation</a>
@@ -80,10 +81,12 @@ export default function SurbitonPage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <img
+              <Image
                 src="/api/placeholder/600/400"
                 alt="Surbiton home extension"
-                className="rounded-lg shadow-xl"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-xl h-auto w-full"
               />
             </motion.div>
           </div>
