@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 export default function BathroomRenovationsWimbledonPage() {
   return (
     <ServiceAreaLayout
-      serviceName="Bathroom Renovations"
       areaName="Wimbledon"
       serviceTitle="Bathroom Renovations in Wimbledon"
       serviceDescription="Create your perfect bathroom with our comprehensive renovation service in Wimbledon. From luxury spa-style retreats to practical family bathrooms and accessible wet rooms, we deliver exceptional results with quality materials and expert craftsmanship."

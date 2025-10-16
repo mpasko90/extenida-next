@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 export default function LoftConversionsRichmondPage() {
   return (
     <ServiceAreaLayout
-      serviceName="Loft Conversions"
       areaName="Richmond"
       serviceTitle="Loft Conversions in Richmond"
       serviceDescription="Maximize your home's potential with professional loft conversions in Richmond. From simple Velux conversions to complex mansard transformations, we create beautiful additional living space with RIBA chartered architects and full planning support."

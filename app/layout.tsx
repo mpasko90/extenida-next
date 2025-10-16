@@ -6,6 +6,7 @@ import ClientProviders from "@/components/ClientProviders";
 import { Metadata } from "next";
 import HeaderOffset from "@/components/layout/HeaderOffset";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import { GoogleAnalytics } from "@/components/providers/GoogleAnalytics";
 import { Suspense } from "react";
@@ -90,6 +91,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </Suspense>
         ) : null}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

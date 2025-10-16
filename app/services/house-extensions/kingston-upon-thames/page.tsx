@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 export default function HouseExtensionsKingstonPage() {
   return (
     <ServiceAreaLayout
-      serviceName="House Extensions"
       areaName="Kingston Upon Thames"
       serviceTitle="House Extensions in Kingston Upon Thames"
       serviceDescription="Transform your home with our expert house extension services. From single-storey rear extensions to complex multi-storey additions, we deliver exceptional results in Kingston Upon Thames with RIBA chartered architects, full planning permission support, and 10+ years local experience."
