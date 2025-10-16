@@ -107,7 +107,7 @@ const FAQSection = () => {
         {/* Contact CTA */}
         <div className="text-center mt-16">
           <Link href="/contact" className="inline-block bg-extendia-accent text-white px-8 py-3 rounded-lg font-semibold shadow hover:bg-extendia-accent/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white transition-all duration-300" aria-label="Contact Extendia for a free building consultation in South West London">
-            Contact Us for a Free Consultation
+            Book a Consultation
           </Link>
         </div>
       </div>
