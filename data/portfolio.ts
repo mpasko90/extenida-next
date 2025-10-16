@@ -20,12 +20,22 @@ export interface PortfolioProject {
 }
 
 function img(base: string, names: string[]): PortfolioImage[] {
-  return names.map(n => ({
-    id: n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$|/g,''),
-    full: `/images/wp-content/uploads/${base}/${n}-scaled.jpg`,
-    thumb: `/images/wp-content/uploads/${base}/${n}-600x400.jpg`,
-    alt: n.replace(/[-_]/g,' ').trim()
-  }));
+  // Some upload folders have WordPress "-scaled" originals (e.g. 2021/11, 2022/11, 2023/11),
+  // while others (e.g. 2022/04) use the original without "-scaled".
+  // Thumbnails also follow the same pattern: either "name-scaled-600x400.jpg" or "name-600x400.jpg".
+  const usesScaled = base !== '2022/04';
+  return names.map((raw) => {
+    // Normalize input names so passing values like "elmscrescent1" or "elmscrescent1-scaled" both work.
+    const n = raw.replace(/-scaled$/i, '');
+    const id = n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$|/g, '');
+    const scaledPart = usesScaled ? '-scaled' : '';
+    return {
+      id,
+      full: `/images/wp-content/uploads/${base}/${n}${scaledPart}.jpg`,
+      thumb: `/images/wp-content/uploads/${base}/${n}${scaledPart}-600x400.jpg`,
+      alt: n.replace(/[-_]/g, ' ').trim(),
+    };
+  });
 }
 
 export const portfolioProjects: PortfolioProject[] = [
