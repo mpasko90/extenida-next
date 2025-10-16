@@ -127,13 +127,16 @@ const ServicesSection = () => {
             <motion.article
               key={service.title}
         variants={itemVariants}
-        className="bg-white rounded-2xl shadow-lg p-6 xl:p-5 flex flex-col items-start hover:shadow-2xl transition-shadow duration-300 focus-within:ring-2 focus-within:ring-extendia-accent focus-within:ring-offset-2 group"
+        className="relative overflow-hidden bg-extendia-primary/80 backdrop-blur-sm border border-white/10 rounded-2xl shadow-lg p-6 xl:p-5 flex flex-col items-center justify-center text-center group transition-all duration-300 hover:shadow-2xl hover:border-white/20"
               role="listitem"
+              // Add a shine effect on hover
+              whileHover={{ y: -5 }}
             >
-        <h3 className="text-xl xl:text-lg font-bold text-extendia-accent mb-6">{service.title}</h3>
+              <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
+              <h3 className="text-xl xl:text-lg font-bold text-white mb-6 flex-grow [text-shadow:0_1px_3px_rgba(0,0,0,0.2)]">{service.title}</h3>
               <Link 
                 href="/services" 
-                className="mt-auto inline-block bg-extendia-accent text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-extendia-accent/90 focus-visible:ring-2 focus-visible:ring-extendia-accent focus-visible:ring-offset-2 transition-all duration-300"
+                className="mt-auto inline-block bg-extendia-accent text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-extendia-accent/90 focus-visible:ring-2 focus-visible:ring-extendia-accent focus-visible:ring-offset-2 transition-all duration-300 group-hover:scale-105"
                 aria-label={`Learn more about ${service.title} services in South West London`}
               >
                 Learn More
