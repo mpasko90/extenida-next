@@ -8,13 +8,62 @@ import { companyInfo } from '@/lib/companyInfo';
 import Timeline, { TimelineStep } from '@/components/journey/Timeline';
 
 const steps: TimelineStep[] = [
-  { step: 1, title: 'Initial Telephone Consultation', description: 'Discuss goals, gather high‑level requirements and timeline expectations.', icon: Phone, iconBg: 'from-blue-600 to-blue-500' },
-  { step: 2, title: 'Home / Site Survey', description: 'On‑site assessment, measurements, feasibility notes and planning considerations.', icon: Home, iconBg: 'from-indigo-600 to-indigo-500' },
-  { step: 3, title: 'Detailed Proposal', description: 'Transparent scope outline: materials ranges, provisional sums, timeline phases.', icon: FileText, iconBg: 'from-purple-600 to-purple-500' },
-  { step: 4, title: 'Design & Specification Session', description: 'Collaborative refinement of layouts, structural approach and finishes options.', icon: Calendar, iconBg: 'from-pink-600 to-pink-500' },
-  { step: 5, title: 'Formal Agreement', description: 'Clear contract confirming scope, payment schedule, insurances & warranties.', icon: Handshake, iconBg: 'from-red-600 to-red-500' },
-  { step: 6, title: 'Construction Phase', description: 'Organised site setup, sequencing, quality checks and proactive communication.', icon: Hammer, iconBg: 'from-amber-600 to-amber-500' },
-  { step: 7, title: 'Completion & Aftercare', description: 'Snag resolution, handover pack and responsive post‑completion support.', icon: CheckCircle, iconBg: 'from-green-600 to-green-500' }
+  {
+    step: 1,
+    title: 'Initial Consultation',
+    description:
+      "We start with a friendly chat to understand your goals, ideas and expectations. It's a chance to outline what you'd like to achieve, your ideal timeline and any key requirements before we move forward.",
+    icon: Phone,
+    iconBg: 'from-blue-600 to-blue-500'
+  },
+  {
+    step: 2,
+    title: 'Home or Site Visit',
+    description:
+      "Next, we visit your home or project site to take measurements, assess feasibility and discuss any planning considerations. This helps us get a clear picture of what's possible and how best to bring your vision to life.",
+    icon: Home,
+    iconBg: 'from-indigo-600 to-indigo-500'
+  },
+  {
+    step: 3,
+    title: 'Detailed Proposal',
+    description:
+      "You'll receive a transparent proposal that outlines the full scope of work, material options and project phases.",
+    icon: FileText,
+    iconBg: 'from-purple-600 to-purple-500'
+  },
+  {
+    step: 4,
+    title: 'Design & Specification Session',
+    description:
+      'Together, we refine the design details - from layout and structure to finishes and materials. This is where ideas take shape and the final vision starts to feel real.',
+    icon: Calendar,
+    iconBg: 'from-pink-600 to-pink-500'
+  },
+  {
+    step: 5,
+    title: 'Formal Agreement',
+    description:
+      "Once you're happy with the proposal, we put everything in writing. The agreement clearly confirms the scope, payment schedule, insurance and warranty details, so you can move ahead with confidence.",
+    icon: Handshake,
+    iconBg: 'from-red-600 to-red-500'
+  },
+  {
+    step: 6,
+    title: 'Construction',
+    description:
+      "Our team manages every stage of the build - from site setup and scheduling to quality checks and communication. You'll always know what's happening on site.",
+    icon: Hammer,
+    iconBg: 'from-amber-600 to-amber-500'
+  },
+  {
+    step: 7,
+    title: 'Completion & Aftercare',
+    description:
+      "We take care of the final details, complete any snags and provide a handover pack for your records. And our support doesn't stop there - we're always available if you need us after completion.",
+    icon: CheckCircle,
+    iconBg: 'from-green-600 to-green-500'
+  }
 ];
 
 export default function JourneyPage() {
@@ -49,16 +98,10 @@ export default function JourneyPage() {
             steps={steps.map(s => ({
               ...s,
               details: s.step === 3 ? (
-                <ul className="text-xs text-slate-500 dark:text-slate-500 grid gap-1 pt-1">
-                  <li>• Transparent cost structure</li>
-                  <li>• Provisional items highlighted</li>
-                  <li>• Indicative programme timeline</li>
-                </ul>
-              ) : s.step === 6 ? (
-                <ul className="text-xs text-slate-500 dark:text-slate-500 grid gap-1 pt-1">
-                  <li>• Sequenced trades & supervision</li>
-                  <li>• Weekly progress updates</li>
-                  <li>• Quality & compliance checks</li>
+                <ul className="text-xs text-slate-500 dark:text-slate-500 pt-1 space-y-1 list-disc list-inside">
+                  <li>Clear cost breakdown</li>
+                  <li>Provisional items highlighted</li>
+                  <li>Indicative timeline included</li>
                 </ul>
               ) : undefined
             }))}
