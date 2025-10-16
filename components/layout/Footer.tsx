@@ -57,7 +57,7 @@ export const Footer = () => {
             <h3 className="text-lg font-medium mb-4">Contact</h3>
             <ul className="space-y-2 text-gray-300">
               <li>Phone: 020 3916 5670</li>
-              <li>Email: office@extendia.co.uk</li>
+              <li>Email: contact@extendia.co.uk</li>
               <li>Address: South West London</li>
             </ul>
           </div>

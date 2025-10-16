@@ -61,7 +61,7 @@ export default function PrivacyPage() {
                 If you have questions about this Privacy Policy, please contact us at:
               </p>
               <p className="text-gray-600">
-                Email: privacy@extendia.co.uk<br />
+                Email: contact@extendia.co.uk<br />
                 Phone: +44 20 1234 5678<br />
                 Address: 123 Main St, London SW19
               </p>
