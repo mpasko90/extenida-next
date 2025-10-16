@@ -32,8 +32,8 @@ const WhyChooseUsSection = () => {
   return (
     <section className="relative py-20 md:py-28 text-white overflow-hidden">
       <BackgroundVideo
-        desktopVideo="/videos/Landscape Putney Kitchen.mp4"
-        mobileVideo="/videos/Vertical Greenstead Gardens LOGO.mp4"
+        desktopPlaybackId="dtMBZRM33vIMs31nV9DGLkqQnA5jHqSBauWcHZppb58"
+        mobilePlaybackId="G2gkXCX8K01grrZW800VEOHpGo4024nT5gQHpTHuxIjJIw"
       />
 
       <motion.div
