@@ -171,11 +171,11 @@ export const ContactForm = ({
                     <label htmlFor="subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Project Type</label>
                     <select id="subject" name="subject" value={formData.subject} onChange={handleChange} className="block w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800/60 px-3 py-2 text-slate-900 dark:text-slate-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-extendia-primary/60">
                       <option value="">Select project type</option>
-                      <option value="Home Extensions">Home Extensions</option>
-                      <option value="Loft Conversions">Loft Conversions</option>
-                      <option value="House/Flat Renovations">House/Flat Renovations</option>
-                      <option value="Bathroom Renovations">Bathroom Renovations</option>
-                      <option value="Kitchen Extensions">Kitchen Extensions</option>
+                      <option value="House Extension">House Extension</option>
+                      <option value="Loft Conversion">Loft Conversion</option>
+                      <option value="House/Flat Renovation">House/Flat Renovation</option>
+                      <option value="Bathroom Renovation">Bathroom Renovation</option>
+                      <option value="Kitchen Renovation">Kitchen Renovation</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
