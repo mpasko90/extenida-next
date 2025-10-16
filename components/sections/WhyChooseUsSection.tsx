@@ -1,5 +1,8 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ManageFlower } from "@/components/sections";
+import BackgroundVideo from "@/components/layout/BackgroundVideo";
 
 const WhyChooseUsSection = () => {
   const containerVariants = {
@@ -27,11 +30,11 @@ const WhyChooseUsSection = () => {
   };
 
   return (
-    <section className="relative py-20 md:py-28 bg-slate-50 overflow-hidden">
-      {/* Tło z wzorem */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-grid-slate-200/40 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
-      </div>
+    <section className="relative py-20 md:py-28 text-white overflow-hidden">
+      <BackgroundVideo
+        desktopVideo="/videos/Landscape Putney Kitchen.mp4"
+        mobileVideo="/videos/Vertical Greenstead Gardens LOGO.mp4"
+      />
 
       <motion.div
         className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
@@ -43,14 +46,14 @@ const WhyChooseUsSection = () => {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Kolumna z tekstem */}
           <motion.div variants={itemVariants} className="text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Why Choose <span className="text-extendia-accent">Extendia?</span>
             </h2>
-            <h3 className="text-2xl md:text-3xl font-semibold text-slate-700 max-w-xl mx-auto md:mx-0 !leading-tight mb-4">
+            <h3 className="text-2xl md:text-3xl font-semibold text-slate-200 max-w-xl mx-auto md:mx-0 !leading-tight mb-4">
               More than an ordinary <strong className="text-extendia-accent">Design & Build...</strong>
             </h3>
-            <p className="text-lg md:text-xl text-slate-600 max-w-xl mx-auto md:mx-0">
-              <strong className="font-semibold text-slate-700">Our premium, end to end service</strong> is designed for the <strong className="font-semibold text-slate-700">busy homeowners</strong> and <strong className="font-semibold text-slate-700">property investors</strong> who need a <strong className="font-semibold text-slate-700">simple process without the hassle</strong> of managing the project and sourcing the materials and fixtures.
+            <p className="text-lg md:text-xl text-slate-300 max-w-xl mx-auto md:mx-0">
+              <strong className="font-semibold text-slate-100">Our premium, end to end service</strong> is designed for the <strong className="font-semibold text-slate-100">busy homeowners</strong> and <strong className="font-semibold text-slate-100">property investors</strong> who need a <strong className="font-semibold text-slate-100">simple process without the hassle</strong> of managing the project and sourcing the materials and fixtures.
             </p>
           </motion.div>
 
