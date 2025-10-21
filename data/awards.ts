@@ -24,6 +24,31 @@ export const awards: AwardEntry[] = [
     link: 'https://www.houzz.co.uk/professionals/design-build-firms/extendia-pfvwgb-pf~2163000585',
     groupKey: 'houzz-service'
   },
+  // New 2024 awards (added from public/images/awards/updated)
+  {
+    id: 'sme-uk-enterprise-2024',
+    title: 'UK Enterprise Awards – Winner',
+    year: '2024',
+    organization: 'SME News',
+    description: 'Recognised as a 2024 winner in the UK Enterprise Awards for outstanding performance and service.',
+    image: '/images/awards/updated/Aug25051_BUILDCLOCK-LIMITED_SME-2024-UK-Enterprise--Awards-Winners-Badge.png'
+  },
+  {
+    id: 'build-construction-engineering-2024',
+    title: 'Construction & Engineering Awards – Winner',
+    year: '2024',
+    organization: 'BUILD Magazine',
+    description: 'Awarded in BUILD’s 2024 Construction & Engineering Awards for excellence in residential project delivery.',
+    image: '/images/awards/updated/Aug25052_BUILDCLOCK-LIMITED_BUILD-Construction-&-Engineering-Awards-2024-Winners-Badge.png'
+  },
+  {
+    id: 'build-architecture-2024',
+    title: 'Architecture Awards – Winner',
+    year: '2024',
+    organization: 'BUILD Magazine',
+    description: 'Winner of BUILD’s 2024 Architecture Awards recognising quality, design and innovation.',
+    image: '/images/awards/updated/Aug25053_BUILDCLOCK-LIMITED_BUILD-Architecture-Awards-2024-Winners-Badge-(2).png'
+  },
   {
     id: 'houzz-service-2023',
     title: 'Best of Houzz – Service',
