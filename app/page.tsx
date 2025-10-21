@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { 
   HeroSection, 
+  VideoHighlightsSection,
   WhyChooseUsSection, 
   ServicesSection, 
   TestimonialsSection, 
@@ -26,6 +27,7 @@ export default function HomePage() {
     >
       <main>
         <HeroSection />
+        <VideoHighlightsSection />
         <WhyChooseUsSection />
         <ServicesSection />
         <TestimonialsSection />

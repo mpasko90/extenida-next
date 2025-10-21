@@ -8,4 +8,5 @@ export { default as FAQSection } from './FAQSection';
 export { default as ProcessTimeline } from './ProcessTimeline';
 export { default as BathroomGallery } from './BathroomGallery';
 export { default as WhyChooseUsSection } from './WhyChooseUsSection';
+export { default as VideoHighlightsSection } from './VideoHighlightsSection';
 export { default as ManageFlower } from './ManageFlower';

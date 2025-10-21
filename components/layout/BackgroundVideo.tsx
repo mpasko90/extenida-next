@@ -20,6 +20,14 @@ const BackgroundVideo = ({ mobilePlaybackId, desktopPlaybackId, overlayColor = '
         autoPlay="muted"
         loop
         muted
+        playsInline
+        controls={false}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          pointerEvents: 'none'
+        }}
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className={`absolute inset-0 ${overlayColor}`}></div>
