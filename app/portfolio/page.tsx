@@ -39,7 +39,7 @@ export default function PortfolioPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">Project <span className="text-extendia-accent">Portfolio</span></h1>
-            <p className="text-white/80 text-lg leading-relaxed">Curated selection of recent house extensions, bathrooms and whole-home refurbishments across London. We focus on craftsmanship, energy efficiency and intelligent spatial design.</p>
+            {/* <p className="text-white/80 text-lg leading-relaxed">Curated selection of recent house extensions, bathrooms and whole-home refurbishments across London. We focus on craftsmanship, energy efficiency and intelligent spatial design.</p> */}
             <div className="flex flex-wrap gap-3 mt-8">
               {categories.map(cat => (
                 <Badge key={cat} variant="secondary" className="bg-white/15 text-white hover:bg-white/25 capitalize">{cat.replace('-', ' ')}</Badge>
