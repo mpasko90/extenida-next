@@ -9,4 +9,5 @@ export { default as ProcessTimeline } from './ProcessTimeline';
 export { default as BathroomGallery } from './BathroomGallery';
 export { default as WhyChooseUsSection } from './WhyChooseUsSection';
 export { default as VideoHighlightsSection } from './VideoHighlightsSection';
+export { default as HIPSection } from './HIPSection';
 export { default as ManageFlower } from './ManageFlower';

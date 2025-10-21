@@ -5,7 +5,8 @@ import {
   HeroSection, 
   VideoHighlightsSection,
   WhyChooseUsSection, 
-  ServicesSection, 
+  ServicesSection,
+  HIPSection,
   TestimonialsSection, 
   AwardsSection, 
   OurStorySection,
@@ -30,6 +31,7 @@ export default function HomePage() {
         <VideoHighlightsSection />
         <WhyChooseUsSection />
         <ServicesSection />
+        <HIPSection />
         <TestimonialsSection />
         <AwardsSection />
         <OurStorySection />
