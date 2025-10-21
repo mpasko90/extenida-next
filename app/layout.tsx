@@ -27,12 +27,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   keywords: ["home improvement","extensions","loft conversions","bathroom renovations","london"],
   icons: {
+    // Use ICO for broad browser support; avoid WEBP for icons (Safari/iOS expects PNG/ICO)
     icon: [
-      { url: "/favicon.ico", type: "image/x-icon" },
-      { url: "/extendia-logo-color.webp", type: "image/webp" }
+      { url: "/favicon.ico", type: "image/x-icon" }
     ],
-    apple: [
-      { url: "/extendia-logo-color.webp" }
+    shortcut: [
+      { url: "/favicon.ico", type: "image/x-icon" }
     ]
   },
   verification: gscToken ? { google: gscToken } : undefined,
