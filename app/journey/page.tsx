@@ -133,7 +133,7 @@ export default function JourneyPage() {
                   Call: {companyInfo.phone.display}
                 </a>
               </Button>
-              <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-extendia-primary px-8 py-3 text-lg">
+              <Button asChild className="bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3 text-lg">
                 <a href="/contact">
                   Book Consultation
                   <ArrowRight className="w-5 h-5 ml-2" />
