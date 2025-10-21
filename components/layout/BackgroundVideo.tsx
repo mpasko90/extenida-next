@@ -21,14 +21,15 @@ const BackgroundVideo = ({ mobilePlaybackId, desktopPlaybackId, overlayColor = '
         loop
         muted
         playsInline
-        controls={false}
         style={{
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          pointerEvents: 'none'
+          pointerEvents: 'none',
+          // @ts-expect-error - Hide controls via CSS
+          '--controls': 'none'
         }}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover [&::part(bottom)]:hidden [&::part(center)]:hidden [&::part(top)]:hidden"
       />
       <div className={`absolute inset-0 ${overlayColor}`}></div>
     </div>
