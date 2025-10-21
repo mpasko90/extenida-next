@@ -68,11 +68,31 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin className="h-6 w-6 text-extendia-accent flex-shrink-0 mt-1" />
-                <span className="ml-3 text-gray-300">
-                  {companyInfo.registeredOffice.line1}<br />
-                  {companyInfo.registeredOffice.line2}<br />
-                  {companyInfo.registeredOffice.city}, {companyInfo.registeredOffice.postcode}
-                </span>
+                <address
+                  className="ml-3 not-italic text-gray-300"
+                  itemScope
+                  itemType="https://schema.org/PostalAddress"
+                  aria-label={`Registered office address: ${companyInfo.registeredOfficeFormatted}`}
+                >
+                  <span itemProp="streetAddress">
+                    {companyInfo.registeredOffice.line1}, {companyInfo.registeredOffice.line2}
+                  </span>
+                  <br />
+                  <span>
+                    <span itemProp="addressLocality">{companyInfo.registeredOffice.city}</span>,{" "}
+                    <span itemProp="addressCountry">{companyInfo.registeredOffice.country}</span>{" "}
+                    <span itemProp="postalCode">{companyInfo.registeredOffice.postcode}</span>
+                  </span>
+                  <br />
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(companyInfo.registeredOfficeFormatted)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-extendia-accent hover:underline text-sm"
+                  >
+                    View on Maps
+                  </a>
+                </address>
               </li>
               <li className="flex items-center">
                 <Phone className="h-6 w-6 text-extendia-accent flex-shrink-0" />

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram, Facebook } from 'lucide-react';
+import { companyInfo } from '@/lib/companyInfo';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -58,9 +59,45 @@ export const Footer = () => {
           <div>
             <h3 className="text-lg font-medium mb-4">Contact</h3>
             <ul className="space-y-2 text-gray-300">
-              <li>Phone: 020 3916 5670</li>
-              <li>Email: contact@extendia.co.uk</li>
-              <li>Address: South West London</li>
+              <li>
+                <a href={companyInfo.phone.href} className="hover:text-white">
+                  Phone: {companyInfo.phone.display}
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${companyInfo.email}`} className="hover:text-white">
+                  Email: {companyInfo.email}
+                </a>
+              </li>
+              <li>
+                <div className="leading-snug">
+                  <span className="block">Address:</span>
+                  <address
+                    className="not-italic"
+                    itemScope
+                    itemType="https://schema.org/PostalAddress"
+                    aria-label={`Registered office address: ${companyInfo.registeredOfficeFormatted}`}
+                  >
+                    <span itemProp="streetAddress">
+                      {companyInfo.registeredOffice.line1}, {companyInfo.registeredOffice.line2}
+                    </span>
+                    <br />
+                    <span>
+                      <span itemProp="addressLocality">{companyInfo.registeredOffice.city}</span>,{' '}
+                      <span itemProp="addressCountry">{companyInfo.registeredOffice.country}</span>{' '}
+                      <span itemProp="postalCode">{companyInfo.registeredOffice.postcode}</span>
+                    </span>
+                  </address>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(companyInfo.registeredOfficeFormatted)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-extendia-accent hover:underline text-sm mt-1 inline-block"
+                  >
+                    View on Maps
+                  </a>
+                </div>
+              </li>
             </ul>
             {/* Social links moved under Contact */}
             <div className="mt-6">
