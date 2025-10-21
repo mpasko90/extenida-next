@@ -16,11 +16,6 @@ const baseConfig = {
         protocol: 'https',
         hostname: 'extendia.co.uk',
         pathname: '/wp-content/uploads/**'
-      },
-      {
-        protocol: 'https',
-        hostname: 'st.hzcdn.com',
-        pathname: '/**'
       }
     ]
   },
