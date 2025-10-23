@@ -4,7 +4,11 @@ import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
 import { Trophy } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState, useMemo, useRef } from "react";
-import { awards as AWARDS_DATA } from "@/data/awards";
+import { Card, CardContent } from "@/components/ui/card";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { awards as AWARDS_DATA, AwardEntry } from "@/data/awards";
 
 const AwardsSection = () => {
   // Check for reduced motion preference
@@ -13,6 +17,8 @@ const AwardsSection = () => {
   const baseX = useMotionValue(0);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [previewAward, setPreviewAward] = useState<AwardEntry | null>(null);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -26,7 +32,14 @@ const AwardsSection = () => {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
-  const awards = useMemo(() => AWARDS_DATA, []);
+  // Sort awards chronologically (newest first), robust to ranges like "2022-2024"
+  const awards = useMemo(() => {
+    const yearNum = (y: string) => {
+      const matches = y.match(/\d{4}/g)?.map(Number) ?? [0];
+      return Math.max(...matches);
+    };
+    return [...AWARDS_DATA].sort((a, b) => yearNum(b.year) - yearNum(a.year));
+  }, []);
   
   // Duplicate awards for seamless infinite scroll
   const duplicatedAwards = useMemo(() => [...awards, ...awards, ...awards], [awards]);
@@ -199,34 +212,52 @@ const AwardsSection = () => {
             {duplicatedAwards.map((award, index) => (
               <div
                 key={`${award.id}-${index}`}
-                className="flex-shrink-0 w-[300px] sm:w-[320px] md:w-[340px]"
+                className="flex-shrink-0 w-[320px] sm:w-[340px] md:w-[360px]"
               >
                 <motion.div
                   whileHover={prefersReducedMotion ? {} : { y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
                   className="group relative h-full"
                 >
-                  <div className="relative h-full flex flex-col bg-white/85 backdrop-blur-sm border border-gray-200/60 rounded-2xl p-6 md:p-7 hover:bg-white/95 hover:border-extendia-accent/25 transition-all duration-400 overflow-hidden shadow-lg hover:shadow-extendia-accent/20">
-                    <div className="relative z-10 mb-6 flex items-center justify-center h-28">
+                  <Card variant="subtle" className="h-full overflow-hidden transition-all duration-300 hover:shadow-xl">
+                    {/* Highlighted media header */}
+                    <div className="relative px-6 pt-6">
                       {award.image && (
-                        <motion.div whileHover={prefersReducedMotion ? {} : { scale: 1.05 }} className="flex items-center justify-center max-h-full">
-                          <a
-                            href={award.link || '#'}
-                            {...(award.link ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                            aria-label={`View ${award.title} ${award.year} award details`}
-                            className={award.link ? "hover:opacity-90 transition" : "cursor-default"}
-                          >
-                            <Image
-                              src={award.image}
-                              alt={`${award.title} ${award.year}`}
-                              width={180}
-                              height={120}
-                              className="object-contain max-h-28 w-auto"
-                            />
-                          </a>
-                        </motion.div>
+                        <div className="relative rounded-xl border border-gray-200/70 shadow-sm overflow-hidden bg-white">
+                          <AspectRatio ratio={16 / 9}>
+                            <motion.button
+                              type="button"
+                              aria-label={`Preview ${award.title} ${award.year}`}
+                              whileHover={prefersReducedMotion ? {} : { scale: 1.01 }}
+                              className="group/preview w-full h-full"
+                              onClick={() => {
+                                setPreviewAward(award);
+                                setIsPreviewOpen(true);
+                              }}
+                            >
+                              {/* Decorative backdrop */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-extendia-accent/5 via-transparent to-extendia-primary/5" />
+                              {/* Image */}
+                              <div className="relative w-full h-full flex items-center justify-center p-4">
+                                <Image
+                                  src={award.image}
+                                  alt={`${award.title} ${award.year}`}
+                                  fill
+                                  sizes="(max-width: 768px) 80vw, 360px"
+                                  className="object-contain drop-shadow-sm"
+                                />
+                              </div>
+                              {/* Shine + ring on hover */}
+                              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover/preview:opacity-100 transition-opacity duration-300">
+                                <div className="absolute inset-0 bg-white/0 group-hover/preview:bg-white/6" />
+                                <div className="absolute inset-0 ring-1 ring-extendia-accent/30 rounded-xl" />
+                              </div>
+                            </motion.button>
+                          </AspectRatio>
+                        </div>
                       )}
                     </div>
-                    <div className="relative z-10 flex flex-col flex-1">
+
+                    <CardContent className="relative z-10 flex flex-col flex-1">
                       <div className="flex items-center justify-between mb-2">
                         <span className="inline-block px-3 py-1 bg-extendia-accent/10 text-extendia-accent text-xs font-semibold rounded-full border border-extendia-accent/20 tracking-wide">
                           {award.year}
@@ -250,19 +281,63 @@ const AwardsSection = () => {
                       <p className="text-gray-700 text-sm leading-relaxed flex-1">
                         {award.description}
                       </p>
-                    </div>
-                    {award.link && (
-                      <div className="absolute bottom-3 right-3 text-extendia-accent opacity-50 group-hover:opacity-90 transition-opacity">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                      <div className="mt-4 flex gap-2">
+                        <Button variant="secondary" size="sm" onClick={() => { setPreviewAward(award); setIsPreviewOpen(true); }}>
+                          View badge
+                        </Button>
+                        {award.link && (
+                          <Button asChild variant="ghost" size="sm" className="text-extendia-accent">
+                            <a href={award.link} target="_blank" rel="noopener noreferrer">Visit</a>
+                          </Button>
+                        )}
                       </div>
-                    )}
+                    </CardContent>
                     <div className="absolute top-3 right-3 w-2.5 h-2.5 bg-extendia-accent/25 rotate-45" />
-                  </div>
+                  </Card>
                 </motion.div>
               </div>
             ))}
           </motion.div>
         </div>
+
+        {/* Image Preview Dialog */}
+        <Dialog open={isPreviewOpen} onOpenChange={setIsPreviewOpen}>
+          <DialogContent className="w-full max-w-3xl">
+            {previewAward && (
+              <div>
+                <DialogHeader>
+                  <DialogTitle className="text-extendia-primary">{previewAward.title} – {previewAward.year}</DialogTitle>
+                  <DialogDescription>{previewAward.organization}</DialogDescription>
+                </DialogHeader>
+                <div className="mt-4">
+                  <div className="relative w-full max-h-[70vh] rounded-xl border bg-white overflow-hidden">
+                    <AspectRatio ratio={16/9}>
+                      {previewAward.image && (
+                        <Image
+                          src={previewAward.image}
+                          alt={`${previewAward.title} ${previewAward.year}`}
+                          fill
+                          sizes="(max-width: 768px) 90vw, 800px"
+                          className="object-contain"
+                        />
+                      )}
+                    </AspectRatio>
+                  </div>
+                  {previewAward.description && (
+                    <p className="mt-4 text-sm text-gray-700">{previewAward.description}</p>
+                  )}
+                  {previewAward.link && (
+                    <div className="mt-4">
+                      <Button asChild>
+                        <a href={previewAward.link} target="_blank" rel="noopener noreferrer">Open official page</a>
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
 
         {/* Aggregated Multi-Year (e.g., Houzz) */}
   {/* Aggregated multi-year section intentionally removed per request */}

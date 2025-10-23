@@ -20,7 +20,7 @@ export const awards: AwardEntry[] = [
     organization: 'Houzz',
     description: 'Awarded for sustained excellence in client reviews and project delivery standards (2024/25 cycle).',
   // Using original Alpha asset path (contains spaces) now present in public folder.
-  image: '/images/awards/boh-promo-kit 2025/UK BOH25 Service/02_Social_Assets/IG_Feed_Service_Award.png',
+  image: '/images/awards/boh-promo-kit 2025/UK BOH25 Service/02_Social_Assets/houzz2025.png',
     link: 'https://www.houzz.co.uk/professionals/design-build-firms/extendia-pfvwgb-pf~2163000585',
     groupKey: 'houzz-service'
   },
@@ -32,6 +32,14 @@ export const awards: AwardEntry[] = [
     organization: 'SME News',
     description: 'Recognised as a 2024 winner in the UK Enterprise Awards for outstanding performance and service.',
     image: '/images/awards/updated/Aug25051_BUILDCLOCK-LIMITED_SME-2024-UK-Enterprise--Awards-Winners-Badge.png'
+  },
+  {
+    id: 'build-magazine-winner-logo-2024',
+    title: 'BUILD Magazine – Official Winner',
+    year: '2024',
+    organization: 'BUILD Magazine',
+    description: 'Official winners logo supplied by BUILD Magazine for the 2024 awards season.',
+    image: '/images/awards/updated/Aug25050_BUILDCLOCK-LIMITED_Logo.png'
   },
   {
     id: 'build-construction-engineering-2024',
