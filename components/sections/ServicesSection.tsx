@@ -5,12 +5,14 @@ const ServicesSection = () => {
   // Reduced motion preference is not used in this simplified section.
 
   // Simplified services list per request (no descriptions/icons/features)
+  // Include target slugs so buttons can link to service pages
+  // Slugs correspond to dynamic routes in app/services/[service]
   const services = [
-    { title: "Home Extension" },
-    { title: "Loft Conversion" },
-    { title: "House/Flat Renovations" },
-    { title: "Bathroom Renovations" },
-    { title: "Kitchen Renovations" }
+    { title: "Home Extension", slug: "home-extensions" },
+    { title: "Loft Conversion", slug: "loft-conversions" },
+  { title: "House/Flat Renovations", slug: "house-renovations" },
+    { title: "Bathroom Renovations", slug: "bathroom-renovations" },
+    { title: "Kitchen Renovations", slug: "kitchen-renovations" }
   ];
 
   const containerVariants = {
@@ -123,7 +125,7 @@ const ServicesSection = () => {
           role="list"
           aria-label="Building services offered in South West London"
         >
-      {services.map((service) => (
+  {services.map((service) => (
             <motion.article
               key={service.title}
         variants={itemVariants}
@@ -135,7 +137,7 @@ const ServicesSection = () => {
               <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
               <h3 className="text-xl xl:text-lg font-bold text-white mb-6 flex-grow [text-shadow:0_1px_3px_rgba(0,0,0,0.2)]">{service.title}</h3>
               <Link 
-                href="/services" 
+                href={service.slug ? `/services/${service.slug}` : "/services"}
                 className="mt-auto inline-block bg-extendia-accent text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-extendia-accent/90 focus-visible:ring-2 focus-visible:ring-extendia-accent focus-visible:ring-offset-2 transition-all duration-300 group-hover:scale-105"
                 aria-label={`Learn more about ${service.title} services in South West London`}
               >

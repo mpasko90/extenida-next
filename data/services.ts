@@ -55,6 +55,25 @@ export const services: ServiceSummary[] = [
     seoDescription: 'Velux, dormer and mansard loft conversions engineered for structural integrity, comfort and value across South West London.'
   },
   {
+    slug: 'house-renovations',
+    name: 'House/Flat Renovations',
+    description: 'Whole-home and flat refurbishments: reconfiguration, services upgrades and premium finishes.',
+    longDescription: 'We deliver comprehensive house and flat renovations that balance structural reconfiguration, services upgrades (electrical, plumbing, HVAC), acoustic and thermal improvements, and cohesive interior finishes. From layout optimisation and steelwork to waterproofing, tiling, joinery and decorating, we manage every stage for predictable quality and programme.',
+    heroTagline: 'Coordinated structural, services and finish upgrades — all under one roof',
+    averagePrice: { min: 15000, max: 120000 },
+    duration: { min: 4, max: 24, unit: 'weeks' },
+    features: [
+      'Layout reconfiguration & structural openings',
+      'Rewiring, plumbing & heating upgrades',
+      'Acoustic & thermal performance improvements',
+      'Bathroom & kitchen refurbishment integration',
+      'Tiling, flooring & decorating',
+      'Project management & building control liaison'
+    ],
+    seoTitle: 'House & Flat Renovations London | Complete Refurbishments | Extendia',
+    seoDescription: 'End-to-end house and flat renovations: structural reconfiguration, services upgrades and premium finishes delivered across South West London.'
+  },
+  {
     slug: 'bathroom-renovations',
     name: 'Bathroom Renovations',
     description: 'Modern, durable bathrooms with optimised layouts and premium finishes.',
