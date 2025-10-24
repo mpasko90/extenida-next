@@ -120,7 +120,7 @@ export const Footer = () => {
                   />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/extendiaa/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-white/15 text-white w-10 h-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-extendia-accent transition"
@@ -130,7 +130,7 @@ export const Footer = () => {
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/extendiaa/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-white/15 text-white w-10 h-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-extendia-accent transition"
