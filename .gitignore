@@ -21,7 +21,7 @@ yarn.lock
 /jest-coverage/
 
 # next.js
-/templates/
+# /templates/
 /.next/
 /out/
 .next-test/
@@ -118,4 +118,8 @@ why-us.md
 
 # WordPress media uploads (large files, not for git)
 public/images/wp-content/uploads/
+# templates/privacy policy.txt
+templates/journey.txt
 templates/privacy policy.txt
+templates/terms conditions.txt
+templates/warranty.txt
