@@ -214,7 +214,7 @@ export const ContactForm = ({
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="bg-white dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2"
+                className="bg-white text-slate-900 dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2"
               />
               {errors.name && (
                 <p className="mt-1 text-sm text-red-600 dark:text-red-400">
@@ -237,7 +237,7 @@ export const ContactForm = ({
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="bg-white dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2"
+                className="bg-white text-slate-900 dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2"
               />
               {errors.email && (
                 <p className="mt-1 text-sm text-red-600 dark:text-red-400">
@@ -261,7 +261,7 @@ export const ContactForm = ({
                 placeholder={business.phone.display}
                 value={formData.phone}
                 onChange={handleChange}
-                className="bg-white dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2"
+                className="bg-white text-slate-900 dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2"
               />
             </div>
             <div>
@@ -305,7 +305,7 @@ export const ContactForm = ({
               value={formData.message}
               onChange={handleChange}
               required
-              className="bg-white dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2"
+              className="bg-white text-slate-900 dark:bg-slate-800/60 border-slate-300 dark:border-slate-600 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus-visible:ring-extendia-primary/60 focus-visible:ring-2"
             />
             {errors.message && (
               <p className="mt-1 text-sm text-red-600 dark:text-red-400">
