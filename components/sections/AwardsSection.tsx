@@ -19,6 +19,7 @@ const AwardsSection = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [previewAward, setPreviewAward] = useState<AwardEntry | null>(null);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [loopWidth, setLoopWidth] = useState(0); // width of one full awards set
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -44,20 +45,63 @@ const AwardsSection = () => {
   // Duplicate awards for seamless infinite scroll
   const duplicatedAwards = useMemo(() => [...awards, ...awards, ...awards], [awards]);
 
+  // Measure the width of a single loop (we render 3 copies back-to-back)
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    const update = () => {
+      // scrollWidth includes all 3 copies
+      const total = el.scrollWidth || 0;
+      const single = total > 0 ? Math.floor(total / 3) : 0;
+      setLoopWidth(single);
+    };
+
+    update();
+
+    // Keep it responsive
+    const ro = new ResizeObserver(() => update());
+    ro.observe(el);
+    window.addEventListener('resize', update);
+
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', update);
+    };
+  }, [duplicatedAwards]);
+
   // Animate continuous scroll
   useAnimationFrame((t, delta) => {
     if (!isDragging && !prefersReducedMotion) {
       const moveBy = baseVelocity * (delta / 16.67); // Normalize to 60fps
-      const newX = baseX.get() + moveBy;
-      
-      // Reset position for infinite loop (each award set is ~2400px)
-      if (newX < -2400) {
-        baseX.set(newX + 2400);
+      const next = baseX.get() + moveBy;
+
+      if (loopWidth > 0) {
+        const min = -loopWidth;
+        const max = 0;
+        let wrapped = next;
+        if (wrapped <= min) wrapped += loopWidth; // wrap when going too far left
+        else if (wrapped >= max) wrapped -= loopWidth; // wrap when going too far right
+        baseX.set(wrapped);
       } else {
-        baseX.set(newX);
+        baseX.set(next);
       }
     }
   });
+
+  // While dragging, also wrap the position to simulate infinite range in both directions
+  useEffect(() => {
+    if (loopWidth <= 0) return;
+    const unsubscribe = baseX.on("change", (latest) => {
+      if (!isDragging) return;
+      const x = latest as number;
+      const min = -loopWidth;
+      const max = 0;
+      if (x <= min) baseX.set(x + loopWidth);
+      else if (x >= max) baseX.set(x - loopWidth);
+    });
+    return () => unsubscribe();
+  }, [baseX, isDragging, loopWidth]);
 
 
 
@@ -203,7 +247,6 @@ const AwardsSection = () => {
             className="flex gap-6"
             style={{ x: baseX }}
             drag="x"
-            dragConstraints={{ left: -3000, right: 100 }}
             onDragStart={() => setIsDragging(true)}
             onDragEnd={() => setIsDragging(false)}
             dragElastic={0.05}
@@ -218,9 +261,9 @@ const AwardsSection = () => {
                   whileHover={prefersReducedMotion ? {} : { y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
                   className="group relative h-full"
                 >
-                  <Card variant="subtle" className="h-full overflow-hidden transition-all duration-300 hover:shadow-xl">
+                  <Card variant="subtle" className="flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-xl">
                     {/* Highlighted media header */}
-                    <div className="relative px-6 pt-6">
+                    <div className="relative px-6 pt-6 pb-4">
                       {award.image && (
                         <div className="relative rounded-xl border border-gray-200/70 shadow-sm overflow-hidden bg-white">
                           <AspectRatio ratio={16 / 9}>
@@ -257,13 +300,13 @@ const AwardsSection = () => {
                       )}
                     </div>
 
-                    <CardContent className="relative z-10 flex flex-col flex-1">
-                      <div className="flex items-center justify-between mb-2">
+                    <CardContent className="relative z-10 flex flex-col flex-1 pt-6">
+                      <div className="flex items-center justify-between mb-3">
                         <span className="inline-block px-3 py-1 bg-extendia-accent/10 text-extendia-accent text-xs font-semibold rounded-full border border-extendia-accent/20 tracking-wide">
                           {award.year}
                         </span>
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold text-extendia-primary mb-1 group-hover:text-extendia-accent transition-colors">
+                      <h3 className="text-lg md:text-xl font-bold text-extendia-primary mb-2 group-hover:text-extendia-accent transition-colors">
                         {award.link ? (
                           <a
                             href={award.link}
@@ -275,13 +318,13 @@ const AwardsSection = () => {
                           </a>
                         ) : award.title}
                       </h3>
-                      <p className="text-xs sm:text-sm font-medium text-gray-600 mb-2">
+                      <p className="text-xs sm:text-sm font-medium text-gray-600 mb-3">
                         {award.organization}
                       </p>
-                      <p className="text-gray-700 text-sm leading-relaxed flex-1">
+                      <p className="text-gray-700 text-sm leading-relaxed mb-6 flex-1">
                         {award.description}
                       </p>
-                      <div className="mt-4 flex gap-2">
+                      <div className="mt-auto flex gap-2">
                         <Button variant="secondary" size="sm" onClick={() => { setPreviewAward(award); setIsPreviewOpen(true); }}>
                           View badge
                         </Button>

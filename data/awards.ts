@@ -4,104 +4,103 @@
 export interface AwardEntry {
   id: string;
   title: string;
-  year: string; // allow ranges
+  year: string;
   organization: string;
   description: string;
   image?: string;
-  link?: string;
-  groupKey?: string;
+  link?: string; // "Visit" link
 }
 
 export const awards: AwardEntry[] = [
   {
     id: 'houzz-service-2025',
-    title: 'Best of Houzz – Service',
+    title: 'BEST OF HOUZZ SERVICE 2025',
     year: '2025',
-    organization: 'Houzz',
-    description: 'Awarded for sustained excellence in client reviews and project delivery standards (2024/25 cycle).',
-  // Using original Alpha asset path (contains spaces) now present in public folder.
-  image: '/images/awards/boh-promo-kit 2025/UK BOH25 Service/02_Social_Assets/houzz2025.png',
-    link: 'https://www.houzz.co.uk/professionals/design-build-firms/extendia-pfvwgb-pf~2163000585',
-    groupKey: 'houzz-service'
-  },
-  // 2024 awards added (images available under public/images/awards/updated)
-  {
-    id: 'sme-uk-enterprise-2024',
-    title: 'UK Enterprise Awards – Winner',
-    year: '2024',
-    organization: 'SME News',
-    description: 'Recognised as a 2024 winner in the UK Enterprise Awards for outstanding performance and service.',
-    image: '/images/awards/updated/Aug25051_BUILDCLOCK-LIMITED_SME-2024-UK-Enterprise--Awards-Winners-Badge.png'
+    organization: 'HOUZZ',
+    description: 'For providing excellent customer service, which is measured by a high overall rating and volume of positive client reviews.',
+    link: 'https://www.houzz.co.uk/professionals/design-and-build/extendia-pfvwgb-pf~2051099058',
+    image: '/images/awards/boh-promo-kit 2025/UK BOH25 Service/02_Social_Assets/houzz2025.png',
   },
   {
-    id: 'build-magazine-winner-logo-2024',
-    title: 'BUILD Magazine – Official Winner',
+    id: 'uk-enterprise-2024',
+    title: 'UK ENTERPRISE AWARDS 2024',
     year: '2024',
-    organization: 'BUILD Magazine',
-    description: 'Official winners logo supplied by BUILD Magazine for the 2024 awards season.',
-    image: '/images/awards/updated/Aug25050_BUILDCLOCK-LIMITED_Logo.png'
+    organization: 'SME NEWS',
+    description: 'Most Innovative Domestic Construction & Design Enterprise 2024 – London',
+    link: 'https://smenews.digital/winners/extendia/',
+    image: '/images/awards/updated/Aug25051_BUILDCLOCK-LIMITED_SME-2024-UK-Enterprise--Awards-Winners-Badge.png',
   },
   {
-    id: 'build-construction-engineering-2024',
-    title: 'Construction & Engineering Awards – Winner',
+    id: 'construction-engineering-2024',
+    title: 'CONSTRUCTION & ENGINEERING AWARDS 2024',
     year: '2024',
-    organization: 'BUILD Magazine',
-    description: 'Awarded in BUILD’s 2024 Construction & Engineering Awards for excellence in residential project delivery.',
-    image: '/images/awards/updated/Aug25052_BUILDCLOCK-LIMITED_BUILD-Construction-&-Engineering-Awards-2024-Winners-Badge.png'
+    organization: 'BUILD MAGAZINE',
+    description: 'Best Domestic Construction & Design Enterprise 2024 - London',
+    link: 'https://www.build-review.com/winners/extendia-3/',
+    image: '/images/awards/updated/Aug25052_BUILDCLOCK-LIMITED_BUILD-Construction-&-Engineering-Awards-2024-Winners-Badge.png',
   },
   {
-    id: 'build-architecture-2024',
-    title: 'Architecture Awards – Winner',
+    id: 'architecture-awards-2024-contractor',
+    title: 'ARCHITECTURE AWARDS 2024',
     year: '2024',
-    organization: 'BUILD Magazine',
-    description: 'Winner of BUILD’s 2024 Architecture Awards recognising quality, design and innovation.',
-    image: '/images/awards/updated/Aug25053_BUILDCLOCK-LIMITED_BUILD-Architecture-Awards-2024-Winners-Badge-(2).png'
+    organization: 'BUILD MAGAZINE',
+    description: 'Home Extensions Contractor of the Year 2024 - London',
+    link: 'https://www.build-review.com/winners/extendia-2/',
+    image: '/images/awards/updated/Aug25053_BUILDCLOCK-LIMITED_BUILD-Architecture-Awards-2024-Winners-Badge-(2).png',
+  },
+  {
+    id: 'architecture-awards-2024-project',
+    title: 'ARCHITECTURE AWARDS 2024',
+    year: '2024',
+    organization: 'BUILD MAGAZINE',
+    description: 'Best Home Extension Project (South East England): House Extension and Full Ground Floor Refurbishment Walton-on-Thames',
+    link: 'https://www.build-review.com/winners/extendia-2/',
+    image: '/images/awards/updated/Aug25053_BUILDCLOCK-LIMITED_BUILD-Architecture-Awards-2024-Winners-Badge-(2).png',
   },
   {
     id: 'houzz-service-2023',
-    title: 'Best of Houzz – Service',
+    title: 'BEST OF HOUZZ SERVICE 2023',
     year: '2023',
-    organization: 'Houzz',
-    description: 'Maintained superior homeowner satisfaction metrics and verified service quality.',
+    organization: 'HOUZZ',
+    description: 'For providing excellent customer service, which is measured by a high overall rating and volume of positive client reviews.',
+    link: 'https://www.houzz.co.uk/professionals/design-and-build/extendia-pfvwgb-pf~2051099058',
     image: '/images/awards/Ready_Best_of_Houzz_Service_2023.webp',
-    link: 'https://www.houzz.co.uk/professionals/design-build-firms/extendia-pfvwgb-pf~2163000585',
-    groupKey: 'houzz-service'
+  },
+  {
+    id: 'architecture-awards-2023',
+    title: 'ARCHITECTURE AWARDS 2023',
+    year: '2023',
+    organization: 'BUILD MAGAZINE',
+    description: 'Most Experienced Construction Company 2023 - London',
+    link: 'https://www.build-review.com/winners/extendia/',
+    image: '/images/awards/2023-Architecture-Awards-Logo.png',
   },
   {
     id: 'houzz-service-2022',
-    title: 'Best of Houzz – Service',
+    title: 'BEST OF HOUZZ SERVICE 2022',
     year: '2022',
-    organization: 'Houzz',
-    description: 'First recognition establishing our consecutive service excellence benchmark.',
+    organization: 'HOUZZ',
+    description: 'For providing excellent customer service, which is measured by a high overall rating and volume of positive client reviews.',
+    link: 'https://www.houzz.co.uk/professionals/design-and-build/extendia-pfvwgb-pf~2051099058',
     image: '/images/awards/Ready_Best_of_Houzz_Service_2022.webp',
-    link: 'https://www.houzz.co.uk/professionals/design-build-firms/extendia-pfvwgb-pf~2163000585',
-    groupKey: 'houzz-service'
   },
-  {
-    id: 'architecture-experience-2023',
-    title: 'Most Experienced Construction Company',
-    year: '2023',
-    organization: 'Architecture Awards (Build Review)',
-    description: 'Recognised for comprehensive project delivery capability and consistent quality across London residential enhancements.',
-    image: '/images/awards/2023-Architecture-Awards-Logo.png',
-    link: 'https://www.build-review.com/winners/extendia/'
-  }
 ];
 
 // Helper to aggregate multi-year awards (e.g., combine years for same groupKey)
 export function aggregateAwards(list: AwardEntry[]) {
   const map = new Map<string, AwardEntry & { years: string[] }>();
   list.forEach(a => {
-    if (a.groupKey) {
-      const existing = map.get(a.groupKey);
+    if (a.id.includes('houzz-service')) { // Simplified grouping
+      const groupKey = 'houzz-service';
+      const existing = map.get(groupKey);
       if (existing) {
         existing.years.push(a.year);
       } else {
-        map.set(a.groupKey, { ...a, years: [a.year] });
+        map.set(groupKey, { ...a, years: [a.year] });
       }
     }
   });
   return Array.from(map.values())
-    .map(entry => ({ ...entry, yearDisplay: entry.years.sort().join(', ') }))
-    .sort((a,b) => b.years[0].localeCompare(a.years[0]));
+    .map(entry => ({ ...entry, yearDisplay: entry.years.sort((x, y) => parseInt(y, 10) - parseInt(x, 10)).join(', ') }))
+    .sort((a,b) => parseInt(b.years[0], 10) - parseInt(a.years[0], 10));
 }
