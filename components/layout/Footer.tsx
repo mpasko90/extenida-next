@@ -23,19 +23,19 @@ export const Footer = () => {
             <h3 className="text-lg font-medium mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/services/home-extensions" className="text-gray-300 hover:text-white">Home Extensions</Link>
+                <Link href="/services/home-extensions" className="text-gray-300 hover:text-white">Home Extension</Link>
               </li>
               <li>
-                <Link href="/services/loft-conversions" className="text-gray-300 hover:text-white">Loft Conversions</Link>
+                <Link href="/services/loft-conversions" className="text-gray-300 hover:text-white">Loft Conversion</Link>
               </li>
               <li>
                 <Link href="/services/house-renovations" className="text-gray-300 hover:text-white">House/Flat Renovations</Link>
               </li>
               <li>
-                <Link href="/services/kitchen-renovations" className="text-gray-300 hover:text-white">Kitchen Renovations</Link>
+                <Link href="/services/bathroom-renovations" className="text-gray-300 hover:text-white">Bathroom Renovations</Link>
               </li>
               <li>
-                <Link href="/services/bathroom-renovations" className="text-gray-300 hover:text-white">Bathroom Renovations</Link>
+                <Link href="/services/kitchen-renovations" className="text-gray-300 hover:text-white">Kitchen Renovations</Link>
               </li>
             </ul>
           </div>
@@ -44,15 +44,6 @@ export const Footer = () => {
             <h3 className="text-lg font-medium mb-4">Areas</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/areas/wimbledon" className="text-gray-300 hover:text-white">Wimbledon</Link>
-              </li>
-              <li>
-                <Link href="/areas/kingston" className="text-gray-300 hover:text-white">Kingston</Link>
-              </li>
-              <li>
-                <Link href="/areas/richmond" className="text-gray-300 hover:text-white">Richmond</Link>
-              </li>
-              <li>
                 <Link href="/areas/wandsworth" className="text-gray-300 hover:text-white">Wandsworth</Link>
               </li>
               <li>
@@ -60,6 +51,12 @@ export const Footer = () => {
               </li>
               <li>
                 <Link href="/areas/hammersmith" className="text-gray-300 hover:text-white">Hammersmith</Link>
+              </li>
+              <li>
+                <Link href="/areas/richmond" className="text-gray-300 hover:text-white">Richmond</Link>
+              </li>
+              <li>
+                <Link href="/areas/kingston" className="text-gray-300 hover:text-white">Kingston</Link>
               </li>
               <li>
                 <Link href="/areas/surrey" className="text-gray-300 hover:text-white">Surrey</Link>
