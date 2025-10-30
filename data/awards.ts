@@ -46,7 +46,7 @@ export const awards: AwardEntry[] = [
     organization: 'BUILD MAGAZINE',
     description: 'Home Extensions Contractor of the Year 2024 - London',
     link: 'https://www.build-review.com/winners/extendia-2/',
-    image: '/images/awards/updated/Aug25053_BUILDCLOCK-LIMITED_BUILD-Architecture-Awards-2024-Winners-Badge-(2).png',
+    image: '/images/awards/updated/Aug25053_BUILDCLOCK-LIMITED_BUILD-Architecture-Awards-2024-Winners-Badge-(1).png',
   },
   {
     id: 'architecture-awards-2024-project',
