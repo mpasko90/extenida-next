@@ -19,9 +19,26 @@ export default function SurbitonPage() {
   ];
 
   const projects = [
-    { title: 'Suburban Rear Extension', location: 'Maple Road, Surbiton', type: 'Open-plan kitchen/living extension', value: '£65,000' },
-    { title: 'Dormer Loft Suite', location: 'Berrylands', type: 'Rear dormer conversion', value: '£46,000' },
-    { title: 'Ground Floor Remodel', location: 'St Mark\'s Hill', type: 'Internal reconfiguration + kitchen', value: '£34,000' }
+    { 
+      title: 'Bathroom Refurbishment Kingston upon Thames', 
+      location: 'Surbiton KT6 7RZ', 
+      type: 'Victorian bathroom renovation', 
+      value: 'Contact for quote',
+      slug: 'bathroom-refurbishment-kingston-upon-thames',
+      year: 2021
+    },
+    { 
+      title: 'Dormer Loft Suite', 
+      location: 'Berrylands', 
+      type: 'Rear dormer conversion', 
+      value: '£46,000'
+    },
+    { 
+      title: 'Ground Floor Remodel', 
+      location: 'St Mark\'s Hill', 
+      type: 'Internal reconfiguration + kitchen', 
+      value: '£34,000'
+    }
   ];
 
   return (
@@ -82,8 +99,8 @@ export default function SurbitonPage() {
               className="relative"
             >
               <Image
-                src="/api/placeholder/600/400"
-                alt="Surbiton home extension"
+                src="/images/wp-content/uploads/2021/11/Douglas-Road-Extendia--scaled-600x400.jpg"
+                alt="Bathroom renovation Surbiton"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-xl h-auto w-full"
@@ -204,8 +221,14 @@ export default function SurbitonPage() {
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
                     <p className="text-gray-600 mb-2">{project.location}</p>
-                    <p className="text-sm text-gray-500 mb-4">{project.type}</p>
+                    <p className="text-sm text-gray-500 mb-2">{project.type}</p>
+                    {'year' in project && <p className="text-xs text-gray-400 mb-2">Completed: {project.year}</p>}
                     <p className="text-lg font-semibold text-extendia-primary">{project.value}</p>
+                    {'slug' in project && (
+                      <Button asChild variant="link" className="mt-2 p-0 h-auto text-extendia-accent">
+                        <a href={`/portfolio/${project.slug}`}>View Project →</a>
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>

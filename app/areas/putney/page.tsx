@@ -19,9 +19,28 @@ export default function PutneyPage() {
   ];
 
   const projects = [
-    { title: 'Riverside Kitchen Extension', location: 'Putney Embankment', type: 'Rear glazed extension', value: '£78,000' },
-    { title: 'Victorian Loft Conversion', location: 'West Putney', type: 'L-shaped dormer conversion', value: '£54,000' },
-    { title: 'Ground Floor Reconfiguration', location: 'East Putney', type: 'Structural knock-through + remodel', value: '£36,000' }
+    { 
+      title: 'Bathroom Conversion Putney', 
+      location: 'Putney SW15 1PB', 
+      type: 'Victorian bathroom renovation with modern fixtures', 
+      value: '£10,000 - £25,000',
+      slug: 'bathroom-conversion-putney',
+      year: 2022
+    },
+    { 
+      title: 'Bathroom Refurbishment Putney', 
+      location: 'Putney SW15 1PD', 
+      type: 'Contemporary bathroom redesign', 
+      value: 'Contact for quote',
+      slug: 'bathroom-refurbishment-putney',
+      year: 2022
+    },
+    { 
+      title: 'Ground Floor Reconfiguration', 
+      location: 'East Putney', 
+      type: 'Structural knock-through + remodel', 
+      value: '£36,000'
+    }
   ];
 
   return (
@@ -82,8 +101,8 @@ export default function PutneyPage() {
               className="relative"
             >
               <Image
-                src="/api/placeholder/600/400"
-                alt="Putney home extension"
+                src="/images/wp-content/uploads/2022/11/Quill-Lane-scaled-600x400.jpg"
+                alt="Bathroom renovation Putney"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-xl h-auto w-full"
@@ -204,8 +223,14 @@ export default function PutneyPage() {
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
                     <p className="text-gray-600 mb-2">{project.location}</p>
-                    <p className="text-sm text-gray-500 mb-4">{project.type}</p>
+                    <p className="text-sm text-gray-500 mb-2">{project.type}</p>
+                    {'year' in project && <p className="text-xs text-gray-400 mb-2">Completed: {project.year}</p>}
                     <p className="text-lg font-semibold text-extendia-primary">{project.value}</p>
+                    {'slug' in project && (
+                      <Button asChild variant="link" className="mt-2 p-0 h-auto text-extendia-accent">
+                        <a href={`/portfolio/${project.slug}`}>View Project →</a>
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>

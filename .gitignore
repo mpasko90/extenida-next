@@ -123,3 +123,6 @@ templates/journey.txt
 templates/privacy policy.txt
 templates/terms conditions.txt
 templates/warranty.txt
+scripts/downloadHouzzImages.js
+scripts/generateThumbnails.js
+scripts/generateHouzzImageDownloadCommands.js

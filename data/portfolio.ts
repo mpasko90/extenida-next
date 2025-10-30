@@ -21,9 +21,9 @@ export interface PortfolioProject {
 
 function img(base: string, names: string[]): PortfolioImage[] {
   // Some upload folders have WordPress "-scaled" originals (e.g. 2021/11, 2022/11, 2023/11),
-  // while others (e.g. 2022/04) use the original without "-scaled".
+  // while others (e.g. 2022/04, 2024/10) use the original without "-scaled".
   // Thumbnails also follow the same pattern: either "name-scaled-600x400.jpg" or "name-600x400.jpg".
-  const usesScaled = base !== '2022/04';
+  const usesScaled = base !== '2022/04' && base !== '2024/10';
   return names.map((raw) => {
     // Normalize input names so passing values like "elmscrescent1" or "elmscrescent1-scaled" both work.
     const n = raw.replace(/-scaled$/i, '');
@@ -129,6 +129,39 @@ export const portfolioProjects: PortfolioProject[] = [
       'elmscrescent24-scaled','elmscrescent25-scaled','elmscrescent26-scaled','elmscrescent27-scaled','elmscrescent28-scaled',
       'elmscrescent29-scaled','elmscrescent30-scaled','elmscrescent31-scaled','elmscrescent32-scaled','elmscrescent33-scaled',
       'elmscrescent34-scaled','elmscrescent35-scaled'
+    ])
+  },
+  // New projects from Houzz (images downloaded from Houzz)
+  {
+    slug: 'traditional-rear-extension-twickenham',
+    title: 'Traditional Rear Extension Twickenham',
+    serviceType: 'house-extension',
+    location: 'Twickenham',
+    images: img('2024/10', [
+      'traditional-rear-extension-twickenham-01','traditional-rear-extension-twickenham-02','traditional-rear-extension-twickenham-03',
+      'traditional-rear-extension-twickenham-04','traditional-rear-extension-twickenham-05','traditional-rear-extension-twickenham-06',
+      'traditional-rear-extension-twickenham-07','traditional-rear-extension-twickenham-08','traditional-rear-extension-twickenham-09',
+      'traditional-rear-extension-twickenham-10','traditional-rear-extension-twickenham-11','traditional-rear-extension-twickenham-12',
+      'traditional-rear-extension-twickenham-13','traditional-rear-extension-twickenham-14','traditional-rear-extension-twickenham-15',
+      'traditional-rear-extension-twickenham-16','traditional-rear-extension-twickenham-17','traditional-rear-extension-twickenham-18',
+      'traditional-rear-extension-twickenham-19','traditional-rear-extension-twickenham-20','traditional-rear-extension-twickenham-21',
+      'traditional-rear-extension-twickenham-22','traditional-rear-extension-twickenham-23','traditional-rear-extension-twickenham-24',
+      'traditional-rear-extension-twickenham-25'
+    ])
+  },
+  {
+    slug: 'modern-rear-extension-hampton',
+    title: 'Modern Rear Extension in Hampton',
+    serviceType: 'house-extension',
+    location: 'Hampton',
+    images: img('2024/10', [
+      'modern-rear-extension-hampton-01','modern-rear-extension-hampton-02','modern-rear-extension-hampton-03',
+      'modern-rear-extension-hampton-04','modern-rear-extension-hampton-05','modern-rear-extension-hampton-06',
+      'modern-rear-extension-hampton-07','modern-rear-extension-hampton-08','modern-rear-extension-hampton-09',
+      'modern-rear-extension-hampton-10','modern-rear-extension-hampton-11','modern-rear-extension-hampton-12',
+      'modern-rear-extension-hampton-13','modern-rear-extension-hampton-14','modern-rear-extension-hampton-15',
+      'modern-rear-extension-hampton-16','modern-rear-extension-hampton-17','modern-rear-extension-hampton-18',
+      'modern-rear-extension-hampton-19','modern-rear-extension-hampton-20'
     ])
   }
 ];

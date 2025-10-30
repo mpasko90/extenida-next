@@ -19,9 +19,26 @@ export default function TwickenhamPage() {
   ];
 
   const projects = [
-    { title: 'Family Kitchen Extension', location: 'St Margarets / East Twickenham', type: 'Side-return & rear extension', value: '£72,000' },
-    { title: 'Loft Master Suite', location: 'Twickenham Green', type: 'Hip-to-gable with dormer', value: '£52,000' },
-    { title: 'Heritage Terrace Remodel', location: 'Central Twickenham', type: 'Internal configuration & kitchen', value: '£38,000' }
+    { 
+      title: 'Traditional Rear Extension Twickenham', 
+      location: 'Twickenham TW1 1HP', 
+      type: 'Traditional rear extension with modern interiors', 
+      value: 'Contact for quote',
+      slug: 'traditional-rear-extension-twickenham',
+      year: 2021
+    },
+    { 
+      title: 'Loft Master Suite', 
+      location: 'Twickenham Green', 
+      type: 'Hip-to-gable with dormer', 
+      value: '£52,000'
+    },
+    { 
+      title: 'Heritage Terrace Remodel', 
+      location: 'Central Twickenham', 
+      type: 'Internal configuration & kitchen', 
+      value: '£38,000'
+    }
   ];
 
   return (
@@ -82,8 +99,8 @@ export default function TwickenhamPage() {
               className="relative"
             >
               <Image
-                src="/api/placeholder/600/400"
-                alt="Twickenham home extension"
+                src="/images/wp-content/uploads/2024/10/traditional-rear-extension-twickenham-01-600x400.jpg"
+                alt="Traditional rear extension Twickenham"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-xl h-auto w-full"
@@ -204,8 +221,14 @@ export default function TwickenhamPage() {
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
                     <p className="text-gray-600 mb-2">{project.location}</p>
-                    <p className="text-sm text-gray-500 mb-4">{project.type}</p>
+                    <p className="text-sm text-gray-500 mb-2">{project.type}</p>
+                    {'year' in project && <p className="text-xs text-gray-400 mb-2">Completed: {project.year}</p>}
                     <p className="text-lg font-semibold text-extendia-primary">{project.value}</p>
+                    {'slug' in project && (
+                      <Button asChild variant="link" className="mt-2 p-0 h-auto text-extendia-accent">
+                        <a href={`/portfolio/${project.slug}`}>View Project →</a>
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
