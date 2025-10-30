@@ -19,7 +19,7 @@ export const awards: AwardEntry[] = [
     organization: 'HOUZZ',
     description: 'For providing excellent customer service, which is measured by a high overall rating and volume of positive client reviews.',
     link: 'https://www.houzz.co.uk/professionals/design-and-build/extendia-pfvwgb-pf~2051099058',
-    image: '/images/awards/boh-promo-kit 2025/UK BOH25 Service/02_Social_Assets/houzz2025.png',
+    image: '/images/awards/2025-houzz-hq.png',
   },
   {
     id: 'uk-enterprise-2024',
