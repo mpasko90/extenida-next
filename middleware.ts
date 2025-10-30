@@ -1,62 +1,62 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-// Import listy zablokowanych URL-i
+// Import the list of blocked URLs
 import blockedUrls from './blocked-urls.json';
 
-// Normalizuje końcowe slashe (zostawia root '/') i usuwa wielokrotne slashe na końcu
+// Normalise trailing slashes (keep root '/') and remove multiple trailing slashes
 function trimTrailingSlash(path: string) {
   if (!path) return '/';
   if (path === '/') return '/';
-  // usuń wszystkie końcowe slashe
+  // remove all trailing slashes
   const noTrailing = path.replace(/\/+$/, '');
   return noTrailing || '/';
 }
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname; // np. '/online-gambling-free-spins' lub '/'
-  const search = request.nextUrl.search;     // np. '?p=14839' lub ''
+  const pathname = request.nextUrl.pathname; // e.g. '/online-gambling-free-spins' or '/'
+  const search = request.nextUrl.search;     // e.g. '?p=14839' or ''
 
   const normalizedPath = trimTrailingSlash(pathname);
   const normalizedFull = normalizedPath + (search || '');
 
-  // Sprawdź czy URL jest na liście zablokowanych
-  // Obsłuż zarówno wpisy z query (np. '/?p=123') jak i bez
+  // Check if the URL is on the blocked list
+  // Handle entries with query (e.g. '/?p=123') and without
   const isBlocked = blockedUrls.some((blocked) => {
     if (typeof blocked !== 'string' || !blocked) return false;
     const hasQuery = blocked.includes('?');
 
     if (hasQuery) {
-      // Rozbij blokowany wpis na ścieżkę i query, znormalizuj ścieżkę
+      // Split the blocked entry into path and query; normalise the path
       const [bPath, bQuery = ''] = blocked.split('?');
       const normalizedBlockedFull = trimTrailingSlash(bPath) + (bQuery ? `?${bQuery}` : '');
       return normalizedFull === normalizedBlockedFull;
     }
 
-    // Bez query – porównuj same ścieżki po normalizacji, niezależnie od końcowego slasha
+    // Without query – compare just the normalised paths, regardless of trailing slash
     return normalizedPath === trimTrailingSlash(blocked);
   });
 
   if (isBlocked) {
-    // Zwróć status 410 Gone - informuje że zasób jest permanentnie usunięty
+    // Return 410 Gone – indicates the resource was permanently removed
     return new NextResponse(null, {
       status: 410,
       statusText: 'Gone',
     });
   }
 
-  // Kontynuuj normalnie dla innych requestów
+  // Continue as normal for other requests
   return NextResponse.next();
 }
 
-// Konfiguracja middleware - określa na których ścieżkach ma działać
+// Middleware configuration – specify which paths it runs on
 export const config = {
   matcher: [
     /*
-     * Dopasuj wszystkie ścieżki OPRÓCZ:
+     * Match all paths EXCEPT:
      * - api (API routes)
-     * - _next/static (pliki statyczne)
-     * - _next/image (optymalizacja obrazów)
+     * - _next/static (static assets)
+     * - _next/image (image optimisation)
      * - favicon.ico, robots.txt, sitemap.xml
      */
     '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)',

@@ -17,16 +17,6 @@ export const Footer = () => {
             <p className="text-gray-300/90 mb-4 leading-relaxed">
               Professional building services, renovations and extensions. Serving South West London.
             </p>
-            <div className="mt-4">
-              <Image
-                src="/images/awards/updated/Aug25050_BUILDCLOCK-LIMITED_Logo.png"
-                alt="BuildClock Limited logo"
-                width={160}
-                height={48}
-                className="h-10 w-auto object-contain opacity-80"
-                priority={false}
-              />
-            </div>
           </div>
 
           <div>
@@ -37,6 +27,15 @@ export const Footer = () => {
               </li>
               <li>
                 <Link href="/services/loft-conversions" className="text-gray-300 hover:text-white">Loft Conversions</Link>
+              </li>
+              <li>
+                <Link href="/services/house-renovations" className="text-gray-300 hover:text-white">House/Flat Renovations</Link>
+              </li>
+              <li>
+                <Link href="/services/kitchen-renovations" className="text-gray-300 hover:text-white">Kitchen Renovations</Link>
+              </li>
+              <li>
+                <Link href="/services/bathroom-renovations" className="text-gray-300 hover:text-white">Bathroom Renovations</Link>
               </li>
             </ul>
           </div>
@@ -52,6 +51,18 @@ export const Footer = () => {
               </li>
               <li>
                 <Link href="/areas/richmond" className="text-gray-300 hover:text-white">Richmond</Link>
+              </li>
+              <li>
+                <Link href="/areas/wandsworth" className="text-gray-300 hover:text-white">Wandsworth</Link>
+              </li>
+              <li>
+                <Link href="/areas/fulham" className="text-gray-300 hover:text-white">Fulham</Link>
+              </li>
+              <li>
+                <Link href="/areas/hammersmith" className="text-gray-300 hover:text-white">Hammersmith</Link>
+              </li>
+              <li>
+                <Link href="/areas/surrey" className="text-gray-300 hover:text-white">Surrey</Link>
               </li>
             </ul>
           </div>
@@ -149,7 +160,6 @@ export const Footer = () => {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-2 md:mt-0">
             <Link href="/privacy" className="text-gray-300 hover:text-white">Privacy Policy</Link>
             <Link href="/terms" className="text-gray-300 hover:text-white">Terms of Service</Link>
-            <Link href="/warranty" className="text-gray-300 hover:text-white">Warranty</Link>
             <Link href="/sitemap.xml" className="text-gray-300 hover:text-white">Sitemap</Link>
           </div>
         </div>

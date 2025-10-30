@@ -39,8 +39,33 @@ const DesktopNavigation = () => {
         { name: "Wimbledon", href: "/services/loft-conversions/Wimbledon" },
       ]
     },
-  { name: "Kitchen Renovations", href: "/services/kitchen-renovations" },
-  { name: "Bathroom Renovations", href: "/services/bathroom-renovations" },
+    { 
+      name: "House/Flat Renovations", 
+      href: "/services/house-renovations",
+      locations: [
+        { name: "Kingston", href: "/services/house-renovations/kingston" },
+        { name: "Richmond", href: "/services/house-renovations/richmond" },
+        { name: "Wimbledon", href: "/services/house-renovations/wimbledon" },
+      ]
+    },
+    { 
+      name: "Kitchen Renovations", 
+      href: "/services/kitchen-renovations",
+      locations: [
+        { name: "Kingston", href: "/services/kitchen-renovations/kingston" },
+        { name: "Richmond", href: "/services/kitchen-renovations/richmond" },
+        { name: "Wimbledon", href: "/services/kitchen-renovations/wimbledon" },
+      ]
+    },
+    { 
+      name: "Bathroom Renovations", 
+      href: "/services/bathroom-renovations",
+      locations: [
+        { name: "Kingston", href: "/services/bathroom-renovations/kingston" },
+        { name: "Richmond", href: "/services/bathroom-renovations/richmond" },
+        { name: "Wimbledon", href: "/services/bathroom-renovations/wimbledon" },
+      ]
+    },
   ];
 
   const areas = [
@@ -50,6 +75,10 @@ const DesktopNavigation = () => {
     { name: "Surbiton", href: "/areas/surbiton" },
     { name: "Twickenham", href: "/areas/twickenham" },
     { name: "Wimbledon", href: "/areas/wimbledon" },
+    { name: "Wandsworth", href: "/areas/wandsworth" },
+    { name: "Fulham", href: "/areas/fulham" },
+    { name: "Hammersmith", href: "/areas/hammersmith" },
+    { name: "Surrey", href: "/areas/surrey" },
   ];
 
   // Resources removed per current scope (no public resources section)

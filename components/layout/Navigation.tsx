@@ -27,7 +27,11 @@ export const Navigation = () => {
       submenu: [
         { title: 'Wimbledon', href: '/areas/wimbledon' },
         { title: 'Kingston', href: '/areas/kingston' },
-        { title: 'Richmond', href: '/areas/richmond' }
+        { title: 'Richmond', href: '/areas/richmond' },
+        { title: 'Wandsworth', href: '/areas/wandsworth' },
+        { title: 'Fulham', href: '/areas/fulham' },
+        { title: 'Hammersmith', href: '/areas/hammersmith' },
+        { title: 'Surrey', href: '/areas/surrey' }
       ]
     },
     { title: 'Gallery', href: '/gallery' },

@@ -17,7 +17,7 @@ const SERVICES = [
   'interior-fit-out',
   'basement-conversions'
 ];
-const LOCATIONS = ['Kingston','Putney','Richmond','Surbiton','Twickenham','Wimbledon'];
+const LOCATIONS = ['Kingston','Putney','Richmond','Surbiton','Twickenham','Wimbledon','Wandsworth','Fulham','Hammersmith','Surrey'];
 
 export function generateStaticParams() {
   const combos: { service: string; location: string }[] = [];

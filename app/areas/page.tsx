@@ -10,7 +10,11 @@ const AREAS = [
   { slug: 'richmond', name: 'Richmond', blurb: 'Green conservation areas & premium plots.' },
   { slug: 'surbiton', name: 'Surbiton', blurb: 'Fast links, period & deco homes, suburban plots.' },
   { slug: 'putney', name: 'Putney', blurb: 'Riverside terraces & leafy commons living.' },
-  { slug: 'twickenham', name: 'Twickenham', blurb: 'Riverside conservation character & family demand.' }
+  { slug: 'twickenham', name: 'Twickenham', blurb: 'Riverside conservation character & family demand.' },
+  { slug: 'wandsworth', name: 'Wandsworth', blurb: 'Leafy borough with Victorian/Edwardian stock and great transport.' },
+  { slug: 'fulham', name: 'Fulham', blurb: 'Period terraces, riverfront living and premium SW6 renovations.' },
+  { slug: 'hammersmith', name: 'Hammersmith', blurb: 'Riverside, conservation areas and mixed-use neighbourhoods.' },
+  { slug: 'surrey', name: 'Surrey', blurb: 'Family homes, greenbelt considerations and generous plots.' }
 ];
 
 export default function AreasIndexPage() {

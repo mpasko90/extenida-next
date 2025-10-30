@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const serviceRoutes = services.map((s) => ({ url: new URL(`/services/${s.slug}`, siteUrl).toString() }));
 
   // Area pages (mirror human sitemap list)
-  const areas = ["wimbledon", "kingston", "richmond", "surbiton", "putney", "twickenham"];
+  const areas = ["wimbledon", "kingston", "richmond", "surbiton", "putney", "twickenham", "wandsworth", "fulham", "hammersmith", "surrey"];
   const areaRoutes = areas.map((a) => ({ url: new URL(`/areas/${a}`, siteUrl).toString() }));
 
   // Service + Area combinations (common landing pages for local SEO)
