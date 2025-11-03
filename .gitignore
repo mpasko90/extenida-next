@@ -126,3 +126,4 @@ templates/warranty.txt
 scripts/downloadHouzzImages.js
 scripts/generateThumbnails.js
 scripts/generateHouzzImageDownloadCommands.js
+url-to-filter
