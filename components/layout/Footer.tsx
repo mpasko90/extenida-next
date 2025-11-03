@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Instagram, Facebook } from 'lucide-react';
+import { Instagram, Facebook, ExternalLink } from 'lucide-react';
 import { companyInfo } from '@/lib/companyInfo';
 
 export const Footer = () => {
@@ -115,7 +115,7 @@ export const Footer = () => {
                   href="https://www.houzz.co.uk/pro/webuser-473195861"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-white/15 text-white w-10 h-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-extendia-accent transition"
+                  className="inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-white/15 text-white w-10 h-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-extendia-accent transition-transform duration-200 hover:scale-105 active:scale-95"
                   aria-label="Visit our Houzz profile"
                   title="Houzz"
                 >
@@ -131,7 +131,7 @@ export const Footer = () => {
                   href="https://www.instagram.com/extendiaa/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-white/15 text-white w-10 h-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-extendia-accent transition"
+                  className="inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-white/15 text-white w-10 h-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-extendia-accent transition-transform duration-200 hover:scale-105 active:scale-95"
                   aria-label="Visit our Instagram"
                   title="Instagram"
                 >
@@ -141,7 +141,7 @@ export const Footer = () => {
                   href="https://www.facebook.com/extendiaa/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-white/15 text-white w-10 h-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-extendia-accent transition"
+                  className="inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-white/15 text-white w-10 h-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-extendia-accent transition-transform duration-200 hover:scale-105 active:scale-95"
                   aria-label="Visit our Facebook"
                   title="Facebook"
                 >
@@ -152,12 +152,35 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400">© {currentYear} Extendia. All rights reserved.</p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-2 md:mt-0">
-            <Link href="/privacy" className="text-gray-300 hover:text-white">Privacy Policy</Link>
-            <Link href="/terms" className="text-gray-300 hover:text-white">Terms of Service</Link>
-            <Link href="/sitemap.xml" className="text-gray-300 hover:text-white">Sitemap</Link>
+        <div className="border-t border-gray-800 mt-10 pt-8 grid grid-cols-1 md:grid-cols-3 items-center gap-4">
+          {/* Left: Copyright */}
+          <div className="text-center md:text-left">
+            <p className="text-gray-400">© {currentYear} Extendia. All rights reserved.</p>
+          </div>
+
+          {/* Center: Developer credit */}
+          <p className="text-gray-500 text-sm text-center">
+            Website crafted by{' '}
+            <a
+              href="https://paskomichal.pl"
+              target="_blank"
+              rel="noopener noreferrer author"
+              className="group inline-flex items-center text-extendia-primary hover:text-extendia-secondary transition-colors duration-200 underline underline-offset-4 hover:underline-offset-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-extendia-accent focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 rounded"
+              aria-label="Visit Michał Paśko's website"
+            >
+              <span className="">Michał Paśko</span>
+              <ExternalLink
+                aria-hidden="true"
+                className="ml-1 inline-block h-[14px] w-[14px] translate-y-[1px] transition-transform duration-200 group-hover:translate-x-0.5"
+              />
+            </a>
+          </p>
+
+          {/* Right: Legal links */}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-2 md:mt-0 justify-center md:justify-end">
+            <Link href="/privacy" className="text-gray-300 hover:text-white transition-all duration-200 underline-offset-4 hover:underline hover:underline-offset-8">Privacy Policy</Link>
+            <Link href="/terms" className="text-gray-300 hover:text-white transition-all duration-200 underline-offset-4 hover:underline hover:underline-offset-8">Terms of Service</Link>
+            <Link href="/sitemap.xml" className="text-gray-300 hover:text-white transition-all duration-200 underline-offset-4 hover:underline hover:underline-offset-8">Sitemap</Link>
           </div>
         </div>
       </div>

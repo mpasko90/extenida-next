@@ -155,9 +155,23 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} {companyInfo.name}. Company No. {companyInfo.companyNumber}. All rights reserved.
-            </p>
+            <div className="text-center md:text-left">
+              <p className="text-gray-400 text-sm">
+                © {new Date().getFullYear()} {companyInfo.name}. Company No. {companyInfo.companyNumber}. All rights reserved.
+              </p>
+              <p className="text-gray-500 text-sm mt-2">
+                Website crafted by{' '}
+                <a
+                  href="https://paskomichal.pl"
+                  target="_blank"
+                  rel="noopener noreferrer author"
+                  className="text-extendia-primary hover:text-extendia-secondary transition-colors duration-200 underline underline-offset-4"
+                  aria-label="Visit Michał Paśko's website"
+                >
+                  Michał Paśko
+                </a>
+              </p>
+            </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               {navigation.social.map((item) => {
                 const Icon = item.icon;

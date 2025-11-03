@@ -10,6 +10,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import { GoogleAnalytics } from "@/components/providers/GoogleAnalytics";
 import { Suspense } from "react";
+import { WebsiteSchema } from "@/components/structured-data/WebsiteSchema";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,14 @@ export const metadata: Metadata = {
     "Expert house extensions, loft conversions, and home improvements in South West London. Serving Kingston, Richmond, Putney, Wimbledon and surrounding areas.",
   metadataBase: new URL(siteUrl),
   keywords: ["home improvement","extensions","loft conversions","bathroom renovations","london"],
+  authors: [
+    {
+      name: 'Michał Paśko',
+      url: 'https://paskomichal.pl'
+    }
+  ],
+  creator: 'Michał Paśko',
+  publisher: 'Michał Paśko',
   icons: {
     icon: [
       { url: "/favicon.ico", type: "image/x-icon", sizes: "any" },
@@ -98,6 +107,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         )}
       </head>
       <body className={`${inter.className} bg-extendia-primary text-gray-900 antialiased`}>
+        <WebsiteSchema />
         <ClientProviders>
           <Header />
           <HeaderOffset />
