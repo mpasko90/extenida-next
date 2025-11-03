@@ -20,6 +20,32 @@ export function middleware(request: NextRequest) {
   const normalizedPath = trimTrailingSlash(pathname);
   const normalizedFull = normalizedPath + (search || '');
 
+  // Canonicalize /london/[area] to lowercase and ensure '/london' segment is lowercase
+  // Handles cases like '/London/Putney' or '/london/Putney' -> '/london/putney'
+  const londonMatch = normalizedPath.match(/^\/(london)\/([^/]+)$/i);
+  if (londonMatch) {
+    const area = londonMatch[2];
+    const canonical = `/london/${area.toLowerCase()}`;
+    if (normalizedPath !== canonical) {
+      return NextResponse.redirect(new URL(canonical + (search || ''), request.url), 301);
+    }
+  }
+
+  // Canonicalize /services/[service]/[location] to lowercase for dynamic segments
+  // Examples:
+  //   /services/house-extensions/Kingston   -> /services/house-extensions/kingston
+  //   /services/Loft-Conversions/Richmond   -> /services/loft-conversions/richmond
+  // Only applies when both service and location segments are present
+  const svcMatch = normalizedPath.match(/^\/(services)\/([^/]+)\/([^/]+)$/i);
+  if (svcMatch) {
+    const service = svcMatch[2];
+    const location = svcMatch[3];
+    const canonical = `/services/${service.toLowerCase()}/${location.toLowerCase()}`;
+    if (normalizedPath !== canonical) {
+      return NextResponse.redirect(new URL(canonical + (search || ''), request.url), 301);
+    }
+  }
+
   // Check if the URL is on the blocked list
   // Handle entries with query (e.g. '/?p=123') and without
   const isBlocked = blockedUrls.some((blocked) => {

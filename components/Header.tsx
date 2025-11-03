@@ -24,14 +24,14 @@ const navigation = [
 	},
 	{
 		label: "Areas",
-		href: "/areas",
+		href: "/london",
 		submenu: [
-			{ label: "Kingston Upon Thames", href: "/areas/kingston" },
-			{ label: "Richmond", href: "/areas/richmond" },
-			{ label: "Putney", href: "/areas/putney" },
-			{ label: "Wimbledon", href: "/areas/wimbledon" },
-			{ label: "Surbiton", href: "/areas/surbiton" },
-			{ label: "Twickenham", href: "/areas/twickenham" },
+			{ label: "Kingston Upon Thames", href: "/london/kingston" },
+			{ label: "Richmond", href: "/london/richmond" },
+			{ label: "Putney", href: "/london/putney" },
+			{ label: "Wimbledon", href: "/london/wimbledon" },
+			{ label: "Surbiton", href: "/london/surbiton" },
+			{ label: "Twickenham", href: "/london/twickenham" },
 		],
 	},
 	{

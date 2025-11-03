@@ -19,12 +19,12 @@ const navigation = {
     { name: "Bathroom Renovations", href: "/services/bathroom-renovations" },
   ],
   areas: [
-  { name: "Kingston", href: "/areas/kingston" },
-    { name: "Richmond", href: "/areas/richmond" },
-    { name: "Putney", href: "/areas/putney" },
-    { name: "Wimbledon", href: "/areas/wimbledon" },
-    { name: "Surbiton", href: "/areas/surbiton" },
-    { name: "Twickenham", href: "/areas/twickenham" },
+  { name: "Kingston", href: "/london/kingston" },
+    { name: "Richmond", href: "/london/richmond" },
+    { name: "Putney", href: "/london/putney" },
+    { name: "Wimbledon", href: "/london/wimbledon" },
+    { name: "Surbiton", href: "/london/surbiton" },
+    { name: "Twickenham", href: "/london/twickenham" },
   ],
   social: [
     {

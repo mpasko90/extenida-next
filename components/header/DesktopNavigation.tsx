@@ -69,16 +69,16 @@ const DesktopNavigation = () => {
   ];
 
   const areas = [
-    { name: "Kingston", href: "/areas/kingston" },
-    { name: "Putney", href: "/areas/putney" },
-    { name: "Richmond", href: "/areas/richmond" },
-    { name: "Surbiton", href: "/areas/surbiton" },
-    { name: "Twickenham", href: "/areas/twickenham" },
-    { name: "Wimbledon", href: "/areas/wimbledon" },
-    { name: "Wandsworth", href: "/areas/wandsworth" },
-    { name: "Fulham", href: "/areas/fulham" },
-    { name: "Hammersmith", href: "/areas/hammersmith" },
-    { name: "Surrey", href: "/areas/surrey" },
+    { name: "Kingston", href: "/london/kingston" },
+    { name: "Putney", href: "/london/putney" },
+    { name: "Richmond", href: "/london/richmond" },
+    { name: "Surbiton", href: "/london/surbiton" },
+    { name: "Twickenham", href: "/london/twickenham" },
+    { name: "Wimbledon", href: "/london/wimbledon" },
+    { name: "Wandsworth", href: "/london/wandsworth" },
+    { name: "Fulham", href: "/london/fulham" },
+    { name: "Hammersmith", href: "/london/hammersmith" },
+    { name: "Surrey", href: "/london/surrey" },
   ];
 
   // Resources removed per current scope (no public resources section)

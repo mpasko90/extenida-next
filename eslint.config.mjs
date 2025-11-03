@@ -16,7 +16,18 @@ const compat = new FlatCompat({
 });
 
 const config = [
-  {ignores: [".next/", "dist/", "next-env.d.ts"]},
+  {ignores: [
+    ".next/",
+    ".temp/",
+    ".tmp/",
+    "build/",
+    "coverage/",
+    "dist/",
+    "next-env.d.ts",
+    "node_modules/",
+    "out/",
+    "storybook-static/",
+  ]},
   {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
   {languageOptions: { globals: {...globals.browser, ...globals.node} }},
   pluginJs.configs.recommended,

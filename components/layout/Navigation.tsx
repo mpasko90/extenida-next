@@ -23,15 +23,15 @@ export const Navigation = () => {
     },
     {
       title: 'Areas',
-      href: '/areas',
+      href: '/london',
       submenu: [
-        { title: 'Wimbledon', href: '/areas/wimbledon' },
-        { title: 'Kingston', href: '/areas/kingston' },
-        { title: 'Richmond', href: '/areas/richmond' },
-        { title: 'Wandsworth', href: '/areas/wandsworth' },
-        { title: 'Fulham', href: '/areas/fulham' },
-        { title: 'Hammersmith', href: '/areas/hammersmith' },
-        { title: 'Surrey', href: '/areas/surrey' }
+        { title: 'Wimbledon', href: '/london/wimbledon' },
+        { title: 'Kingston', href: '/london/kingston' },
+        { title: 'Richmond', href: '/london/richmond' },
+        { title: 'Wandsworth', href: '/london/wandsworth' },
+        { title: 'Fulham', href: '/london/fulham' },
+        { title: 'Hammersmith', href: '/london/hammersmith' },
+        { title: 'Surrey', href: '/london/surrey' }
       ]
     },
     { title: 'Gallery', href: '/gallery' },

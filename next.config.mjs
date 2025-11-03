@@ -36,7 +36,10 @@ const baseConfig = {
   // Legacy non-canonical slug variant -> canonical
   { source: '/services/house-extensions', destination: '/services/home-extensions', permanent: true },
   // Consolidated service slug
-  { source: '/services/kitchen-installations', destination: '/services/kitchen-renovations', permanent: true }
+  { source: '/services/kitchen-installations', destination: '/services/kitchen-renovations', permanent: true },
+  // Areas -> London area structure
+  { source: '/areas', destination: '/london', permanent: true },
+  { source: '/areas/:slug', destination: '/london/:slug', permanent: true }
     ];
   },
   webpack: (config) => {

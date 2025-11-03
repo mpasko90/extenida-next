@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2025-10-31T04:15:15.536Z",
+  "results": [
+    {
+      "url": "http://localhost:3011/",
+      "score": 91,
+      "fails": [
+        "link-text"
+      ]
+    },
+    {
+      "url": "http://localhost:3011/london/fulham",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3011/london/hammersmith",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3011/london/kingston",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3011/london/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3011/london/richmond",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3011/london/surbiton",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3011/london/surrey",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3011/london/twickenham",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3011/london/wandsworth",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3011/london/wimbledon",
+      "score": 100,
+      "fails": []
+    }
+  ]
+}

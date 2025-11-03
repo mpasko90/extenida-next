@@ -1,0 +1,12 @@
+url,score,fail_count,fail_ids
+http://localhost:3011/,91,1,link-text
+http://localhost:3011/london/fulham,,0,
+http://localhost:3011/london/hammersmith,,0,
+http://localhost:3011/london/kingston,,0,
+http://localhost:3011/london/putney,100,0,
+http://localhost:3011/london/richmond,,0,
+http://localhost:3011/london/surbiton,,0,
+http://localhost:3011/london/surrey,,0,
+http://localhost:3011/london/twickenham,,0,
+http://localhost:3011/london/wandsworth,,0,
+http://localhost:3011/london/wimbledon,100,0,

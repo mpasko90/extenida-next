@@ -44,22 +44,22 @@ export const Footer = () => {
             <h3 className="text-lg font-medium mb-4">Areas</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/areas/wandsworth" className="text-gray-300 hover:text-white">Wandsworth</Link>
+                <Link href="/london/wandsworth" className="text-gray-300 hover:text-white">Wandsworth</Link>
               </li>
               <li>
-                <Link href="/areas/fulham" className="text-gray-300 hover:text-white">Fulham</Link>
+                <Link href="/london/fulham" className="text-gray-300 hover:text-white">Fulham</Link>
               </li>
               <li>
-                <Link href="/areas/hammersmith" className="text-gray-300 hover:text-white">Hammersmith</Link>
+                <Link href="/london/hammersmith" className="text-gray-300 hover:text-white">Hammersmith</Link>
               </li>
               <li>
-                <Link href="/areas/richmond" className="text-gray-300 hover:text-white">Richmond</Link>
+                <Link href="/london/richmond" className="text-gray-300 hover:text-white">Richmond</Link>
               </li>
               <li>
-                <Link href="/areas/kingston" className="text-gray-300 hover:text-white">Kingston</Link>
+                <Link href="/london/kingston" className="text-gray-300 hover:text-white">Kingston</Link>
               </li>
               <li>
-                <Link href="/areas/surrey" className="text-gray-300 hover:text-white">Surrey</Link>
+                <Link href="/london/surrey" className="text-gray-300 hover:text-white">Surrey</Link>
               </li>
             </ul>
           </div>
