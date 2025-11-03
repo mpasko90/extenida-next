@@ -1,60 +1,760 @@
 {
-  "generatedAt": "2025-10-31T04:15:15.536Z",
+  "generatedAt": "2025-11-03T04:02:35.045Z",
   "results": [
     {
-      "url": "http://localhost:3011/",
-      "score": 91,
+      "url": "http://localhost:3010/",
+      "score": 92,
       "fails": [
         "link-text"
       ]
     },
     {
-      "url": "http://localhost:3011/london/fulham",
-      "score": null,
-      "fails": []
-    },
-    {
-      "url": "http://localhost:3011/london/hammersmith",
-      "score": null,
-      "fails": []
-    },
-    {
-      "url": "http://localhost:3011/london/kingston",
-      "score": null,
-      "fails": []
-    },
-    {
-      "url": "http://localhost:3011/london/putney",
+      "url": "http://localhost:3010/about",
       "score": 100,
       "fails": []
     },
     {
-      "url": "http://localhost:3011/london/richmond",
+      "url": "http://localhost:3010/contact",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/portfolio",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/privacy",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/terms",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/london",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/home-extensions",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/loft-conversions",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/house-renovations",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/bathroom-renovations",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/kitchen-renovations",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/architectural-design",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/structural-engineering",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/planning-permission",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/project-management",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/interior-fit-out",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/basement-conversions",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/london/wimbledon",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/london/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/london/richmond",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/london/surbiton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/london/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/london/twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/london/wandsworth",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/london/fulham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/london/hammersmith",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/london/surrey",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/home-extensions/wimbledon",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/home-extensions/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/home-extensions/richmond",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/home-extensions/surbiton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/home-extensions/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/home-extensions/twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/home-extensions/wandsworth",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/home-extensions/fulham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/home-extensions/hammersmith",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/home-extensions/surrey",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/loft-conversions/wimbledon",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/loft-conversions/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/loft-conversions/richmond",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/loft-conversions/surbiton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/loft-conversions/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/loft-conversions/twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/loft-conversions/wandsworth",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/loft-conversions/fulham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/loft-conversions/hammersmith",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/loft-conversions/surrey",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/house-renovations/wimbledon",
       "score": null,
       "fails": []
     },
     {
-      "url": "http://localhost:3011/london/surbiton",
+      "url": "http://localhost:3010/services/house-renovations/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/house-renovations/richmond",
       "score": null,
       "fails": []
     },
     {
-      "url": "http://localhost:3011/london/surrey",
+      "url": "http://localhost:3010/services/house-renovations/surbiton",
       "score": null,
       "fails": []
     },
     {
-      "url": "http://localhost:3011/london/twickenham",
+      "url": "http://localhost:3010/services/house-renovations/putney",
       "score": null,
       "fails": []
     },
     {
-      "url": "http://localhost:3011/london/wandsworth",
+      "url": "http://localhost:3010/services/house-renovations/twickenham",
       "score": null,
       "fails": []
     },
     {
-      "url": "http://localhost:3011/london/wimbledon",
+      "url": "http://localhost:3010/services/house-renovations/wandsworth",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/house-renovations/fulham",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/house-renovations/hammersmith",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/house-renovations/surrey",
+      "score": null,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/bathroom-renovations/wimbledon",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/bathroom-renovations/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/bathroom-renovations/richmond",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/bathroom-renovations/surbiton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/bathroom-renovations/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/bathroom-renovations/twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/bathroom-renovations/wandsworth",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/bathroom-renovations/fulham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/bathroom-renovations/hammersmith",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/bathroom-renovations/surrey",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/kitchen-renovations/wimbledon",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/kitchen-renovations/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/kitchen-renovations/richmond",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/kitchen-renovations/surbiton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/kitchen-renovations/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/kitchen-renovations/twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/kitchen-renovations/wandsworth",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/kitchen-renovations/fulham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/kitchen-renovations/hammersmith",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/kitchen-renovations/surrey",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/architectural-design/wimbledon",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/architectural-design/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/architectural-design/richmond",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/architectural-design/surbiton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/architectural-design/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/architectural-design/twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/architectural-design/wandsworth",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/architectural-design/fulham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/architectural-design/hammersmith",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/architectural-design/surrey",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/structural-engineering/wimbledon",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/structural-engineering/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/structural-engineering/richmond",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/structural-engineering/surbiton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/structural-engineering/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/structural-engineering/twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/structural-engineering/wandsworth",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/structural-engineering/fulham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/structural-engineering/hammersmith",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/structural-engineering/surrey",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/planning-permission/wimbledon",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/planning-permission/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/planning-permission/richmond",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/planning-permission/surbiton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/planning-permission/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/planning-permission/twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/planning-permission/wandsworth",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/planning-permission/fulham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/planning-permission/hammersmith",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/planning-permission/surrey",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/project-management/wimbledon",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/project-management/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/project-management/richmond",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/project-management/surbiton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/project-management/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/project-management/twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/project-management/wandsworth",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/project-management/fulham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/project-management/hammersmith",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/project-management/surrey",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/interior-fit-out/wimbledon",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/interior-fit-out/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/interior-fit-out/richmond",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/interior-fit-out/surbiton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/interior-fit-out/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/interior-fit-out/twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/interior-fit-out/wandsworth",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/interior-fit-out/fulham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/interior-fit-out/hammersmith",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/interior-fit-out/surrey",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/basement-conversions/wimbledon",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/basement-conversions/kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/basement-conversions/richmond",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/basement-conversions/surbiton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/basement-conversions/putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/basement-conversions/twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/basement-conversions/wandsworth",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/basement-conversions/fulham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/basement-conversions/hammersmith",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/basement-conversions/surrey",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/portfolio/house-extension-and-full-ground-floor-refurbishment-walton-on-thames",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/portfolio/house-extension-hampton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/portfolio/house-extension-twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/portfolio/bathroom-refurbishment-kingston-upon-thames",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/portfolio/bathroom-refurbishment-putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/portfolio/bathroom-conversion-putney",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/portfolio/house-refurbishment-clapham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/portfolio/traditional-rear-extension-twickenham",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/portfolio/modern-rear-extension-hampton",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/house-extensions",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/house-extensions/Kingston",
+      "score": 100,
+      "fails": []
+    },
+    {
+      "url": "http://localhost:3010/services/house-extensions/Richmond",
       "score": 100,
       "fails": []
     }
