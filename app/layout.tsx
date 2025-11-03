@@ -31,13 +31,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   keywords: ["home improvement","extensions","loft conversions","bathroom renovations","london"],
   icons: {
-    // Use ICO for broad browser support; avoid WEBP for icons (Safari/iOS expects PNG/ICO)
     icon: [
-      { url: "/favicon.ico", type: "image/x-icon" }
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "any" },
     ],
-    shortcut: [
-      { url: "/favicon.ico", type: "image/x-icon" }
-    ]
+    apple: '/apple-touch-icon.png',
   },
   verification: gscToken ? { google: gscToken } : undefined,
 };
