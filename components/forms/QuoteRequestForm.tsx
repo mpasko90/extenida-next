@@ -25,7 +25,7 @@ const QuoteRequestForm = () => {
     e.preventDefault();
     toast({
       title: "Quote Request Submitted",
-      description: "We'll contact you within 24 hours to discuss your bathroom renovation project.",
+      description: "We'll contact you as soon as we can to discuss your bathroom renovation project.",
     });
     console.log('Quote request submitted:', formData);
   };

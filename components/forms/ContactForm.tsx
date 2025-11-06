@@ -24,7 +24,7 @@ const business = {
 
 export const ContactForm = ({
   title = "Get Your Quote",
-  subtitle = "Tell us about your project and we'll provide a detailed quote within 24 hours.",
+  subtitle = "Tell us about your project and We'll contact you as soon as we can.",
   showContactInfo = true,
   layout = "split",
 }: ContactFormProps) => {
@@ -89,7 +89,7 @@ export const ContactForm = ({
       if (!res.ok) throw new Error(data.error || "Failed to send form");
       setSubmitStatus("success");
       setSubmitMessage(
-        "Thank you for your message! We'll contact you within 24 hours with your quote."
+        "Thank you for your message! We'll contact you as soon as we can."
       );
       setFormData({
         name: "",
