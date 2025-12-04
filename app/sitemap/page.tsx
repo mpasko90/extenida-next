@@ -27,6 +27,25 @@ export default function HtmlSitemapPage() {
   const sortedServices = [...services].sort((a, b) => a.name.localeCompare(b.name));
   const sortedProjects = [...portfolioProjects].sort((a, b) => a.title.localeCompare(b.title));
 
+  const projectsByServiceType = sortedProjects.reduce(
+    (acc, project) => {
+      acc[project.serviceType] = acc[project.serviceType] || [];
+      acc[project.serviceType].push(project);
+      return acc;
+    },
+    {} as Record<string, typeof sortedProjects>
+  );
+
+  const projectsByLocation = sortedProjects.reduce(
+    (acc, project) => {
+      const key = project.location;
+      acc[key] = acc[key] || [];
+      acc[key].push(project);
+      return acc;
+    },
+    {} as Record<string, typeof sortedProjects>
+  );
+
   return (
     <main className="container mx-auto px-4 py-16">
       <header className="mb-10">
@@ -77,16 +96,45 @@ export default function HtmlSitemapPage() {
         </div>
 
         <div>
-          <h2 className="font-semibold text-lg mb-3">Portfolio projects</h2>
-          <ul className="space-y-1 text-sm">
-            {sortedProjects.map((project) => (
-              <li key={project.slug}>
-                <Link href={`/portfolio/${project.slug}`}>
-                  {project.title}
-                </Link>
-              </li>
+          <h2 className="font-semibold text-lg mb-3">Portfolio by service type</h2>
+          <div className="space-y-4 text-sm">
+            {Object.entries(projectsByServiceType).map(([type, projects]) => (
+              <div key={type}>
+                <h3 className="font-medium mb-1 capitalize">
+                  {type.replace('-', ' ')}
+                </h3>
+                <ul className="space-y-1">
+                  {projects.map((project) => (
+                    <li key={project.slug}>
+                      <Link href={`/portfolio/${project.slug}`}>
+                        {project.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="font-semibold text-lg mb-3">Portfolio by location</h2>
+          <div className="space-y-4 text-sm">
+            {Object.entries(projectsByLocation).map(([location, projects]) => (
+              <div key={location}>
+                <h3 className="font-medium mb-1">{location}</h3>
+                <ul className="space-y-1">
+                  {projects.map((project) => (
+                    <li key={project.slug}>
+                      <Link href={`/portfolio/${project.slug}`}>
+                        {project.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div>
