@@ -32,7 +32,8 @@ const Logo = () => {
         >
           <Image
             src={logoSrc}
-            alt="Extendia"
+            alt=""
+            role="presentation"
             width={120}
             height={40}
             className="h-10 w-auto object-contain relative z-10"
