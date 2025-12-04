@@ -73,8 +73,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             />
           </>
         ) : null}
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" as="image" href="/extendia-logo-color.webp" />
         {process.env.NODE_ENV !== 'production' && gscToken ? (
           // In production the meta tag is emitted via the Metadata `verification` field.
