@@ -122,15 +122,13 @@ const ServicesSection = () => {
           whileInView="visible"
           viewport={{ once: true }}
           className="grid gap-8 lg:gap-6 [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))]"
-          role="list"
           aria-label="Building services offered in South West London"
         >
-  {services.map((service) => (
+          {services.map((service) => (
             <motion.article
               key={service.title}
-        variants={itemVariants}
-        className="relative overflow-hidden bg-extendia-primary/80 backdrop-blur-sm border border-white/10 rounded-2xl shadow-lg p-6 xl:p-5 flex flex-col items-center justify-center text-center group transition-all duration-300 hover:shadow-2xl hover:border-white/20"
-              role="listitem"
+              variants={itemVariants}
+              className="relative overflow-hidden bg-extendia-primary/80 backdrop-blur-sm border border-white/10 rounded-2xl shadow-lg p-6 xl:p-5 flex flex-col items-center justify-center text-center group transition-all duration-300 hover:shadow-2xl hover:border-white/20"
               // Add a shine effect on hover
               whileHover={{ y: -5 }}
             >

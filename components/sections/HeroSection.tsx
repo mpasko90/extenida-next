@@ -128,7 +128,6 @@ const HeroSection = () => {
               <motion.div
                 variants={containerVariants}
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 pt-8"
-                role="list"
                 aria-label="Company credentials and certifications"
               >
                 {trustIndicators.map((indicator, index) => (
@@ -144,7 +143,6 @@ const HeroSection = () => {
                       transition: { duration: 0.2 }
                     }}
                     className="text-center group relative focus-within:ring-2 focus-within:ring-white focus-within:ring-offset-2 focus-within:ring-offset-extendia-primary rounded-2xl"
-                    role="listitem"
                     tabIndex={0}
                     aria-label={`${indicator.label}: ${indicator.value}`}
                     onKeyDown={(e) => {
