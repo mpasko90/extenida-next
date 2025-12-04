@@ -155,17 +155,17 @@ export const Footer = () => {
         <div className="border-t border-gray-800 mt-10 pt-8 grid grid-cols-1 md:grid-cols-3 items-center gap-4">
           {/* Left: Copyright */}
           <div className="text-center md:text-left">
-            <p className="text-gray-400">© {currentYear} Extendia. All rights reserved.</p>
+            <p className="text-gray-300">© {currentYear} Extendia. All rights reserved.</p>
           </div>
 
           {/* Center: Developer credit */}
-          <p className="text-gray-500 text-sm text-center">
+          <p className="text-gray-300 text-sm text-center">
             Website crafted by{' '}
             <a
               href="https://paskomichal.pl"
               target="_blank"
               rel="noopener noreferrer author"
-              className="group inline-flex items-center text-extendia-primary hover:text-extendia-secondary transition-colors duration-200 underline underline-offset-4 hover:underline-offset-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-extendia-accent focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 rounded"
+              className="group inline-flex items-center text-extendia-accent hover:text-extendia-secondary transition-colors duration-200 underline underline-offset-4 hover:underline-offset-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-extendia-accent focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 rounded"
               aria-label="Visit Michał Paśko's website"
             >
               <span className="">Michał Paśko</span>

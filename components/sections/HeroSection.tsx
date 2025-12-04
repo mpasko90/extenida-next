@@ -222,7 +222,7 @@ const HeroSection = () => {
                     className="relative bg-extendia-accent hover:bg-extendia-accent/90 text-white px-8 py-3 text-lg font-semibold transition-all duration-300 focus:ring-2 focus:ring-extendia-accent focus:ring-offset-2 overflow-hidden group focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
                     aria-label="Book a consultation for your building project in South West London"
                   >
-                    <span className="relative z-10">Book a Consultation</span>
+                    <span className="relative z-10 text-white">Book a Consultation</span>
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-white/20"
                       initial={{ x: '-100%', opacity: 0 }}
