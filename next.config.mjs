@@ -42,11 +42,9 @@ const baseConfig = {
   { source: '/areas/:slug', destination: '/london/:slug', permanent: true }
     ];
   },
-  webpack: (config) => {
-    config.resolve.alias['@'] = path.resolve(__dirname, '.');
-    return config;
-  },
-  eslint: { ignoreDuringBuilds: true },
+  // Turbopack is default in Next.js 16; remove custom webpack config.
+  // Path alias '@/*' is already handled via tsconfig.json `paths`.
+  turbopack: {},
   reactStrictMode: true,
   experimental: {
     optimizePackageImports: ['lucide-react']
