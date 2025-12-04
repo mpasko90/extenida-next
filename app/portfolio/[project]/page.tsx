@@ -19,7 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return { title: 'Project Not Found | Extendia' };
   return {
     title: `${data.title} | Extendia Portfolio`,
-    description: `${data.title} project images in ${data.location}. Representative gallery.`
+    description: `${data.title} project images in ${data.location}. Representative gallery.`,
+    alternates: { canonical: `/portfolio/${data.slug}` },
   };
 }
 
@@ -29,31 +30,8 @@ export default async function ProjectPage({ params }: Props) {
   
   if (!data) notFound();
   
-  const site = process.env.NEXT_PUBLIC_SITE_URL || 'https://extendia.co.uk';
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ImageGallery',
-    name: data.title,
-    url: `${site}/portfolio/${data.slug}`,
-    about: data.title,
-    image: data.images.map(i => i.full),
-    ...(data.virtualTour ? {
-      hasPart: {
-        '@type': 'TouristTrip',
-        name: `${data.title} 360° Virtual Tour`,
-        url: data.virtualTour,
-        description: `Interactive 360° virtual tour of ${data.title}`
-      }
-    } : {})
-  };
-
   return (
   <main id="main-content" aria-label="Project gallery" className="container mx-auto py-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      
       <header className="mb-10 max-w-5xl">
         <h1 className="text-3xl font-semibold mb-4">{data.title}</h1>
         <p className="text-slate-600 dark:text-slate-400 text-sm mb-6">Service: {data.serviceType.replace('-', ' ')} • Location: {data.location}</p>

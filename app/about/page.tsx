@@ -3,14 +3,7 @@
 import { motion } from "framer-motion";
 import { PageLayout } from "@/components/layout";
 
-
-/**
- * About Us page (Next.js App Router)
- * Maintains the current layout and structure.
- */
 export default function AboutPage() {
-  
-
   return (
     <PageLayout>
       {/* Hero Section */}

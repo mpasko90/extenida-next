@@ -59,6 +59,14 @@ type LocalBusiness = WithContext<{
   areaServed?: { '@type': 'AdministrativeArea' | 'City'; name: string } | string;
 }>;
 
+type ServiceSchema = WithContext<{
+  '@type': 'Service';
+  name: string;
+  description: string;
+  url: string;
+  provider: LocalBusiness;
+}>;
+
 export function ensureNoTrailingSlash(url: string): string {
   return url.endsWith('/') ? url.slice(0, -1) : url;
 }
@@ -152,4 +160,65 @@ export function buildAreaJsonLd(params: AreaParams): string {
   return JSON.stringify(nodes, null, 2);
 }
 
-export type { BreadcrumbList, LocalBusiness };
+interface ServiceSchemaParams {
+  slug: string;
+  name: string;
+  description: string;
+  siteUrl?: string;
+}
+
+export function buildServiceBreadcrumbList({ slug, name, siteUrl }: ServiceSchemaParams): BreadcrumbList {
+  const base = ensureNoTrailingSlash(siteUrl ?? companyInfo.website);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: base,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Services',
+        item: `${base}/services`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name,
+        item: `${base}/services/${slug}`,
+      },
+    ],
+  };
+}
+
+export function buildServiceSchema({ slug, name, description, siteUrl }: ServiceSchemaParams): ServiceSchema {
+  const base = ensureNoTrailingSlash(siteUrl ?? companyInfo.website);
+  const provider = buildLocalBusiness({ areaName: 'London', siteUrl: base });
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name,
+    description,
+    url: `${base}/services/${slug}`,
+    provider,
+  };
+}
+
+export function buildServiceJsonLd(params: ServiceSchemaParams): string {
+  const slug = canonicalizeSlug(params.slug);
+  const name = params.name || toTitleCase(slug.replace(/-/g, ' '));
+
+  const nodes = [
+    buildServiceBreadcrumbList({ ...params, slug, name }),
+    buildServiceSchema({ ...params, slug, name }),
+  ];
+
+  return JSON.stringify(nodes, null, 2);
+}
+
+export type { BreadcrumbList, LocalBusiness, ServiceSchema };

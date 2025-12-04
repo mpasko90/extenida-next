@@ -1,31 +1,10 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Project Portfolio | Extendia',
-  description: 'Extendia portfolio page showcasing completed extensions, refurbishments and bathroom projects.'
-};
-
 import { getProjects } from '@/data/portfolio';
 import { PortfolioGrid } from '@/components/portfolio/PortfolioGrid';
 
 export default function PortfolioPage() {
   const projects = getProjects();
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    itemListElement: projects.map((p, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://extendia.co.uk'}/portfolio/${p.slug}`,
-      name: p.title
-    }))
-  };
   return (
     <main id="main-content" aria-label="Portfolio projects" className="relative">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       {/* Minimal header: only title */}
       <header className="container mx-auto px-4 pt-10 md:pt-14 pb-6 md:pb-8">
         <h1 className="text-3xl md:text-5xl font-bold tracking-tight">

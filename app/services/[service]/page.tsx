@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { services, getServiceBySlug } from '@/data/services';
 import { companyInfo } from '@/lib/companyInfo';
+import { buildServiceJsonLd } from '@/lib/seo';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -22,22 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     openGraph: { title, description },
     twitter: { card: 'summary_large_image', title, description },
-    other: {
-      'application/ld+json': JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: svc.name,
-        description,
-        provider: { '@type': 'Organization', name: companyInfo.name, telephone: companyInfo.phone.international, email: companyInfo.email, url: 'https://extendia.co.uk' },
-        areaServed: 'London',
-        offers: {
-          '@type': 'AggregateOffer',
-          priceCurrency: 'GBP',
-          lowPrice: svc.averagePrice.min,
-          highPrice: svc.averagePrice.max
-        }
-      })
-    }
+    alternates: { canonical: `/services/${svc.slug}` },
   };
 }
 
@@ -46,11 +32,18 @@ export default async function ServicePage({ params }: PageProps) {
   const svc = getServiceBySlug(service);
   if (!svc) notFound();
 
+  const jsonLd = buildServiceJsonLd({
+    slug: svc.slug,
+    name: svc.name,
+    description: svc.seoDescription || svc.description,
+  });
+
   const priceRange = `£${svc.averagePrice.min.toLocaleString()} – £${svc.averagePrice.max.toLocaleString()}`;
   const duration = `${svc.duration.min}–${svc.duration.max} ${svc.duration.unit}`;
 
   return (
     <main className="container mx-auto py-16 space-y-16 px-4">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       {/* Hero */}
       <section className="text-center max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-slate-900 dark:text-slate-50">{svc.name}</h1>
@@ -120,6 +113,33 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </section>
       )}
+
+      {/* Related links */}
+      <section className="max-w-5xl mx-auto">
+        <h2 className="text-2xl font-semibold mb-6">Related links</h2>
+        <div className="grid gap-4 md:grid-cols-2 text-sm text-slate-700 dark:text-slate-300">
+          <div>
+            <h3 className="font-medium mb-2">Key services</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li><a href="/services/home-extensions">Home extensions</a></li>
+              <li><a href="/services/loft-conversions">Loft conversions</a></li>
+              <li><a href="/services/kitchen-renovations">Kitchen renovations</a></li>
+              <li><a href="/services/bathroom-renovations">Bathroom renovations</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-medium mb-2">Explore our work</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li><a href="/portfolio/house-extension-and-full-ground-floor-refurbishment-walton-on-thames">Walton-on-Thames extension &amp; refurbishment</a></li>
+              <li><a href="/portfolio/house-extension-hampton">House extension Hampton</a></li>
+              <li><a href="/portfolio/house-extension-twickenham">House extension Twickenham</a></li>
+            </ul>
+          </div>
+        </div>
+        <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
+          Ready to get started? <a href="/contact" className="underline">Contact Extendia</a> to discuss your project.
+        </p>
+      </section>
 
       {/* CTA */}
       <section className="max-w-5xl mx-auto">
