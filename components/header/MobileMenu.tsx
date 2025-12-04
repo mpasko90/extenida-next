@@ -157,7 +157,6 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     href={item.href} 
                     className="block px-4 py-3 text-white hover:text-extendia-accent hover:bg-gradient-to-r hover:from-extendia-primary/10 hover:to-extendia-accent/10 rounded-xl transition-all duration-300 font-semibold relative group overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent nav-text-shadow"
                     onClick={onClose}
-                    role="menuitem"
                     aria-label={`${item.name} page`}
                     tabIndex={0}
                   >

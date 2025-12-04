@@ -90,14 +90,15 @@ const DesktopNavigation = () => {
       role="navigation"
     >
       <NavigationMenu>
-        <NavigationMenuList>
+        <NavigationMenuList
+          role="menubar"
+        >
           <NavigationMenuItem>
             <Link 
               href="/"
               aria-current={pathname === "/" ? "page" : undefined}
               aria-label="Home page"
               className={`relative px-4 py-2 text-white hover:text-extendia-accent transition-colors duration-300 font-medium overflow-hidden rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 drop-shadow-lg hover:drop-shadow-xl nav-text-shadow ${pathname === "/" ? "text-extendia-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-extendia-primary after:to-extendia-accent after:rounded-xl after:transition-all after:duration-300" : ""}`}
-              role="menuitem"
             >
               <span className="relative z-10">Home</span>
               <motion.div
@@ -116,7 +117,6 @@ const DesktopNavigation = () => {
               aria-current={pathname === "/journey" ? "page" : undefined}
               aria-label="Your Journey page"
               className={`relative px-4 py-2 text-white hover:text-extendia-accent transition-colors duration-300 font-medium overflow-hidden rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-extendia-accent focus-visible:z-20 drop-shadow-lg hover:drop-shadow-xl nav-text-shadow ${pathname === "/journey" ? "text-extendia-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-extendia-primary after:to-extendia-accent after:rounded-xl after:transition-all after:duration-300" : ""}`}
-              role="menuitem"
             >
               <span className="relative z-10">Your Journey</span>
               <motion.div
